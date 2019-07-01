@@ -54,15 +54,15 @@
 
             <!--User-->
             <StackPanel Grid.Row="4" Grid.Column="1">
-                <ListView x:Name="ItemData1_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 -10 0">
+                <ListView x:Name="ItemData1_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 0 0">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate >
-                            <StackPanel Orientation="Horizontal"></StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0"></StackPanel>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate >
                         <DataTemplate >
-                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
+                            <Ellipse Height="35" Width="35" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
                                 <Ellipse.Fill>
                                     <ImageBrush x:Name="img4" ImageSource="{Binding Image1}" Stretch="UniformToFill"/>
                                 </Ellipse.Fill>
@@ -73,7 +73,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ListView x:Name="ItemData1" ItemsSource="{Binding}" Grid.Row="1"  >
+                <ListView x:Name="ItemData1" ItemsSource="{Binding}" Grid.Row="1" Margin="-10 0 -10 0" >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal" Background="{x:Null}"  Margin="0 0 0 0" />
@@ -81,7 +81,7 @@
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate >
                         <DataTemplate  >
-                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
+                            <Ellipse Height="35" Width="35" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="{Binding Image1}" Stretch="UniformToFill" />
                                 </Ellipse.Fill>
@@ -96,15 +96,15 @@
             </StackPanel>
 
             <StackPanel Grid.Row="3" Grid.Column="1" Margin="0,10,0,0">
-                <ListView x:Name="ItemData2_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 -10 0">
+                <ListView x:Name="ItemData2_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 0 0">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate >
-                            <StackPanel Orientation="Horizontal"></StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0"></StackPanel>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate >
                         <DataTemplate >
-                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
+                            <Ellipse Height="35" Width="35" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
                                 <Ellipse.Fill>
                                     <ImageBrush x:Name="img4" ImageSource="{Binding Image1}" Stretch="UniformToFill"/>
                                 </Ellipse.Fill>
@@ -112,11 +112,10 @@
                                     <ToolTip Content="{Binding Username}"/>
                                 </Ellipse.ToolTip>
                             </Ellipse>
-
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ListView x:Name="ItemData2" ItemsSource="{Binding}" Grid.Row="1"  >
+                <ListView x:Name="ItemData2" ItemsSource="{Binding}" Grid.Row="1" Margin="-10 0 -10 0" >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal" Background="{x:Null}"  Margin="0 0 0 0" />
@@ -124,7 +123,7 @@
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate >
                         <DataTemplate  >
-                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
+                            <Ellipse Height="35" Width="35" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="{Binding Image1}" Stretch="UniformToFill" />
                                 </Ellipse.Fill>
@@ -139,15 +138,15 @@
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,10,0,0">
-                <ListView x:Name="ItemData3_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 -10 0">
+                <ListView x:Name="ItemData3_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 0 0">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate >
-                            <StackPanel Orientation="Horizontal"></StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0"></StackPanel>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate >
                         <DataTemplate >
-                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
+                            <Ellipse Height="35" Width="35" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
                                 <Ellipse.Fill>
                                     <ImageBrush x:Name="img4" ImageSource="{Binding Image1}" Stretch="UniformToFill"/>
                                 </Ellipse.Fill>
@@ -155,11 +154,10 @@
                                     <ToolTip Content="{Binding Username}"/>
                                 </Ellipse.ToolTip>
                             </Ellipse>
-
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ListView x:Name="ItemData3" ItemsSource="{Binding}" Grid.Row="1"  >
+                <ListView x:Name="ItemData3" ItemsSource="{Binding}" Grid.Row="1" Margin="-10 0 -10 0" >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal" Background="{x:Null}"  Margin="0 0 0 0" />
@@ -167,7 +165,7 @@
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate >
                         <DataTemplate  >
-                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
+                            <Ellipse Height="35" Width="35" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="{Binding Image1}" Stretch="UniformToFill" />
                                 </Ellipse.Fill>
@@ -182,15 +180,15 @@
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,10,0,0">
-                <ListView x:Name="ItemData4_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 -10 0">
+                <ListView x:Name="ItemData4_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 0 0">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate >
-                            <StackPanel Orientation="Horizontal"></StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0"></StackPanel>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate >
                         <DataTemplate >
-                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
+                            <Ellipse Height="35" Width="35" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
                                 <Ellipse.Fill>
                                     <ImageBrush x:Name="img4" ImageSource="{Binding Image1}" Stretch="UniformToFill"/>
                                 </Ellipse.Fill>
@@ -198,11 +196,10 @@
                                     <ToolTip Content="{Binding Username}"/>
                                 </Ellipse.ToolTip>
                             </Ellipse>
-
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ListView x:Name="ItemData4" ItemsSource="{Binding}" Grid.Row="1"  >
+                <ListView x:Name="ItemData4" ItemsSource="{Binding}" Grid.Row="1" Margin="-10 0 -10 0" >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal" Background="{x:Null}"  Margin="0 0 0 0" />
@@ -210,7 +207,7 @@
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate >
                         <DataTemplate  >
-                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
+                            <Ellipse Height="35" Width="35" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="{Binding Image1}" Stretch="UniformToFill" />
                                 </Ellipse.Fill>
@@ -224,16 +221,16 @@
                 <Label Name="text4" Foreground="Gray" Content="+5" Height="40"  Margin="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="0" Grid.Column="1" Margin="30,0,0,0" Background="{x:Null}" Orientation="Horizontal">
-                <ListView x:Name="ItemData5_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 -10 0">
+            <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,5,0,0" Background="{x:Null}" Orientation="Horizontal">
+                <ListView x:Name="ItemData5_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 0 0">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate >
-                            <StackPanel Orientation="Horizontal"></StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0"></StackPanel>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate >
                         <DataTemplate >
-                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
+                            <Ellipse Height="35" Width="35" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
                                 <Ellipse.Fill>
                                     <ImageBrush x:Name="img4" ImageSource="{Binding Image1}" Stretch="UniformToFill"/>
                                 </Ellipse.Fill>
@@ -241,11 +238,10 @@
                                     <ToolTip Content="{Binding Username}"/>
                                 </Ellipse.ToolTip>
                             </Ellipse>
-
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ListView x:Name="ItemData5" ItemsSource="{Binding}" Grid.Row="1"  >
+                <ListView x:Name="ItemData5" ItemsSource="{Binding}" Grid.Row="1" Margin="-10 0 -10 0" >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal" Background="{x:Null}"  Margin="0 0 0 0" />
@@ -253,7 +249,7 @@
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate >
                         <DataTemplate  >
-                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
+                            <Ellipse Height="35" Width="35" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="{Binding Image1}" Stretch="UniformToFill" />
                                 </Ellipse.Fill>
@@ -264,7 +260,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Label Name="text5" Foreground="Gray" Content="+5" Height="40"  Margin="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
+                <Label Name="text5" Foreground="Gray" Content="+5" Height="40"  Margin="15,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
             </StackPanel>
         </Grid>
     </Grid>

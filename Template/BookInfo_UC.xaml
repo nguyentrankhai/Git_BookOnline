@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2.5*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="0" Grid.Column="0" >
@@ -164,6 +164,7 @@
                     <ListView.ItemTemplate >
                         <DataTemplate >
                             <Grid>
+                               
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="60"/>
                                     <ColumnDefinition Width="*"/>
@@ -199,10 +200,10 @@
                                             <ColumnDefinition Width="70"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <materialDesign:RatingBar Grid.Column="0" Value="{Binding Rate}" Name="Rate" IsEnabled="False" Foreground="#FF3F51B5" Opacity="50"/>
+                                        <materialDesign:RatingBar Grid.Column="0" Value="{Binding Rate}" Name="Rate" IsEnabled="False" Foreground="#FF3F51B5" Opacity="50" Width="100"/>
 
                                         <TextBlock Name="txtStatus" Foreground="#4CAF50" Text="{Binding Note}" FontWeight="Bold" Grid.Column="1" TextAlignment="Right" VerticalAlignment="Center"
-                                                   HorizontalAlignment="Right" FontSize="10" Margin="10,0,0,0" >
+                                                   HorizontalAlignment="Right" FontSize="10" Width="150">
                                            <!--
                                             <materialDesign:PackIcon Kind="CheckboxMarkedCircle" Width="10" Height="10" Foreground="#4CAF50"/>
                                         -->

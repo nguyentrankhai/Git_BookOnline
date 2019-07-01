@@ -6,6 +6,7 @@ using System.Windows.Media.Imaging;
 using System.IO;
 using System.Windows;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace DAL_BookOnline
 {
@@ -19,7 +20,7 @@ namespace DAL_BookOnline
             {
                 tbl_Account us = context.tbl_Accounts.Where(x => x.AccountID == user.ID1).SingleOrDefault();
                 tbl_Book bk = context.tbl_Books.Where(x => x.BookID == book.Id).SingleOrDefault();
-                us.Wallet = us.Wallet - bk.PRICE;               
+                us.Wallet = us.Wallet - bk.PRICE;
                 context.SubmitChanges();
                 DAL_Book dal = new DAL_Book();
                 book.Status = "M";
@@ -33,6 +34,28 @@ namespace DAL_BookOnline
             return false;
         }
 
+        private User parseSQLtoDTO(tbl_Account user)
+        {
+
+            //DateTime dt = DateTime.ParseExact(user.SignupDate.ToString(), "yyyy/MM/dd hh:mm:ss", CultureInfo.InvariantCulture);
+            //string s = dt.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+            u.ID1 = user.AccountID;
+            u.Password = user.PWD;
+            u.Username = user.NAME;
+            u.SigninDate = user.SignupDate.ToString("dd/MM/yyyy");
+            u.Gen = user.GEN == true ? "Nam" : "Nữ";
+            u.Status = user.Status == 1 ? 1 : 0;
+            u.Wallet = (double)user.Wallet;
+            u.Remaining = user.RemainingTime.Value;
+            u.Note = user.NOTE;
+            u.Image1 = (ImageSource)convertImage("imgBanner/avatar.jpg");
+            if (user.IMG != null)
+            {
+                u.Image1 = ByteToImage(user.IMG.ToArray());
+            }
+            return u;
+        }
         public User getUser(string id, string pass)
         {
             try
@@ -41,21 +64,7 @@ namespace DAL_BookOnline
                 var user = context.tbl_Accounts.Where(n => n.AccountID == id && n.PWD == pass).SingleOrDefault();
                 if (user != null)
                 {
-                    u.ID1 = user.AccountID;
-                    u.Password = user.PWD;
-                    u.Username = user.NAME;
-
-                    u.Gen = user.GEN == true ? "Nam" : "Nữ";
-                    u.Status = user.Status == 1 ? 1 : 0;
-                    u.Wallet = (double)user.Wallet;
-                    u.Remaining = user.RemainingTime.Value;
-                    u.Note = user.NOTE;
-                    u.Image1 = (ImageSource)convertImage("imgBanner/avatar.jpg");
-                    if (user.IMG != null)
-                    {
-                        u.Image1 = ByteToImage(user.IMG.ToArray());
-                    }
-                    return u;
+                    return parseSQLtoDTO(user);
                 }
             }
             catch (Exception ex)
@@ -72,21 +81,8 @@ namespace DAL_BookOnline
                 var user = context.tbl_Accounts.Where(n => n.AccountID == id).SingleOrDefault();
                 if (user != null)
                 {
-                    u.ID1 = user.AccountID;
-                    u.Password = user.PWD;
-                    u.Username = user.NAME;
 
-                    u.Gen = user.GEN == true ? "Nam" : "Nữ";
-                    u.Status = user.Status == 1 ? 1 : 0;
-                    u.Wallet = (double)user.Wallet;
-                    u.Remaining = user.RemainingTime.Value;
-                    u.Note = user.NOTE;
-                    u.Image1 = (ImageSource)convertImage("imgBanner/avatar.jpg");
-                    if (user.IMG != null)
-                    {
-                        u.Image1 = ByteToImage(user.IMG.ToArray());
-                    }
-                    return u;
+                    return parseSQLtoDTO(user);
                 }
             }
             catch (Exception ex)
@@ -153,7 +149,7 @@ namespace DAL_BookOnline
             return result;
         }
         public bool updateUser(User user, string path)
-        {           
+        {
             try
             {
                 DataClassesBookOnlineDataContext context = new DataClassesBookOnlineDataContext();
@@ -161,14 +157,14 @@ namespace DAL_BookOnline
                 us.NAME = user.Username;
                 us.PWD = user.Password;
 
-                if (path != "" && path !=null)
+                if (path != "" && path != null)
                     us.IMG = ImageToBinary(path);
 
                 context.SubmitChanges();
                 return true;
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return false;
             }

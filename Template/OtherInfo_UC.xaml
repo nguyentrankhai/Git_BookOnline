@@ -20,7 +20,7 @@
 
         <StackPanel Grid.Row="0" Height="293" VerticalAlignment="Bottom">
             <StackPanel.Background>
-                <ImageBrush ImageSource="Resources/Chartridge046_small.jpg" Stretch="UniformToFill" />
+                <ImageBrush ImageSource="Resources/background.jpg" Stretch="UniformToFill" />
             </StackPanel.Background>
             <Ellipse Height="100" Width="100" VerticalAlignment="Center" Margin="0,80,0,0" Stroke="White" Name="avatar">
                 <Ellipse.Fill>
@@ -98,7 +98,7 @@
                             <TextBlock Text="{Binding Username}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
                             <TextBlock Text="{Binding ID1}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
                             <TextBlock Text="{Binding Gen}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
-                            <TextBlock Text="{Binding signinDate}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
+                            <TextBlock Text="{Binding SigninDate}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
                             <!--<TextBlock Text="{Binding Wallet ,StringFormat=N0}"  Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>-->
                             <TextBlock Text="{Binding Remaining}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
                         </Grid>

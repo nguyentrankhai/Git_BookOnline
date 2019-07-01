@@ -9,7 +9,7 @@ namespace DTO_BookOnline
         private string username;
         private string password;
         private ImageSource image;
-
+        private string signinDate;
         private int status;
         private double wallet;
         private string gen;
@@ -131,6 +131,19 @@ namespace DTO_BookOnline
             set
             {
                 note = value;
+            }
+        }
+
+        public string SigninDate
+        {
+            get
+            {
+                return signinDate;
+            }
+
+            set
+            {
+                signinDate = value;
             }
         }
 

@@ -64,7 +64,8 @@ namespace Template
                 this.Dispatcher.Invoke(() => {
                     if (cancel) return;
                     txtDetailDownload.Text = "Đang tải sách: " + book.Name + " - " + e.ProgressPercentage.ToString() + "%";
-                    double percent = int.Parse((e.BytesReceived / e.TotalBytesToReceive * 100).ToString());
+                    try { double percent = int.Parse((e.BytesReceived / e.TotalBytesToReceive * 100).ToString()); }
+                    catch(Exception ex) { return; }
                     pgbDownloading.Value = int.Parse(e.ProgressPercentage.ToString()); ;
                 });
             }catch(Exception ex)

@@ -49,6 +49,9 @@ namespace Template
             Session.User = bus.getUser(Session.User.ID1);
             UserInfo info = new UserInfo()
             {
+                SigninDate = Session.User.SigninDate,
+                Gen = Session.User.Gen,
+                Image1 = Session.User.Image1,
                 Username = Session.User.Username,
                 ID1 = Session.User.ID1,
                 Wallet = Session.User.Wallet,
@@ -82,5 +85,7 @@ namespace Template
         public double Wallet { get; set; }
         public string Remaining { get; set; }
         public ImageSource Image1 { get; set; }
+        public string Gen { get; set; }
+        public string SigninDate { get; set; }
     }
 }
