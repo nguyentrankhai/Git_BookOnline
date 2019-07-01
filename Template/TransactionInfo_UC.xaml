@@ -113,7 +113,7 @@
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Click="btnPrint_Click" Content="In hoá đơn" Grid.Column="0" Grid.Row="3" Width="100" Margin="0,8.6,9.6,9" HorizontalAlignment="Right"></Button>
+        <Button Click="btnPrint_Click" Content="In hoá đơn" Grid.Column="0" Grid.Row="3" Width="108" Margin="0,8.6,9.6,9" HorizontalAlignment="Right"></Button>
         <Button Click="btnBack_Click" Content="Trở lại" Grid.Column="1" Grid.Row="3" Background="Red" Margin="10.4,9.6,0,8" HorizontalAlignment="Left" Width="100"/>
     </Grid>
 </UserControl>

@@ -51,7 +51,7 @@ namespace DAL_BookOnline
                 DAL_Book dalBK = new DAL_Book();
                 if (dalBK.findBook(cmt.UserID, cmt.BookID))
                 {
-                    cmt.Note = "Đã mua sách.";
+                    cmt.Note = "Đã mua sách";
                 }
                 else
                 {
@@ -70,8 +70,9 @@ namespace DAL_BookOnline
             List<Comment> lstComment = new List<Comment>();
             foreach (tbl_Comment cmt in comments)
             {
-
+                if (cmt._Status == 1) { 
                 lstComment.Add(baseSQLtoDTO(cmt));
+                }
             }
             return lstComment;
         }
@@ -85,8 +86,10 @@ namespace DAL_BookOnline
             foreach (tbl_Comment cmt in comments)
             {
 
-
-                lstComment.Add(baseSQLtoDTO(cmt));
+                if (cmt._Status == 1)
+                {
+                    lstComment.Add(baseSQLtoDTO(cmt));
+                }
             }
             return lstComment;
         }
@@ -122,8 +125,9 @@ namespace DAL_BookOnline
             List<Comment> lstComment = new List<Comment>();
             foreach (tbl_Comment cmt in comments)
             {
-
+                if (cmt._Status == 1) { 
                 lstComment.Add(baseSQLtoDTO(cmt));
+                }
             }
             return lstComment;
         }

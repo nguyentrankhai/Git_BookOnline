@@ -120,7 +120,7 @@
                                 <Button Name="btnLogOut" Content="Đăng xuất" Click="Button_Click" Tag="LOGOUT" IsEnabled="False"/>
                             </StackPanel>
                         </materialDesign:PopupBox>
-                        <materialDesign:PackIcon DockPanel.Dock="Right" VerticalAlignment="Stretch" Margin="0 0 20 0" Kind="Cart" Height="30" Width="30"/>
+                      
                         <StackPanel Orientation="Horizontal"                                    
                             materialDesign:RippleAssist.IsCentered="True">
                             <TextBlock Margin="20,5,20,0" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 

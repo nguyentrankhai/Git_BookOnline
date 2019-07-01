@@ -50,6 +50,8 @@ namespace Template
             BUS_BookOnline.BUS_User bus = new BUS_BookOnline.BUS_User();
             UserInfo info = new UserInfo()
             {
+                SigninDate = us.SigninDate,
+                Gen = us.Gen,
                 Image1 = us.Image1,
                 Username = us.Username,
                 ID1 = us.ID1,
