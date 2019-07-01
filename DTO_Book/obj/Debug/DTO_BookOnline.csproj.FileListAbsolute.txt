@@ -1,0 +1,15 @@
+D:\LV\c-mon\Book\DTO_Book\bin\Debug\DTO_Book.dll
+D:\LV\c-mon\Book\DTO_Book\bin\Debug\DTO_Book.pdb
+D:\LV\c-mon\Book\DTO_Book\obj\Debug\DTO_BookOnline.csprojResolveAssemblyReference.cache
+D:\LV\c-mon\Book\DTO_Book\obj\Debug\DTO_Book.dll
+D:\LV\c-mon\Book\DTO_Book\obj\Debug\DTO_Book.pdb
+D:\LV\BookOnline\DTO_Book\bin\Debug\DTO_Book.dll
+D:\LV\BookOnline\DTO_Book\bin\Debug\DTO_Book.pdb
+D:\LV\BookOnline\DTO_Book\obj\Debug\DTO_BookOnline.csprojResolveAssemblyReference.cache
+D:\LV\BookOnline\DTO_Book\obj\Debug\DTO_Book.dll
+D:\LV\BookOnline\DTO_Book\obj\Debug\DTO_Book.pdb
+D:\LuanVan\WPF\WPF_New\DTO_Book\bin\Debug\DTO_Book.dll
+D:\LuanVan\WPF\WPF_New\DTO_Book\bin\Debug\DTO_Book.pdb
+D:\LuanVan\WPF\WPF_New\DTO_Book\obj\Debug\DTO_BookOnline.csprojResolveAssemblyReference.cache
+D:\LuanVan\WPF\WPF_New\DTO_Book\obj\Debug\DTO_Book.dll
+D:\LuanVan\WPF\WPF_New\DTO_Book\obj\Debug\DTO_Book.pdb

@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<HighlightCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Item>
+    <Collection>
+      <ListTextMarkup>
+        <Highlight>
+          <Author>monzi</Author>
+          <Color>
+            <A>255</A>
+            <R>255</R>
+            <G>209</G>
+            <B>0</B>
+            <ScA>1</ScA>
+            <ScR>1</ScR>
+            <ScG>0.637596846</ScG>
+            <ScB>0</ScB>
+          </Color>
+          <Contents>Mẹ cũng từng có cuộc chia tay kẻ ở người đi như thế. Nhưng
+chàng trai người yêu của mẹ k</Contents>
+          <CreationDate />
+          <ModificationDate />
+          <Opacity>0</Opacity>
+          <Name>eb2ce74e-8215-468d-86fe-2ef2baeb14e5</Name>
+          <MarkupType>Highlight</MarkupType>
+          <QX1>50</QX1>
+          <QY1>719.1058868</QY1>
+          <QX2>50</QX2>
+          <QY2>719.1058868</QY2>
+          <QX3>50</QX3>
+          <QY3>719.1058868</QY3>
+          <QX4>50</QX4>
+          <QY4>719.1058868</QY4>
+          <PageNumber>109</PageNumber>
+          <BookName>Con Hoang</BookName>
+          <ColorString>#FFFFD100</ColorString>
+        </Highlight>
+        <Highlight>
+          <Author>monzi</Author>
+          <Color>
+            <A>255</A>
+            <R>255</R>
+            <G>209</G>
+            <B>0</B>
+            <ScA>1</ScA>
+            <ScR>1</ScR>
+            <ScG>0.637596846</ScG>
+            <ScB>0</ScB>
+          </Color>
+          <Contents>Mẹ cũng từng có cuộc chia tay kẻ ở người đi như thế. Nhưng
+chàng trai người yêu của mẹ không</Contents>
+          <CreationDate />
+          <ModificationDate />
+          <Opacity>0</Opacity>
+          <Name>73b99242-d882-4b18-a30c-1be43845d57c</Name>
+          <Subject>Mẹ cũng từng có cuộc chia tay kẻ ở người đi như thế. Nhưng
+chàng trai người yêu của mẹ k</Subject>
+          <MarkupType>Highlight</MarkupType>
+          <QX1>50</QX1>
+          <QY1>719.1058868</QY1>
+          <QX2>50</QX2>
+          <QY2>719.1058868</QY2>
+          <QX3>50</QX3>
+          <QY3>719.1058868</QY3>
+          <QX4>50</QX4>
+          <QY4>719.1058868</QY4>
+          <PageNumber>1</PageNumber>
+          <BookName>Con Hoang</BookName>
+          <ColorString>#FFFFD100</ColorString>
+        </Highlight>
+      </ListTextMarkup>
+      <BookName>Con Hoang</BookName>
+    </Collection>
+  </Item>
+</HighlightCollection>on>

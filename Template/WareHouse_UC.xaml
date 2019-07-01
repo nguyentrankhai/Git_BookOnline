@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="Template.WareHouse_UC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Template"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:virtualCollection="clr-namespace:VirtualCollection.VirtualCollection"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Style="{StaticResource MaterialDesignHeadlineTextBlock}" Name="txbNameCollect"/>
+
+        <ListView Name="ItemData" ItemsSource="{Binding}" Grid.Row="1" >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <virtualCollection:VirtualizingWrapPanel ItemWidth="220" ItemHeight="350" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <materialDesign:Card Margin="2 2 2 2" Background="{x:Null}" MouseDown="Card_MouseDown" Tag="{Binding Id}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="250"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding ImageBook}" Grid.Row="0" Stretch="UniformToFill" />
+                            <TextBlock Text="{Binding Name}" Grid.Row="1" TextAlignment="Center" FontFamily="Ebrima" Foreground="Black" VerticalAlignment="Center" MaxWidth="180" TextWrapping="WrapWithOverflow" FontWeight="Bold" />
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="Lần đọc cuối: " FontFamily="Ebrima"/>
+                                <TextBlock  Text="{Binding LastView, StringFormat='{}{0:dd/MM/yy}'}" FontFamily="Ebrima"/>
+                            </StackPanel>
+                        </Grid>
+                    </materialDesign:Card>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>

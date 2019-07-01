@@ -1,0 +1,14 @@
+diff a/BUS_BookOnline/obj/Debug/BUS_BookOnline.csproj.FileListAbsolute.txt b/BUS_BookOnline/obj/Debug/BUS_BookOnline.csproj.FileListAbsolute.txt	(rejected hunks)
+@@ -16,3 +16,12 @@
+ D:\LV\WPF_New\BUS_BookOnline\obj\Debug\BUS_BookOnline.csprojResolveAssemblyReference.cache
+ D:\LV\WPF_New\BUS_BookOnline\obj\Debug\BUS_BookOnline.dll
+ D:\LV\WPF_New\BUS_BookOnline\obj\Debug\BUS_BookOnline.pdb
++D:\LV\c-mon\BookOnlineWPF\BUS_BookOnline\bin\Debug\BUS_BookOnline.dll
++D:\LV\c-mon\BookOnlineWPF\BUS_BookOnline\bin\Debug\BUS_BookOnline.pdb
++D:\LV\c-mon\BookOnlineWPF\BUS_BookOnline\bin\Debug\DAL_BookOnline.dll
++D:\LV\c-mon\BookOnlineWPF\BUS_BookOnline\bin\Debug\DTO_Book.dll
++D:\LV\c-mon\BookOnlineWPF\BUS_BookOnline\bin\Debug\DAL_BookOnline.pdb
++D:\LV\c-mon\BookOnlineWPF\BUS_BookOnline\bin\Debug\DTO_Book.pdb
++D:\LV\c-mon\BookOnlineWPF\BUS_BookOnline\obj\Debug\BUS_BookOnline.csprojResolveAssemblyReference.cache
++D:\LV\c-mon\BookOnlineWPF\BUS_BookOnline\obj\Debug\BUS_BookOnline.dll
++D:\LV\c-mon\BookOnlineWPF\BUS_BookOnline\obj\Debug\BUS_BookOnline.pdb

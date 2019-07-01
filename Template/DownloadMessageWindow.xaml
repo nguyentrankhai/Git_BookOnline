@@ -1,0 +1,17 @@
+﻿<Window x:Class="Template.DownloadMessageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Template"
+        mc:Ignorable="d"        
+        WindowStartupLocation="CenterScreen"        
+        Title="Tải dữ liệu" Height="170" Width="400"  Loaded="Window_Loaded" WindowStyle="None"
+        >
+    
+    <StackPanel>
+        <TextBlock Name="txtDetailDownload" FontFamily="Ebrima" Margin="40 20 40 0" TextAlignment="Center" TextWrapping="WrapWithOverflow"></TextBlock>
+        <ProgressBar Name="pgbDownloading" Height="25" Margin="25 25 25 0"></ProgressBar>
+        <Button Name="btnHuyDownload" Width="100" Margin="30" Click="btnHuyDownload_Click">Hủy</Button>
+    </StackPanel>
+</Window>

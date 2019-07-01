@@ -1,0 +1,271 @@
+﻿<UserControl x:Class="Template.Rating_UC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Template"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="600" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Name="btnclose"
+                IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"                
+                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+            <materialDesign:PackIcon Kind="Close"
+                                     Foreground="Red"/>
+        </Button>
+
+        <Grid Margin="10" Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--Rating bar-->
+            <StackPanel Grid.Row="4" Grid.Column="0">
+                <materialDesign:RatingBar Margin="0,20,0,0" Max="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True" Value="1" Foreground="Yellow" IsReadOnly="True"/>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Grid.Column="0">
+                <materialDesign:RatingBar Margin="0,20,0,0"  Max="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True" Value="2" Foreground="Yellow"  IsReadOnly="True"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="0">
+                <materialDesign:RatingBar Margin="0,20,0,0"  Max="3" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True" Value="3" Foreground="Yellow"  IsReadOnly="True"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <materialDesign:RatingBar Margin="0,20,0,0"  Max="4" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True" Value="4" Foreground="Yellow"  IsReadOnly="True"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="0">
+                <materialDesign:RatingBar Margin="0,20,0,0"  Max="5" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="True" Value="5" Foreground="Yellow"  IsReadOnly="True"/>
+            </StackPanel>
+
+            <!--User-->
+            <StackPanel Grid.Row="4" Grid.Column="1">
+                <ListView x:Name="ItemData1_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 -10 0">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate >
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate >
+                        <DataTemplate >
+                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
+                                <Ellipse.Fill>
+                                    <ImageBrush x:Name="img4" ImageSource="{Binding Image1}" Stretch="UniformToFill"/>
+                                </Ellipse.Fill>
+                                <Ellipse.ToolTip>
+                                    <ToolTip Content="{Binding Username}"/>
+                                </Ellipse.ToolTip>
+                            </Ellipse>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView x:Name="ItemData1" ItemsSource="{Binding}" Grid.Row="1"  >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" Background="{x:Null}"  Margin="0 0 0 0" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate >
+                        <DataTemplate  >
+                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Image1}" Stretch="UniformToFill" />
+                                </Ellipse.Fill>
+                                <Ellipse.ToolTip>
+                                    <ToolTip Content="{Binding Username}"/>
+                                </Ellipse.ToolTip>
+                            </Ellipse>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label Name="text1" Foreground="Gray" Content="+5" Height="40"  Margin="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="1" Margin="0,10,0,0">
+                <ListView x:Name="ItemData2_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 -10 0">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate >
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate >
+                        <DataTemplate >
+                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
+                                <Ellipse.Fill>
+                                    <ImageBrush x:Name="img4" ImageSource="{Binding Image1}" Stretch="UniformToFill"/>
+                                </Ellipse.Fill>
+                                <Ellipse.ToolTip>
+                                    <ToolTip Content="{Binding Username}"/>
+                                </Ellipse.ToolTip>
+                            </Ellipse>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView x:Name="ItemData2" ItemsSource="{Binding}" Grid.Row="1"  >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" Background="{x:Null}"  Margin="0 0 0 0" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate >
+                        <DataTemplate  >
+                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Image1}" Stretch="UniformToFill" />
+                                </Ellipse.Fill>
+                                <Ellipse.ToolTip>
+                                    <ToolTip Content="{Binding Username}"/>
+                                </Ellipse.ToolTip>
+                            </Ellipse>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label Name="text2" Foreground="Gray" Content="+5" Height="40"  Margin="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,10,0,0">
+                <ListView x:Name="ItemData3_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 -10 0">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate >
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate >
+                        <DataTemplate >
+                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
+                                <Ellipse.Fill>
+                                    <ImageBrush x:Name="img4" ImageSource="{Binding Image1}" Stretch="UniformToFill"/>
+                                </Ellipse.Fill>
+                                <Ellipse.ToolTip>
+                                    <ToolTip Content="{Binding Username}"/>
+                                </Ellipse.ToolTip>
+                            </Ellipse>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView x:Name="ItemData3" ItemsSource="{Binding}" Grid.Row="1"  >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" Background="{x:Null}"  Margin="0 0 0 0" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate >
+                        <DataTemplate  >
+                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Image1}" Stretch="UniformToFill" />
+                                </Ellipse.Fill>
+                                <Ellipse.ToolTip>
+                                    <ToolTip Content="{Binding Username}"/>
+                                </Ellipse.ToolTip>
+                            </Ellipse>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label Name="text3" Foreground="Gray" Content="+5" Height="40"  Margin="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,10,0,0">
+                <ListView x:Name="ItemData4_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 -10 0">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate >
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate >
+                        <DataTemplate >
+                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
+                                <Ellipse.Fill>
+                                    <ImageBrush x:Name="img4" ImageSource="{Binding Image1}" Stretch="UniformToFill"/>
+                                </Ellipse.Fill>
+                                <Ellipse.ToolTip>
+                                    <ToolTip Content="{Binding Username}"/>
+                                </Ellipse.ToolTip>
+                            </Ellipse>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView x:Name="ItemData4" ItemsSource="{Binding}" Grid.Row="1"  >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" Background="{x:Null}"  Margin="0 0 0 0" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate >
+                        <DataTemplate  >
+                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Image1}" Stretch="UniformToFill" />
+                                </Ellipse.Fill>
+                                <Ellipse.ToolTip>
+                                    <ToolTip Content="{Binding Username}"/>
+                                </Ellipse.ToolTip>
+                            </Ellipse>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label Name="text4" Foreground="Gray" Content="+5" Height="40"  Margin="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="0" Grid.Column="1" Margin="30,0,0,0" Background="{x:Null}" Orientation="Horizontal">
+                <ListView x:Name="ItemData5_0" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 -10 0">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate >
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate >
+                        <DataTemplate >
+                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" MouseUp="Ellipse_MouseUp">
+                                <Ellipse.Fill>
+                                    <ImageBrush x:Name="img4" ImageSource="{Binding Image1}" Stretch="UniformToFill"/>
+                                </Ellipse.Fill>
+                                <Ellipse.ToolTip>
+                                    <ToolTip Content="{Binding Username}"/>
+                                </Ellipse.ToolTip>
+                            </Ellipse>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView x:Name="ItemData5" ItemsSource="{Binding}" Grid.Row="1"  >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" Background="{x:Null}"  Margin="0 0 0 0" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate >
+                        <DataTemplate  >
+                            <Ellipse Height="40" Width="40" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="-20,0,-7,0" MouseUp="Ellipse_MouseUp">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Image1}" Stretch="UniformToFill" />
+                                </Ellipse.Fill>
+                                <Ellipse.ToolTip>
+                                    <ToolTip Content="{Binding Username}"/>
+                                </Ellipse.ToolTip>
+                            </Ellipse>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label Name="text5" Foreground="Gray" Content="+5" Height="40"  Margin="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

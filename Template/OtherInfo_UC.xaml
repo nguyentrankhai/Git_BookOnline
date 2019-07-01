@@ -1,0 +1,164 @@
+﻿<UserControl x:Class="Template.OtherInfo_UC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Template"
+             xmlns:myUser="clr-namespace:DTO_BookOnline;assembly=DTO_Book"
+             mc:Ignorable="d" 
+             FontFamily="Sitka Small"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Height="735" Width="1000">
+    <UserControl.Resources>
+        <myUser:User x:Key="myUser"/>
+    </UserControl.Resources>
+    <Grid RenderTransformOrigin="0.5,0.428" Background="White"  DataContext="{StaticResource myUser}" Name="gridInfo" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="92*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Height="293" VerticalAlignment="Bottom">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="Resources/Chartridge046_small.jpg" Stretch="UniformToFill" />
+            </StackPanel.Background>
+            <Ellipse Height="100" Width="100" VerticalAlignment="Center" Margin="0,80,0,0" Stroke="White" Name="avatar">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding Image1, TargetNullValue=/imgBanner/avatar.jpg}"  Stretch="UniformToFill" ></ImageBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <TextBlock Margin="5" FontSize="20" Text="@ID" Name="txtID" HorizontalAlignment="Center" Foreground="White"/>
+            <Border BorderBrush="#157dd7" HorizontalAlignment="Center" BorderThickness="2"  Margin="0,0,0,0" Name="btnFollow" MouseUp="btnFollow_MouseUp">
+                <TextBlock FontSize="20" HorizontalAlignment="Center" Background="White" Foreground="#157dd7" VerticalAlignment="Center"  
+                           Cursor="Hand" Margin="-1" >
+	            <StackPanel Orientation="Horizontal" Margin="5,0">
+		            <materialDesign:PackIcon Kind="AccountPlus" Height="30" Width="20"/>
+		            <TextBlock Padding="5,2" Name="txtFollow">Follow</TextBlock>
+	            </StackPanel>                
+            </TextBlock>
+            </Border>
+
+        </StackPanel>
+
+        <TabControl Grid.Row="1" HorizontalAlignment="Center"  Margin="5" BorderBrush="#00000000">
+            <TabItem Header="Thông tin" BorderBrush="#00000000" FontSize="18"  Name="tabInfo">
+                <StackPanel  HorizontalAlignment="Center">
+                    <Grid Margin="10" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row="0" FontSize="18" 
+                           Foreground="Black" FontWeight="Bold" VerticalAlignment="Center">
+                    Thông tin cơ bản
+                        </TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Name="txtChinhSua" FontSize="10" 
+                           Foreground="#157dd7" VerticalAlignment="Center" Margin="20 0 0 0" 
+                           Cursor="Hand" ><!--MouseDown="txtChinhSua_MouseDown"-->  
+            </TextBlock>
+
+                        <Grid HorizontalAlignment="Center" Margin="30,10,10,0"  Grid.Column="0" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0" Foreground="#888" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Margin="5"><Run Text="Tên hiển thị"/></TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Foreground="#888" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Margin="5"><Run Text="Tài khoản"/></TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="2" Foreground="#888" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Margin="5"><Run Text="Giới tính"/></TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="3" Foreground="#888" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Margin="5"><Run Text="Đã tham gia"/></TextBlock>
+
+                            <!--<TextBlock Grid.Column="0" Grid.Row="4" Foreground="#888" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Margin="5"><Run Text="Ví tài khoản"/></TextBlock>-->
+                            <TextBlock Grid.Column="0" Grid.Row="5" Foreground="#888" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" Margin="5"><Run Text="Thời hạn đọc sách còn lại"/></TextBlock>
+
+                        </Grid>
+                        <Grid HorizontalAlignment="Center" Margin="10,10,0,0" Grid.Column="1" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="{Binding Username}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
+                            <TextBlock Text="{Binding ID1}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
+                            <TextBlock Text="{Binding Gen}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
+                            <TextBlock Text="{Binding signinDate}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
+                            <!--<TextBlock Text="{Binding Wallet ,StringFormat=N0}"  Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>-->
+                            <TextBlock Text="{Binding Remaining}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
+                        </Grid>
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Đang theo dõi" Name="tabFollowing" BorderBrush="#00000000"  FontSize="18" Padding="10">
+                <WrapPanel Grid.Row="4" Grid.Column="1">
+                    <ListView x:Name="lstFollowing" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 -10 0">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate >
+                                <WrapPanel Orientation="Horizontal" Width="500" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden"></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate >
+                            <DataTemplate >
+                                <Ellipse Height="60" Width="60" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="20" MouseUp="Ellipse_MouseUp">
+                                    <Ellipse.Fill>
+                                        <ImageBrush x:Name="img4" ImageSource="{Binding Image1}" Stretch="UniformToFill"/>
+                                    </Ellipse.Fill>
+                                    <Ellipse.ToolTip>
+                                        <ToolTip Content="{Binding Username}"/>
+                                    </Ellipse.ToolTip>
+                                </Ellipse>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </WrapPanel>
+            </TabItem>
+            <TabItem Header="Người theo dõi" Name="tabFollowers" BorderBrush="#00000000"  FontSize="18" Padding="10" >
+                <WrapPanel Grid.Row="4" Grid.Column="1">
+                    <ListView x:Name="lstFollower" ItemsSource="{Binding}" Grid.Row="1" Margin="0 0 -10 0">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate >
+                                <WrapPanel Orientation="Horizontal" Width="500" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden"></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate >
+                            <DataTemplate >
+                                <Ellipse Height="60" Width="60" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="20" MouseUp="Ellipse_MouseUp">
+                                    <Ellipse.Fill>
+                                        <ImageBrush x:Name="img4" ImageSource="{Binding Image1}" Stretch="UniformToFill"/>
+                                    </Ellipse.Fill>
+                                    <Ellipse.ToolTip>
+                                        <ToolTip Content="{Binding Username}"/>
+                                    </Ellipse.ToolTip>
+                                </Ellipse>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ContextMenu>
+                            <ContextMenu Name="contextmenu" Visibility="Hidden">
+                                <MenuItem Header="menuItem1" />
+                                <MenuItem Header="menuItem2" />
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                    </ListView>
+                </WrapPanel>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</UserControl>

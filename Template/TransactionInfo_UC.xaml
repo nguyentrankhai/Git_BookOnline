@@ -1,0 +1,119 @@
+﻿<UserControl
+             x:Class="Template.TransactionInfo_UC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Template"
+             xmlns:Transaction ="clr-namespace:DTO_Book;assembly=DTO_Book"
+             mc:Ignorable="d" 
+             Foreground="White"
+             
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="300" d:DesignWidth="500" FontFamily="Sitka Small">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Transaction:TransactionInfo x:Key="myTrans"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Name="grid" DataContext="myTrans">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <Image Source="Resources/background3.jpg">
+                        <Image.Effect>
+                            <BlurEffect Radius="10"/>
+                        </Image.Effect>
+                    </Image>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Grid.Background>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   FontWeight="Bold" 
+                   FontSize="17"
+                   Grid.Row="0" Grid.ColumnSpan="2" Text="HOÁ ĐƠN BÁN HÀNG"/>
+        <StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" >
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{} Mã khách hàng: {0}">
+                        <Binding Path="AccountID" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{} Mã giao dịch: {0}">
+                        <Binding Path="TransactionID" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{} Loại giao dịch: {0}">
+                        <Binding Path="TransactionName" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{} Ngày: {0}">
+                        <Binding Path="TransactionDate" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+        </StackPanel>
+        <DataGrid Name="gvData"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False"
+                  BorderThickness="0"
+                  HorizontalAlignment="Center"
+                  IsReadOnly="True"
+                  Background="{x:Null}"
+                  Grid.Row="1" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ProductID}"  Foreground="White">
+                    <DataGridTextColumn.Header>
+                        <HeaderedContentControl>
+                            <TextBlock Text="Mã sản phẩm" Foreground="White" FontSize="15" FontWeight="Bold"/>
+                        </HeaderedContentControl>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ProductName}"  Foreground="White">
+                    <DataGridTextColumn.Header>
+                        <HeaderedContentControl>
+                            <TextBlock Text="Tên sản phẩm" Foreground="White" FontSize="15" FontWeight="Bold"/>
+                        </HeaderedContentControl>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Quantity}"  Foreground="White">
+                    <DataGridTextColumn.Header>
+                        <HeaderedContentControl>
+                            <TextBlock Text="Số lượng" Foreground="White" FontSize="15" FontWeight="Bold"/>
+                        </HeaderedContentControl>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Price,StringFormat=N0}"  Foreground="White">
+                    <DataGridTextColumn.Header>
+                        <HeaderedContentControl>
+                            <TextBlock Text="Đơn giá" Foreground="White" FontSize="15" FontWeight="Bold"/>
+                        </HeaderedContentControl>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Click="btnPrint_Click" Content="In hoá đơn" Grid.Column="0" Grid.Row="3" Width="100" Margin="0,8.6,9.6,9" HorizontalAlignment="Right"></Button>
+        <Button Click="btnBack_Click" Content="Trở lại" Grid.Column="1" Grid.Row="3" Background="Red" Margin="10.4,9.6,0,8" HorizontalAlignment="Left" Width="100"/>
+    </Grid>
+</UserControl>

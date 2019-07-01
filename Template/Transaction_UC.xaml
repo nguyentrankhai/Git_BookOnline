@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="Template.Transaction_UC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Template"
+             mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
+             FontFamily="Sitka Small"
+             Foreground="White"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.Background>
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <Image Source="Resources/background3.jpg">
+                        <Image.Effect>
+                            <BlurEffect Radius="10"/>
+                        </Image.Effect>
+                    </Image>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Grid.Background>
+        <DataGrid Name="gvData"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False"
+                  BorderThickness="0"
+                  IsReadOnly="True"
+                  Height="auto"
+                  Background="{x:Null}"
+                  HorizontalAlignment="Center"
+                  Foreground="White" Margin="20,75,20,50">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Binding="{Binding TransactionID}" >
+                    <DataGridTextColumn.Header>
+                        <HeaderedContentControl>
+                            <TextBlock Text="MÃ GIAO DỊCH" Foreground="White" FontSize="15" FontWeight="Bold"/>
+                        </HeaderedContentControl>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding TransactionDate}" >
+                    <DataGridTextColumn.Header>
+                        <HeaderedContentControl>
+                            <TextBlock Text="THỜI GIAN" Foreground="White" FontSize="15" FontWeight="Bold"/>
+                        </HeaderedContentControl>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Binding="{Binding Amount,StringFormat=N0}" >
+                    <DataGridTextColumn.Header>
+                        <HeaderedContentControl>
+                            <TextBlock Text="THÀNH TIỀN" Foreground="White" FontSize="15" FontWeight="Bold"/>
+                        </HeaderedContentControl>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Binding="{Binding DiscountName}" >
+                    <DataGridTextColumn.Header>
+                        <HeaderedContentControl>
+                            <TextBlock Text="KHUYẾN MÃI" Foreground="White" FontSize="15" FontWeight="Bold"/>
+                        </HeaderedContentControl>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                
+                <DataGridTemplateColumn Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Tag="{Binding TransactionID}" Click="Button_Click" >Xem chi tiết</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
