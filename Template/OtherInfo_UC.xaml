@@ -148,12 +148,7 @@
                                 </Ellipse>
                             </DataTemplate>
                         </ListView.ItemTemplate>
-                        <ListView.ContextMenu>
-                            <ContextMenu Name="contextmenu" Visibility="Hidden">
-                                <MenuItem Header="menuItem1" />
-                                <MenuItem Header="menuItem2" />
-                            </ContextMenu>
-                        </ListView.ContextMenu>
+                        
                     </ListView>
                 </WrapPanel>
             </TabItem>

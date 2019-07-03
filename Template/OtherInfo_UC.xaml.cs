@@ -3,6 +3,7 @@ using MaterialDesignColors.WpfExample.Domain;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -131,6 +132,7 @@ namespace Template
 
 
         }
+      
     }
     //, StringFormat='{}{0:dd/MM/yyyy}'
 }
