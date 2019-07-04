@@ -59,6 +59,7 @@ namespace Template
             {
 
                 BUS_User bus = new BUS_User();
+                BUS_Book bus_book = new BUS_Book();
                 if (Session.User.Wallet > book.Price)
                 {
                     book.Status = "M";

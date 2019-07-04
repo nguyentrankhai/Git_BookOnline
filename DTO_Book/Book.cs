@@ -1,5 +1,7 @@
 ﻿
+using DTO_Book;
 using System;
+using System.Collections.Generic;
 using System.Windows.Media.Imaging;
 
 namespace DTO_BookOnline
@@ -23,6 +25,8 @@ namespace DTO_BookOnline
         private string status;
         private double rating;
         private int ratingCount;
+        private List<Publisher> lstPbl;
+        private Language language;
         public BitmapImage ImageBook { get; set; }
         public DateTime LastView
         {
@@ -224,59 +228,36 @@ namespace DTO_BookOnline
             }
         }
 
+        public List<Publisher> LstPbl
+        {
+            get
+            {
+                return lstPbl;
+            }
+
+            set
+            {
+                lstPbl = value;
+            }
+        }
+
+        public Language Language
+        {
+            get
+            {
+                return language;
+            }
+
+            set
+            {
+                language = value;
+            }
+        }
+
         #endregion
 
         #region Initalize 
-        public Book(string id, string name, string author, string year, string catalog, string summary, double price)
-        {
-            this.id = id;
-            this.name = name;
-            this.author = author;
-            this.year = year;
-            this.catalog = catalog;
-            this.summary = summary;
-        }
 
-        public Book(string name, string catalog, string author, string year, string summary, double price, string url, string img, string note)
-        {
-            this.name = name;
-            this.catalog = catalog;
-            this.author = author;
-            this.year = year;
-            this.summary = summary;
-            this.url = url;
-            this.price = price;
-            this.img = img;
-            this.note = note;
-            this.page = 0;
-        }
-        public Book(string id, string name, string catalog, string author, string year, string summary, double price, string url, string img, string note)
-        {
-            this.id = id;
-            this.name = name;
-            this.catalog = catalog;
-            this.author = author;
-            this.year = year;
-            this.summary = summary;
-            this.url = url;
-            this.price = price;
-            this.img = img;
-            this.note = note;
-            this.page = 0;
-        }
-        public Book(string id, string name, string catalog, string author, string year, string summary, double price, string img, string note, int page)
-        {
-            this.id = id;
-            this.name = name;
-            this.catalog = catalog;
-            this.author = author;
-            this.year = year;
-            this.summary = summary;
-            this.price = price;
-            this.img = img;
-            this.note = note;
-            this.page = page;
-        }
         public Book() { }
         #endregion
     }
