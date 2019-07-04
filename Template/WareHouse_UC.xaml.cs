@@ -87,7 +87,31 @@ namespace Template
                 {
                     MessageBox.Show("Đã có lỗi xảy ra từ hệ thống!", "Có lỗi xảy ra");
                 }
-            }            
+            }
+        }
+
+
+        private async void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (bookid != "")
+            {
+                Book book = lst.Where(x => x.Id == bookid).SingleOrDefault();
+                var sampleMessageDialog = new delBookofUser_UC(book)
+                {
+                    //Message = { Text = "Tài khoản của bạn đã hết hạn đọc sách, vui lòng gia hạn để đọc tiếp." }
+                };
+
+                await DialogHost.Show(sampleMessageDialog, "RootDialog");
+            }
+            getDataBookStore();
+            //bus.removeBookofUser(book.Id, Session.User.ID1);
+        }
+
+        string bookid = "";
+        private void Grid_MouseRightButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Grid grid = sender as Grid;
+            bookid = grid.Tag as string;
         }
     }
 }

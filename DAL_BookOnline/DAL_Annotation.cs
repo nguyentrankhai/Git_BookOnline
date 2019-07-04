@@ -156,21 +156,24 @@ namespace DAL_BookOnline
         private List<tbl_Annotation> loopAnnotation(List<Annotation> lst, bool isInsert)
         {
             List<tbl_Annotation> objAnno = new List<tbl_Annotation>();
-            if (isInsert)
+            try
             {
-                foreach (Annotation item in lst)
+                if (isInsert)
                 {
-                    objAnno.Add(parseAnnotationNoKey(item));
+                    foreach (Annotation item in lst)
+                    {
+                        objAnno.Add(parseAnnotationNoKey(item));
+                    }
+                }
+                else
+                {
+                    foreach (Annotation item in lst)
+                    {
+                        objAnno.Add(parseAnnotation(item));
+                    }
                 }
             }
-            else
-            {
-                foreach (Annotation item in lst)
-                {
-                    objAnno.Add(parseAnnotation(item));
-                }
-            }
-            
+            catch(Exception ex) { }
             return objAnno;
         }
     }
