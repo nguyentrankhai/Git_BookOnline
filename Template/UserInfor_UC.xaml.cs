@@ -76,6 +76,26 @@ namespace Template
             mainWindow.MainContent.Content = uc;
             DialogHost.CloseDialogCommand.Execute(null, null);
         }
+
+        string followingID = "";
+        private void Ellipse_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+             followingID = (sender as Ellipse).Tag + "";
+        }
+
+        private async void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (followingID != "")
+            {
+                var sampleMessageDialog = new unFollow_UC(followingID)
+                {
+                    //Message = { Text = "Tài khoản của bạn đã hết hạn đọc sách, vui lòng gia hạn để đọc tiếp." }
+                };
+
+                await DialogHost.Show(sampleMessageDialog, "RootDialog");
+            }
+            getLstFollowing();
+        }
     }
     //, StringFormat='{}{0:dd/MM/yyyy}'
     public class UserInfo
