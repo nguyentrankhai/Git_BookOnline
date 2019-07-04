@@ -123,7 +123,7 @@
                             </Border>
                             <StackPanel Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Horizontal">
                                 <Button Name="btnMua" ToolTip="Sở hữu vĩnh viễn quyển sách yêu thích" Click="btnMua_Click" Content="Mua ngay" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3,5,3,0"/>
-                                <Button Name="btnThue" ToolTip="Chỉ cần mua gói đọc sách, bạn sẽ đọc được những quyển sách mong muốn" Click="btnThue_Click" Content="Thuê sách" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,5,3,0"/>
+                                <Button Name="btnThue" ToolTip="Chỉ cần mua gói đọc sách, bạn sẽ đọc được những quyển sách mong muốn" Click="btnThue_Click" Content="Đọc sách" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,5,3,0"/>
                                 <Button Name="btnDocThu" ToolTip="Không cần tốn tiền, bạn cũng có thể đọc thử sách rồi hãy lựa chọn" Click="btnDocThu_Click" Content="Đọc thử" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,5,3,0"/>
                             </StackPanel>
 

@@ -108,18 +108,13 @@
                         </ListView.ItemsPanel>
                         <ListView.ItemTemplate >
                             <DataTemplate >
-                                <Ellipse Height="60" Width="60" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="20" MouseLeftButtonUp="Ellipse_MouseUp" MouseRightButtonUp="Ellipse_MouseRightButtonUp" Tag="{Binding ID1}">
+                                <Ellipse Height="60" Width="60" Grid.Row="0" Grid.Column="0"  Stroke="Black" Margin="20" MouseUp="Ellipse_MouseUp">
                                     <Ellipse.Fill>
                                         <ImageBrush x:Name="img4" ImageSource="{Binding Image1}" Stretch="UniformToFill"/>
                                     </Ellipse.Fill>
                                     <Ellipse.ToolTip>
                                         <ToolTip Content="{Binding Username}"/>
                                     </Ellipse.ToolTip>
-                                    <Ellipse.ContextMenu>
-                                        <ContextMenu>
-                                            <MenuItem Header="Bỏ theo dõi" Click="MenuItem_Click" />
-                                        </ContextMenu>
-                                    </Ellipse.ContextMenu>
                                 </Ellipse>
                             </DataTemplate>
                         </ListView.ItemTemplate>

@@ -45,10 +45,6 @@ namespace DAL_BookOnline
                 double d = new double();
                 d = double.Parse(o.ToString());
                 sach.Price = d;
-                DAL_Language dal = new DAL_Language();
-                sach.Language = dal.getLanguage(book.LangID);
-                DAL_Publisher dalp = new DAL_Publisher();
-                sach.LstPbl = dalp.getlstPublisher(sach.Id);
                 return getRatingofBook(sach);
             }
             return null;
@@ -188,11 +184,11 @@ namespace DAL_BookOnline
             }
         }
 
-        public bool removeBookOfUser(string idBook,string idUser, char status)
+        public bool removeBookOfUser(string idBook,string idUser)
         {
             try
             {
-                tbl_BookofUser book = db.tbl_BookofUsers.Single(x => x.BOOKID == idBook && x.USERID == idUser && x.Status==status);
+                tbl_BookofUser book = db.tbl_BookofUsers.Single(x => x.BOOKID == idBook && x.USERID == idUser);
                 db.tbl_BookofUsers.DeleteOnSubmit(book);
                 db.SubmitChanges();
                 return true;
@@ -203,15 +199,6 @@ namespace DAL_BookOnline
             }
         }
 
-        public bool findBook(string usID, string bkID, char status)
-        {
-            //var books = db.tbl_BookofUsers.Where(x => x.BOOKID == bkID && x.USERID == usID)//
-            var books = (from x in db.tbl_BookofUsers where x.BOOKID == bkID && x.USERID == usID && x.Status == status  select x).FirstOrDefault();
-
-            if (books == null)
-                return false;
-            else return true;
-        }
         public bool findBook(string usID, string bkID)
         {
             //var books = db.tbl_BookofUsers.Where(x => x.BOOKID == bkID && x.USERID == usID)//

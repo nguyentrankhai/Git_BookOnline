@@ -45,21 +45,14 @@ namespace BUS_BookOnline
         //{
         //    return dalBook.checkbook(idbk, idus);
         //}
-        public bool removeBookofUser(string idbk, string idus, string status)
+        public bool removeBookofUser(string idbk, string idus)
         {
-            return dalBook.removeBookOfUser(idbk, idus, char.Parse(status));
+            return dalBook.removeBookOfUser(idbk, idus);
         }
         public bool insertBookOfUser(User user, Book book)
         {
-            if (dalBook.findBook(user.ID1, book.Id,char.Parse( book.Status))!= false) { 
-                return dalBook.insertBookOfUser(user, book);
-            }
-            else { 
-                return dalBook.updateBookOfUser(user, book);
-            }
-            return false;
+            return dalBook.insertBookOfUser(user, book);
         }
-       
         #endregion
 
         #region Book-Catalog
