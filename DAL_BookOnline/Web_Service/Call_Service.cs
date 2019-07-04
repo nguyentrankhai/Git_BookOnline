@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace DAL_BookOnline.Web_Service
         public String Get_Test(String input)
         {
             //string response = "";
-            var client = new RestClient(Service_Defination.URL_SERVICE_DEV.Replace("#PARAM", input));
+            var client = new RestSharp.RestClient(Service_Defination.URL_SERVICE_DEV.Replace("#PARAM", input));
             var request = new RestRequest(Method.GET);
             request.AddHeader("Postman-Token", "7f415488-8eee-47b4-892f-47a7aef6d521");
             request.AddHeader("cache-control", "no-cache");

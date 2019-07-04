@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -21,14 +22,19 @@ namespace DTO_BookOnline
             if (path != null)
             {
                 BitmapImage image = new BitmapImage();
-                using (FileStream stream = File.OpenRead(path))
+                try
                 {
-                    image.BeginInit();   //bắt đầu khởi tạo vùng nhớ Bit Map
-                    image.StreamSource = stream;  //Sử dụng Stream để lấy hình ảnh
-                    image.CacheOption = BitmapCacheOption.OnLoad; //load the image from the stream
-                    image.EndInit(); // Đóng kết nối 
+                    using (FileStream stream = File.OpenRead(path))
+                    {
+                        image.BeginInit();   //bắt đầu khởi tạo vùng nhớ Bit Map
+                        image.StreamSource = stream;  //Sử dụng Stream để lấy hình ảnh
+                        image.CacheOption = BitmapCacheOption.OnLoad; //load the image from the stream
+                        image.EndInit(); // Đóng kết nối 
+                    }
+                    return image;
                 }
-                return image;
+                catch(Exception ex)
+                { return null; }
             }
             return null;
         }
