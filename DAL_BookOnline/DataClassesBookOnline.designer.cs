@@ -42,9 +42,6 @@ namespace DAL_BookOnline
     partial void Inserttbl_Author(tbl_Author instance);
     partial void Updatetbl_Author(tbl_Author instance);
     partial void Deletetbl_Author(tbl_Author instance);
-    partial void Inserttbl_Book(tbl_Book instance);
-    partial void Updatetbl_Book(tbl_Book instance);
-    partial void Deletetbl_Book(tbl_Book instance);
     partial void Inserttbl_BookofUser(tbl_BookofUser instance);
     partial void Updatetbl_BookofUser(tbl_BookofUser instance);
     partial void Deletetbl_BookofUser(tbl_BookofUser instance);
@@ -63,6 +60,18 @@ namespace DAL_BookOnline
     partial void Inserttbl_TransactionHistory(tbl_TransactionHistory instance);
     partial void Updatetbl_TransactionHistory(tbl_TransactionHistory instance);
     partial void Deletetbl_TransactionHistory(tbl_TransactionHistory instance);
+    partial void Inserttbl_BookPublisher(tbl_BookPublisher instance);
+    partial void Updatetbl_BookPublisher(tbl_BookPublisher instance);
+    partial void Deletetbl_BookPublisher(tbl_BookPublisher instance);
+    partial void Inserttbl_Language(tbl_Language instance);
+    partial void Updatetbl_Language(tbl_Language instance);
+    partial void Deletetbl_Language(tbl_Language instance);
+    partial void Inserttbl_Publisher(tbl_Publisher instance);
+    partial void Updatetbl_Publisher(tbl_Publisher instance);
+    partial void Deletetbl_Publisher(tbl_Publisher instance);
+    partial void Inserttbl_Book(tbl_Book instance);
+    partial void Updatetbl_Book(tbl_Book instance);
+    partial void Deletetbl_Book(tbl_Book instance);
     #endregion
 		
 		public DataClassesBookOnlineDataContext() : 
@@ -127,14 +136,6 @@ namespace DAL_BookOnline
 			}
 		}
 		
-		public System.Data.Linq.Table<tbl_Book> tbl_Books
-		{
-			get
-			{
-				return this.GetTable<tbl_Book>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tbl_BookofUser> tbl_BookofUsers
 		{
 			get
@@ -196,6 +197,38 @@ namespace DAL_BookOnline
 			get
 			{
 				return this.GetTable<tbl_TransactionHistory>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_BookPublisher> tbl_BookPublishers
+		{
+			get
+			{
+				return this.GetTable<tbl_BookPublisher>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_Language> tbl_Languages
+		{
+			get
+			{
+				return this.GetTable<tbl_Language>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_Publisher> tbl_Publishers
+		{
+			get
+			{
+				return this.GetTable<tbl_Publisher>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_Book> tbl_Books
+		{
+			get
+			{
+				return this.GetTable<tbl_Book>();
 			}
 		}
 	}
@@ -1456,332 +1489,6 @@ namespace DAL_BookOnline
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Book")]
-	public partial class tbl_Book : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _BookID;
-		
-		private string _BookNAME;
-		
-		private string _catalo;
-		
-		private string _AUTHOR;
-		
-		private System.Nullable<int> _YEAR;
-		
-		private string _SUMMARY;
-		
-		private System.Nullable<decimal> _PRICE;
-		
-		private string _URL;
-		
-		private string _TRIAL_URL;
-		
-		private string _IMG;
-		
-		private string _NOTE;
-		
-		private System.Nullable<System.DateTime> _DateUpdate;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnBookIDChanging(string value);
-    partial void OnBookIDChanged();
-    partial void OnBookNAMEChanging(string value);
-    partial void OnBookNAMEChanged();
-    partial void OncataloChanging(string value);
-    partial void OncataloChanged();
-    partial void OnAUTHORChanging(string value);
-    partial void OnAUTHORChanged();
-    partial void OnYEARChanging(System.Nullable<int> value);
-    partial void OnYEARChanged();
-    partial void OnSUMMARYChanging(string value);
-    partial void OnSUMMARYChanged();
-    partial void OnPRICEChanging(System.Nullable<decimal> value);
-    partial void OnPRICEChanged();
-    partial void OnURLChanging(string value);
-    partial void OnURLChanged();
-    partial void OnTRIAL_URLChanging(string value);
-    partial void OnTRIAL_URLChanged();
-    partial void OnIMGChanging(string value);
-    partial void OnIMGChanged();
-    partial void OnNOTEChanging(string value);
-    partial void OnNOTEChanged();
-    partial void OnDateUpdateChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateUpdateChanged();
-    #endregion
-		
-		public tbl_Book()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string BookID
-		{
-			get
-			{
-				return this._BookID;
-			}
-			set
-			{
-				if ((this._BookID != value))
-				{
-					this.OnBookIDChanging(value);
-					this.SendPropertyChanging();
-					this._BookID = value;
-					this.SendPropertyChanged("BookID");
-					this.OnBookIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookNAME", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string BookNAME
-		{
-			get
-			{
-				return this._BookNAME;
-			}
-			set
-			{
-				if ((this._BookNAME != value))
-				{
-					this.OnBookNAMEChanging(value);
-					this.SendPropertyChanging();
-					this._BookNAME = value;
-					this.SendPropertyChanged("BookNAME");
-					this.OnBookNAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_catalo", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string catalo
-		{
-			get
-			{
-				return this._catalo;
-			}
-			set
-			{
-				if ((this._catalo != value))
-				{
-					this.OncataloChanging(value);
-					this.SendPropertyChanging();
-					this._catalo = value;
-					this.SendPropertyChanged("catalo");
-					this.OncataloChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTHOR", DbType="NVarChar(200)")]
-		public string AUTHOR
-		{
-			get
-			{
-				return this._AUTHOR;
-			}
-			set
-			{
-				if ((this._AUTHOR != value))
-				{
-					this.OnAUTHORChanging(value);
-					this.SendPropertyChanging();
-					this._AUTHOR = value;
-					this.SendPropertyChanged("AUTHOR");
-					this.OnAUTHORChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR", DbType="Int")]
-		public System.Nullable<int> YEAR
-		{
-			get
-			{
-				return this._YEAR;
-			}
-			set
-			{
-				if ((this._YEAR != value))
-				{
-					this.OnYEARChanging(value);
-					this.SendPropertyChanging();
-					this._YEAR = value;
-					this.SendPropertyChanged("YEAR");
-					this.OnYEARChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUMMARY", DbType="NVarChar(2000)")]
-		public string SUMMARY
-		{
-			get
-			{
-				return this._SUMMARY;
-			}
-			set
-			{
-				if ((this._SUMMARY != value))
-				{
-					this.OnSUMMARYChanging(value);
-					this.SendPropertyChanging();
-					this._SUMMARY = value;
-					this.SendPropertyChanged("SUMMARY");
-					this.OnSUMMARYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRICE", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> PRICE
-		{
-			get
-			{
-				return this._PRICE;
-			}
-			set
-			{
-				if ((this._PRICE != value))
-				{
-					this.OnPRICEChanging(value);
-					this.SendPropertyChanging();
-					this._PRICE = value;
-					this.SendPropertyChanged("PRICE");
-					this.OnPRICEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL", DbType="Char(1000)")]
-		public string URL
-		{
-			get
-			{
-				return this._URL;
-			}
-			set
-			{
-				if ((this._URL != value))
-				{
-					this.OnURLChanging(value);
-					this.SendPropertyChanging();
-					this._URL = value;
-					this.SendPropertyChanged("URL");
-					this.OnURLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRIAL_URL", DbType="Char(1000)")]
-		public string TRIAL_URL
-		{
-			get
-			{
-				return this._TRIAL_URL;
-			}
-			set
-			{
-				if ((this._TRIAL_URL != value))
-				{
-					this.OnTRIAL_URLChanging(value);
-					this.SendPropertyChanging();
-					this._TRIAL_URL = value;
-					this.SendPropertyChanged("TRIAL_URL");
-					this.OnTRIAL_URLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMG", DbType="Char(100)")]
-		public string IMG
-		{
-			get
-			{
-				return this._IMG;
-			}
-			set
-			{
-				if ((this._IMG != value))
-				{
-					this.OnIMGChanging(value);
-					this.SendPropertyChanging();
-					this._IMG = value;
-					this.SendPropertyChanged("IMG");
-					this.OnIMGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTE", DbType="NVarChar(100)")]
-		public string NOTE
-		{
-			get
-			{
-				return this._NOTE;
-			}
-			set
-			{
-				if ((this._NOTE != value))
-				{
-					this.OnNOTEChanging(value);
-					this.SendPropertyChanging();
-					this._NOTE = value;
-					this.SendPropertyChanged("NOTE");
-					this.OnNOTEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateUpdate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DateUpdate
-		{
-			get
-			{
-				return this._DateUpdate;
-			}
-			set
-			{
-				if ((this._DateUpdate != value))
-				{
-					this.OnDateUpdateChanging(value);
-					this.SendPropertyChanging();
-					this._DateUpdate = value;
-					this.SendPropertyChanged("DateUpdate");
-					this.OnDateUpdateChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_BookofUser")]
 	public partial class tbl_BookofUser : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2945,6 +2652,710 @@ namespace DAL_BookOnline
 					this._DiscountName = value;
 					this.SendPropertyChanged("DiscountName");
 					this.OnDiscountNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_BookPublisher")]
+	public partial class tbl_BookPublisher : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _BookID;
+		
+		private string _PublisherID;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBookIDChanging(string value);
+    partial void OnBookIDChanged();
+    partial void OnPublisherIDChanging(string value);
+    partial void OnPublisherIDChanged();
+    #endregion
+		
+		public tbl_BookPublisher()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string BookID
+		{
+			get
+			{
+				return this._BookID;
+			}
+			set
+			{
+				if ((this._BookID != value))
+				{
+					this.OnBookIDChanging(value);
+					this.SendPropertyChanging();
+					this._BookID = value;
+					this.SendPropertyChanged("BookID");
+					this.OnBookIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublisherID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string PublisherID
+		{
+			get
+			{
+				return this._PublisherID;
+			}
+			set
+			{
+				if ((this._PublisherID != value))
+				{
+					this.OnPublisherIDChanging(value);
+					this.SendPropertyChanging();
+					this._PublisherID = value;
+					this.SendPropertyChanged("PublisherID");
+					this.OnPublisherIDChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Language")]
+	public partial class tbl_Language : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _LangID;
+		
+		private string _LangName;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLangIDChanging(string value);
+    partial void OnLangIDChanged();
+    partial void OnLangNameChanging(string value);
+    partial void OnLangNameChanged();
+    #endregion
+		
+		public tbl_Language()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LangID", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string LangID
+		{
+			get
+			{
+				return this._LangID;
+			}
+			set
+			{
+				if ((this._LangID != value))
+				{
+					this.OnLangIDChanging(value);
+					this.SendPropertyChanging();
+					this._LangID = value;
+					this.SendPropertyChanged("LangID");
+					this.OnLangIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LangName", DbType="NVarChar(MAX)")]
+		public string LangName
+		{
+			get
+			{
+				return this._LangName;
+			}
+			set
+			{
+				if ((this._LangName != value))
+				{
+					this.OnLangNameChanging(value);
+					this.SendPropertyChanging();
+					this._LangName = value;
+					this.SendPropertyChanged("LangName");
+					this.OnLangNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Publisher")]
+	public partial class tbl_Publisher : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _PublisherID;
+		
+		private string _PublisherName;
+		
+		private string _Address;
+		
+		private string _Tel;
+		
+		private string _E_mail;
+		
+		private string _Fax;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPublisherIDChanging(string value);
+    partial void OnPublisherIDChanged();
+    partial void OnPublisherNameChanging(string value);
+    partial void OnPublisherNameChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnTelChanging(string value);
+    partial void OnTelChanged();
+    partial void OnE_mailChanging(string value);
+    partial void OnE_mailChanged();
+    partial void OnFaxChanging(string value);
+    partial void OnFaxChanged();
+    #endregion
+		
+		public tbl_Publisher()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublisherID", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string PublisherID
+		{
+			get
+			{
+				return this._PublisherID;
+			}
+			set
+			{
+				if ((this._PublisherID != value))
+				{
+					this.OnPublisherIDChanging(value);
+					this.SendPropertyChanging();
+					this._PublisherID = value;
+					this.SendPropertyChanged("PublisherID");
+					this.OnPublisherIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublisherName", DbType="NVarChar(MAX)")]
+		public string PublisherName
+		{
+			get
+			{
+				return this._PublisherName;
+			}
+			set
+			{
+				if ((this._PublisherName != value))
+				{
+					this.OnPublisherNameChanging(value);
+					this.SendPropertyChanging();
+					this._PublisherName = value;
+					this.SendPropertyChanged("PublisherName");
+					this.OnPublisherNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(MAX)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tel", DbType="Char(15)")]
+		public string Tel
+		{
+			get
+			{
+				return this._Tel;
+			}
+			set
+			{
+				if ((this._Tel != value))
+				{
+					this.OnTelChanging(value);
+					this.SendPropertyChanging();
+					this._Tel = value;
+					this.SendPropertyChanged("Tel");
+					this.OnTelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[E-mail]", Storage="_E_mail", DbType="Char(50)")]
+		public string E_mail
+		{
+			get
+			{
+				return this._E_mail;
+			}
+			set
+			{
+				if ((this._E_mail != value))
+				{
+					this.OnE_mailChanging(value);
+					this.SendPropertyChanging();
+					this._E_mail = value;
+					this.SendPropertyChanged("E_mail");
+					this.OnE_mailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fax", DbType="Char(15)")]
+		public string Fax
+		{
+			get
+			{
+				return this._Fax;
+			}
+			set
+			{
+				if ((this._Fax != value))
+				{
+					this.OnFaxChanging(value);
+					this.SendPropertyChanging();
+					this._Fax = value;
+					this.SendPropertyChanged("Fax");
+					this.OnFaxChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Book")]
+	public partial class tbl_Book : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _BookID;
+		
+		private string _BookNAME;
+		
+		private string _catalo;
+		
+		private string _LangID;
+		
+		private string _AUTHOR;
+		
+		private System.Nullable<int> _YEAR;
+		
+		private string _SUMMARY;
+		
+		private System.Nullable<decimal> _PRICE;
+		
+		private string _URL;
+		
+		private string _TRIAL_URL;
+		
+		private string _IMG;
+		
+		private string _NOTE;
+		
+		private System.DateTime _DateUpdate;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBookIDChanging(string value);
+    partial void OnBookIDChanged();
+    partial void OnBookNAMEChanging(string value);
+    partial void OnBookNAMEChanged();
+    partial void OncataloChanging(string value);
+    partial void OncataloChanged();
+    partial void OnLangIDChanging(string value);
+    partial void OnLangIDChanged();
+    partial void OnAUTHORChanging(string value);
+    partial void OnAUTHORChanged();
+    partial void OnYEARChanging(System.Nullable<int> value);
+    partial void OnYEARChanged();
+    partial void OnSUMMARYChanging(string value);
+    partial void OnSUMMARYChanged();
+    partial void OnPRICEChanging(System.Nullable<decimal> value);
+    partial void OnPRICEChanged();
+    partial void OnURLChanging(string value);
+    partial void OnURLChanged();
+    partial void OnTRIAL_URLChanging(string value);
+    partial void OnTRIAL_URLChanged();
+    partial void OnIMGChanging(string value);
+    partial void OnIMGChanged();
+    partial void OnNOTEChanging(string value);
+    partial void OnNOTEChanged();
+    partial void OnDateUpdateChanging(System.DateTime value);
+    partial void OnDateUpdateChanged();
+    #endregion
+		
+		public tbl_Book()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string BookID
+		{
+			get
+			{
+				return this._BookID;
+			}
+			set
+			{
+				if ((this._BookID != value))
+				{
+					this.OnBookIDChanging(value);
+					this.SendPropertyChanging();
+					this._BookID = value;
+					this.SendPropertyChanged("BookID");
+					this.OnBookIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookNAME", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string BookNAME
+		{
+			get
+			{
+				return this._BookNAME;
+			}
+			set
+			{
+				if ((this._BookNAME != value))
+				{
+					this.OnBookNAMEChanging(value);
+					this.SendPropertyChanging();
+					this._BookNAME = value;
+					this.SendPropertyChanged("BookNAME");
+					this.OnBookNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_catalo", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string catalo
+		{
+			get
+			{
+				return this._catalo;
+			}
+			set
+			{
+				if ((this._catalo != value))
+				{
+					this.OncataloChanging(value);
+					this.SendPropertyChanging();
+					this._catalo = value;
+					this.SendPropertyChanged("catalo");
+					this.OncataloChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LangID", DbType="Char(10) NOT NULL", CanBeNull=false)]
+		public string LangID
+		{
+			get
+			{
+				return this._LangID;
+			}
+			set
+			{
+				if ((this._LangID != value))
+				{
+					this.OnLangIDChanging(value);
+					this.SendPropertyChanging();
+					this._LangID = value;
+					this.SendPropertyChanged("LangID");
+					this.OnLangIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTHOR", DbType="NVarChar(200)")]
+		public string AUTHOR
+		{
+			get
+			{
+				return this._AUTHOR;
+			}
+			set
+			{
+				if ((this._AUTHOR != value))
+				{
+					this.OnAUTHORChanging(value);
+					this.SendPropertyChanging();
+					this._AUTHOR = value;
+					this.SendPropertyChanged("AUTHOR");
+					this.OnAUTHORChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR", DbType="Int")]
+		public System.Nullable<int> YEAR
+		{
+			get
+			{
+				return this._YEAR;
+			}
+			set
+			{
+				if ((this._YEAR != value))
+				{
+					this.OnYEARChanging(value);
+					this.SendPropertyChanging();
+					this._YEAR = value;
+					this.SendPropertyChanged("YEAR");
+					this.OnYEARChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUMMARY", DbType="NVarChar(2000)")]
+		public string SUMMARY
+		{
+			get
+			{
+				return this._SUMMARY;
+			}
+			set
+			{
+				if ((this._SUMMARY != value))
+				{
+					this.OnSUMMARYChanging(value);
+					this.SendPropertyChanging();
+					this._SUMMARY = value;
+					this.SendPropertyChanged("SUMMARY");
+					this.OnSUMMARYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRICE", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> PRICE
+		{
+			get
+			{
+				return this._PRICE;
+			}
+			set
+			{
+				if ((this._PRICE != value))
+				{
+					this.OnPRICEChanging(value);
+					this.SendPropertyChanging();
+					this._PRICE = value;
+					this.SendPropertyChanged("PRICE");
+					this.OnPRICEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URL", DbType="Char(1000)")]
+		public string URL
+		{
+			get
+			{
+				return this._URL;
+			}
+			set
+			{
+				if ((this._URL != value))
+				{
+					this.OnURLChanging(value);
+					this.SendPropertyChanging();
+					this._URL = value;
+					this.SendPropertyChanged("URL");
+					this.OnURLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRIAL_URL", DbType="Char(1000)")]
+		public string TRIAL_URL
+		{
+			get
+			{
+				return this._TRIAL_URL;
+			}
+			set
+			{
+				if ((this._TRIAL_URL != value))
+				{
+					this.OnTRIAL_URLChanging(value);
+					this.SendPropertyChanging();
+					this._TRIAL_URL = value;
+					this.SendPropertyChanged("TRIAL_URL");
+					this.OnTRIAL_URLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMG", DbType="Char(100)")]
+		public string IMG
+		{
+			get
+			{
+				return this._IMG;
+			}
+			set
+			{
+				if ((this._IMG != value))
+				{
+					this.OnIMGChanging(value);
+					this.SendPropertyChanging();
+					this._IMG = value;
+					this.SendPropertyChanged("IMG");
+					this.OnIMGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTE", DbType="NVarChar(100)")]
+		public string NOTE
+		{
+			get
+			{
+				return this._NOTE;
+			}
+			set
+			{
+				if ((this._NOTE != value))
+				{
+					this.OnNOTEChanging(value);
+					this.SendPropertyChanging();
+					this._NOTE = value;
+					this.SendPropertyChanged("NOTE");
+					this.OnNOTEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateUpdate", DbType="DateTime NOT NULL")]
+		public System.DateTime DateUpdate
+		{
+			get
+			{
+				return this._DateUpdate;
+			}
+			set
+			{
+				if ((this._DateUpdate != value))
+				{
+					this.OnDateUpdateChanging(value);
+					this.SendPropertyChanging();
+					this._DateUpdate = value;
+					this.SendPropertyChanged("DateUpdate");
+					this.OnDateUpdateChanged();
 				}
 			}
 		}

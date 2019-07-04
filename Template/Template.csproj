@@ -144,6 +144,9 @@
     <Compile Include="BookInfo_UC.xaml.cs">
       <DependentUpon>BookInfo_UC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="delBookofUser_UC.xaml.cs">
+      <DependentUpon>delBookofUser_UC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Domain\CheckData.cs" />
     <Compile Include="Domain\Highlight\Highlight.cs" />
     <Compile Include="Domain\Highlight\HighlightCollection.cs" />
@@ -189,6 +192,9 @@
     <Compile Include="Transaction_UC.xaml.cs">
       <DependentUpon>Transaction_UC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="unFollow_UC.xaml.cs">
+      <DependentUpon>unFollow_UC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserInfor_UC.xaml.cs">
       <DependentUpon>UserInfor_UC.xaml</DependentUpon>
     </Compile>
@@ -209,6 +215,10 @@
     <Page Include="BookStore_UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="delBookofUser_UC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="DownloadMessageWindow.xaml">
       <SubType>Designer</SubType>
@@ -272,6 +282,10 @@
     <Page Include="Transaction_UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="unFollow_UC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserInfor_UC.xaml">
       <SubType>Designer</SubType>
@@ -358,6 +372,9 @@
   <ItemGroup>
     <Resource Include="Resources\background2.jpg" />
     <Resource Include="Resources\background3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\backgroundLogin.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
