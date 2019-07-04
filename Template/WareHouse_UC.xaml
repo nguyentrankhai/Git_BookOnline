@@ -27,8 +27,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <materialDesign:Card Margin="2 2 2 2" Background="{x:Null}" MouseDown="Card_MouseDown" Tag="{Binding Id}">
-                        <Grid MouseRightButtonUp="Grid_MouseRightButtonUp" Tag="{Binding Id}">
-
+                        <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
@@ -43,12 +42,6 @@
                                 <TextBlock Text="Lần đọc cuối: " FontFamily="Ebrima"/>
                                 <TextBlock  Text="{Binding LastView, StringFormat='{}{0:dd/MM/yy}'}" FontFamily="Ebrima"/>
                             </StackPanel>
-
-                            <Grid.ContextMenu>
-                                <ContextMenu>
-                                    <MenuItem Header="Xóa sách" Click="MenuItem_Click" />
-                                </ContextMenu>
-                            </Grid.ContextMenu>
                         </Grid>
                     </materialDesign:Card>
                 </DataTemplate>
