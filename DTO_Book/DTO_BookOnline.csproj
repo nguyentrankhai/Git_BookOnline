@@ -46,6 +46,7 @@
     <Compile Include="Annotation.cs" />
     <Compile Include="Author.cs" />
     <Compile Include="Book.cs" />
+    <Compile Include="BranchPayment.cs" />
     <Compile Include="Catalog.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="ConverterImage.cs" />

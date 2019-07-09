@@ -1,5 +1,6 @@
 ﻿
 using DTO_BookOnline;
+using System.Windows;
 
 namespace Template
 {
@@ -9,6 +10,10 @@ namespace Template
         public Session()
         {
             User = new User();            
+        }
+        public static MainWindow GetMainWindow()
+        {
+            return (MainWindow)Application.Current.MainWindow;
         }
     }
 }

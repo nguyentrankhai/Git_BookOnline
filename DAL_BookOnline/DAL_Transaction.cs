@@ -160,5 +160,44 @@ namespace DAL_BookOnline
             }
             return Infos;
         }
+        public bool RechargeWallet(string userID, double amount)
+        {
+            context = new DataClassesBookOnlineDataContext();
+            tbl_TransactionInfo info = new tbl_TransactionInfo();
+            tbl_TransactionHistory his = new tbl_TransactionHistory();
+            his.AccountID = userID;
+            his.Amount = (decimal)amount;
+            his.Discount = 0;
+            his.DiscountName = "";
+            his.Note = "Nap vi tai khoan";
+            his.TransactionDate = DateTime.Now; 
+            his.TransactionID = userID + DateTime.Now.ToString("hhmmss");
+            his.TransactionName= "Nap vi tai khoan";
+
+            info.Price = (decimal)amount;
+            info.ProductID = "NAPTIEN";
+            info.ProductName = "NAP VI TAI KHOAN";
+            info.Quantity = 1;
+            info.TransactionDate = DateTime.Now; ;
+            info.TransactionID = his.TransactionID;
+            try
+            {
+                context.tbl_TransactionInfos.InsertOnSubmit(info);
+                context.tbl_TransactionHistories.InsertOnSubmit(his);
+                
+
+                tbl_Account account = new tbl_Account();
+                account = context.tbl_Accounts.Where(x => x.AccountID == userID).SingleOrDefault();
+                account.Wallet += (decimal)amount;
+
+                context.SubmitChanges();
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

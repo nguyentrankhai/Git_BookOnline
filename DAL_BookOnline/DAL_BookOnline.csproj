@@ -86,6 +86,7 @@
     <Compile Include="DAL_Follow.cs" />
     <Compile Include="DAL_Language.cs" />
     <Compile Include="DAL_PackageExpiry.cs" />
+    <Compile Include="DAL_Payment.cs" />
     <Compile Include="DAL_Publisher.cs" />
     <Compile Include="DAL_Rating.cs" />
     <Compile Include="DAL_Transaction.cs" />

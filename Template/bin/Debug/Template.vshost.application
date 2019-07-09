@@ -4,17 +4,17 @@
   <description asmv2:publisher="Template" asmv2:product="Template" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.6.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Template.exe.manifest" size="108713">
+    <dependentAssembly dependencyType="install" codebase="Template.exe.manifest" size="109755">
       <assemblyIdentity name="Template.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>MsamiX0gl2KfdljsFfRv4qGNhWmDnWCFgsAnLKQs5Kg=</dsig:DigestValue>
+        <dsig:DigestValue>c6ZTuq5xS6uCYnQig8a2ckCwPEJCsaN37AeRcXMsceA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

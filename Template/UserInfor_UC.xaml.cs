@@ -96,6 +96,13 @@ namespace Template
             }
             getLstFollowing();
         }
+
+        private async void btnNapVi_Click(object sender, RoutedEventArgs e)
+        {
+            var sampleMessageDialog = new Payment_UC();
+
+            await DialogHost.Show(sampleMessageDialog, "RootDialog");
+        }
     }
     //, StringFormat='{}{0:dd/MM/yyyy}'
     public class UserInfo

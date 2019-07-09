@@ -98,5 +98,11 @@
         <elementListCompartment Id="f337b1d5-31ca-4be9-9d66-97d18976ab28" absoluteBounds="7.015, 5.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="9b1b90ed-adfd-470d-9b5b-b82a9e46d356" absoluteBounds="3.5, 3, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClassesBookOnlineDataContext/tbl_BranchPayment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="145c1dcc-bb59-448e-a5e6-979885033bce" absoluteBounds="3.515, 3.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

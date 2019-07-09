@@ -17,6 +17,10 @@ namespace Template
     /// </summary>
     public partial class MainWindow : Window
     {        
+        public void SetContentControl(UserControl uc)
+        {
+            this.MainContent.Content = uc;
+        }
         public MainWindow()
         {
             InitializeComponent();            
