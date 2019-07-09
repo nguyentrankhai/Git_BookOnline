@@ -46,6 +46,7 @@
     <Compile Include="BUS_Comment.cs" />
     <Compile Include="BUS_Follow.cs" />
     <Compile Include="BUS_PackageExpiry.cs" />
+    <Compile Include="BUS_Payment.cs" />
     <Compile Include="BUS_RatingBook.cs" />
     <Compile Include="BUS_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

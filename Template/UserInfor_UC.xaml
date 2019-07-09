@@ -92,7 +92,11 @@
                             <TextBlock Text="{Binding ID1}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
                             <TextBlock Text="{Binding Gen}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
                             <TextBlock Text="{Binding SigninDate}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
-                            <TextBlock Text="{Binding Wallet ,StringFormat=N1}"  Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
+                            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+                                <TextBlock Width="150" Text="{Binding Wallet ,StringFormat=N0}"   VerticalAlignment="Center" FontSize="15" Margin="5"/>
+                                <Button Margin="5" Name="btnNapVi" Click="btnNapVi_Click">Nạp ví</Button>
+                            </StackPanel>
+                            
                             <TextBlock Text="{Binding Remaining}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" FontSize="15" Margin="5"/>
                         </Grid>
                     </Grid>

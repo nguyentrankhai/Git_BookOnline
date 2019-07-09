@@ -15,9 +15,13 @@ namespace DAL_BookOnline
             BinaryWriter bw;
             string id = user.ID1, pass = user.Password;
             string token = id + "||" + pass;
+            if (!File.Exists(@".\User\"))
+            {
+                Directory.CreateDirectory(@".\User\");
+            }
             try
             {
-                bw = new BinaryWriter(new FileStream(@".\User\abcde.txt", FileMode.Create));
+                bw = new BinaryWriter(new FileStream(@".\User\account.txt", FileMode.Create));
                 
                 bw.Write(Base64Encode(token));
             }
@@ -31,7 +35,7 @@ namespace DAL_BookOnline
             BinaryReader br;
             try
             {
-                br = new BinaryReader(new FileStream(@".\User\abcde.txt", FileMode.Open));
+                br = new BinaryReader(new FileStream(@".\User\account.txt", FileMode.Open));
                 string token = Base64Decode(br.ReadString());
                 string id = token.Substring(0, token.IndexOf("||"));
                 string pass = token.Substring(token.IndexOf("||"), token.Length - id.Length).Replace("||","");

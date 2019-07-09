@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Template</RootNamespace>
     <AssemblyName>Template</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -30,6 +30,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -108,6 +109,10 @@
       <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Toolkit.Wpf.UI.Controls.WebView, Version=5.1.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Toolkit.Wpf.UI.Controls.WebView.5.1.1\lib\net462\Microsoft.Toolkit.Wpf.UI.Controls.WebView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PDFLibNet">
       <HintPath>..\DLL_BookOnline\PDFLibNet.dll</HintPath>
     </Reference>
@@ -119,9 +124,13 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -144,12 +153,18 @@
     <Compile Include="BookInfo_UC.xaml.cs">
       <DependentUpon>BookInfo_UC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="delBookofUser_UC.xaml.cs">
+      <DependentUpon>delBookofUser_UC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Domain\CheckData.cs" />
     <Compile Include="Domain\Highlight\Highlight.cs" />
     <Compile Include="Domain\Highlight\HighlightCollection.cs" />
     <Compile Include="Domain\Highlight\HighlightHandler.cs" />
     <Compile Include="Domain\SaveFile\DataSheet.cs" />
     <Compile Include="Domain\SaveFile\SaveXmindFile.cs" />
+    <Compile Include="Domain\VNPayment\OrderInfo.cs" />
+    <Compile Include="Domain\VNPayment\UtilPayment.cs" />
+    <Compile Include="Domain\VNPayment\VnPayLibrary.cs" />
     <Compile Include="Domain\XmindAPI\XMindAPI.cs" />
     <Compile Include="Domain\XmindAPI\ZipStorer.cs" />
     <Compile Include="DownloadMessageWindow.xaml.cs">
@@ -166,6 +181,9 @@
     </Compile>
     <Compile Include="OtherInfo_UC.xaml.cs">
       <DependentUpon>OtherInfo_UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Payment_UC.xaml.cs">
+      <DependentUpon>Payment_UC.xaml</DependentUpon>
     </Compile>
     <Compile Include="PDFWindow.xaml.cs">
       <DependentUpon>PDFWindow.xaml</DependentUpon>
@@ -189,12 +207,18 @@
     <Compile Include="Transaction_UC.xaml.cs">
       <DependentUpon>Transaction_UC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="unFollow_UC.xaml.cs">
+      <DependentUpon>unFollow_UC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserInfor_UC.xaml.cs">
       <DependentUpon>UserInfor_UC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Domain\VirtualizingWrapPanel.cs" />
     <Compile Include="WareHouse_UC.xaml.cs">
       <DependentUpon>WareHouse_UC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WebView_UC.xaml.cs">
+      <DependentUpon>WebView_UC.xaml</DependentUpon>
     </Compile>
     <Compile Include="XtraReport_TransactionReport.cs">
       <SubType>Component</SubType>
@@ -209,6 +233,10 @@
     <Page Include="BookStore_UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="delBookofUser_UC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="DownloadMessageWindow.xaml">
       <SubType>Designer</SubType>
@@ -245,6 +273,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Payment_UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PDFWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -273,11 +305,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="unFollow_UC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserInfor_UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WareHouse_UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WebView_UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -358,6 +398,12 @@
   <ItemGroup>
     <Resource Include="Resources\background2.jpg" />
     <Resource Include="Resources\background3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\backgroundLogin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\vnpaylogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

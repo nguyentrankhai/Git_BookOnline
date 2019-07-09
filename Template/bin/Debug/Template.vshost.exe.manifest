@@ -42,26 +42,31 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BUS_BookOnline.dll" size="8704">
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="System.Runtime.WindowsRuntime" version="4.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BUS_BookOnline.dll" size="9216">
       <assemblyIdentity name="BUS_BookOnline" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>abqCEftSoqL9wjzid5zm66EDNUUjNdciEqIhjSODa30=</dsig:DigestValue>
+        <dsig:DigestValue>u0h7WXw8Bs5jY2mlhKI7e3F3d9MUw/n7LKUQfjIHPjo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL_BookOnline.dll" size="71168">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL_BookOnline.dll" size="80896">
       <assemblyIdentity name="DAL_BookOnline" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>tMyqX7Y7bWrFYIQUMgHz+WSx2rw2T2AYrwVxJXJVLvQ=</dsig:DigestValue>
+        <dsig:DigestValue>8JNaZX+w9wJ9PnkjSRpl8RTk+X3ooEZLo5qYdN7tXiM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1722,14 +1727,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DTO_Book.dll" size="22016">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DTO_Book.dll" size="23552">
       <assemblyIdentity name="DTO_Book" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lrOpQNmGFn+Chfpu2/vyNuKJ2L+N4N5VHfD8s5iWoWs=</dsig:DigestValue>
+        <dsig:DigestValue>nhYL/7819bi9VwC2D+M1MaJnisyzEBR5DqHdxPvHTHE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1754,6 +1759,18 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>NiWdd89+nc/VAtW+Wx3RsClBQBLysHtrOkLs7iPXeoo=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Toolkit.Wpf.UI.Controls.WebView.dll" size="151072">
+      <assemblyIdentity name="Microsoft.Toolkit.Wpf.UI.Controls.WebView" version="5.1.0.0" publicKeyToken="4AFF67A105548EE2" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>3H3XYrpx77NNDG8cYFDTamEy3OcxSsxqyPmDtxF1E8I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1794,24 +1811,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Template.exe" size="1498592">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Template.exe" size="2659296">
       <assemblyIdentity name="Template" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ADeMXTkIwpXBbgWS3YPFlElbFuEgLhghlMWCfzxBQWw=</dsig:DigestValue>
+        <dsig:DigestValue>f+5lbBNCIttS2hNX/p3Pf2ku2qqcAwQ1hBLgbpNsZII=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Template.exe.config" size="437">
+  <file name="Template.exe.config" size="1058">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>tw9NRhOyQDTJGaYTE7VJ2CzGR3Y9xG0sp3FIti0GqOw=</dsig:DigestValue>
+      <dsig:DigestValue>HSSbdozWjVBcr0ooi2lB4o/cNwS5+m0CoIU2qEMXWU4=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
