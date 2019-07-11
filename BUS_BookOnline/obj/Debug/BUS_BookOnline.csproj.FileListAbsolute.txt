@@ -34,3 +34,26 @@ D:\LuanVan\WPF\WPF_New\BUS_BookOnline\bin\Debug\DTO_Book.pdb
 D:\LuanVan\WPF\WPF_New\BUS_BookOnline\obj\Debug\BUS_BookOnline.csprojResolveAssemblyReference.cache
 D:\LuanVan\WPF\WPF_New\BUS_BookOnline\obj\Debug\BUS_BookOnline.dll
 D:\LuanVan\WPF\WPF_New\BUS_BookOnline\obj\Debug\BUS_BookOnline.pdb
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\BUS_BookOnline.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\BUS_BookOnline.pdb
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\DAL_BookOnline.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\DTO_Book.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\RestSharp.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\DevExpress.Data.v18.1.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\DAL_BookOnline.pdb
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\DTO_Book.pdb
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\RestSharp.xml
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\DevExpress.Data.v18.1.xml
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\de\DevExpress.Pdf.v18.1.Core.resources.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\es\DevExpress.Pdf.v18.1.Core.resources.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\ja\DevExpress.Pdf.v18.1.Core.resources.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\ru\DevExpress.Pdf.v18.1.Core.resources.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\obj\Debug\BUS_BookOnline.csprojResolveAssemblyReference.cache
+G:\Source Book Online\Git Source Code\BUS_BookOnline\obj\Debug\BUS_BookOnline.dll
+G:\Source Book Online\Git Source Code\BUS_BookOnline\obj\Debug\BUS_BookOnline.pdb

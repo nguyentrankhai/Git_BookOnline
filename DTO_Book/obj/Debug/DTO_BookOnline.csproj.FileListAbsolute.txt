@@ -13,3 +13,19 @@ D:\LuanVan\WPF\WPF_New\DTO_Book\bin\Debug\DTO_Book.pdb
 D:\LuanVan\WPF\WPF_New\DTO_Book\obj\Debug\DTO_BookOnline.csprojResolveAssemblyReference.cache
 D:\LuanVan\WPF\WPF_New\DTO_Book\obj\Debug\DTO_Book.dll
 D:\LuanVan\WPF\WPF_New\DTO_Book\obj\Debug\DTO_Book.pdb
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\DTO_Book.dll
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\DTO_Book.pdb
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\DevExpress.Data.v18.1.dll
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\DevExpress.Data.v18.1.xml
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\de\DevExpress.Pdf.v18.1.Core.resources.dll
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\es\DevExpress.Pdf.v18.1.Core.resources.dll
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\ja\DevExpress.Pdf.v18.1.Core.resources.dll
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\ru\DevExpress.Pdf.v18.1.Core.resources.dll
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+G:\Source Book Online\Git Source Code\DTO_Book\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+G:\Source Book Online\Git Source Code\DTO_Book\obj\Debug\DTO_Book.dll
+G:\Source Book Online\Git Source Code\DTO_Book\obj\Debug\DTO_Book.pdb

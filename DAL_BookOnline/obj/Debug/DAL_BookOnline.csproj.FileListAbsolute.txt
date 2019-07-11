@@ -29,3 +29,35 @@ D:\LuanVan\WPF\WPF_New\DAL_BookOnline\bin\Debug\DTO_Book.pdb
 D:\LuanVan\WPF\WPF_New\DAL_BookOnline\obj\Debug\DAL_BookOnline.csprojResolveAssemblyReference.cache
 D:\LuanVan\WPF\WPF_New\DAL_BookOnline\obj\Debug\DAL_BookOnline.dll
 D:\LuanVan\WPF\WPF_New\DAL_BookOnline\obj\Debug\DAL_BookOnline.pdb
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\DAL_BookOnline.dll.config
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\DAL_BookOnline.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\DAL_BookOnline.pdb
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\DTO_Book.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\Microsoft.Extensions.Logging.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\Newtonsoft.Json.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\RestClient.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\RestSharp.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\DevExpress.Data.v18.1.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\DTO_Book.pdb
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\Microsoft.Extensions.Logging.xml
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\Newtonsoft.Json.xml
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\RestSharp.xml
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\DevExpress.Data.v18.1.xml
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\de\DevExpress.Pdf.v18.1.Core.resources.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\es\DevExpress.Pdf.v18.1.Core.resources.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\ja\DevExpress.Pdf.v18.1.Core.resources.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\ru\DevExpress.Pdf.v18.1.Core.resources.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\obj\Debug\DAL_BookOnline.csprojResolveAssemblyReference.cache
+G:\Source Book Online\Git Source Code\DAL_BookOnline\obj\Debug\DAL_BookOnline.dll
+G:\Source Book Online\Git Source Code\DAL_BookOnline\obj\Debug\DAL_BookOnline.pdb
