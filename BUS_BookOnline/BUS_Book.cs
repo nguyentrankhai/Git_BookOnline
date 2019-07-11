@@ -72,7 +72,10 @@ namespace BUS_BookOnline
         {
             return dalBook.getBookWithAuthor(s);
         }
-        
+        public bool insertBook(Book bk)
+        {
+            return dalBook.insertBook(bk);
+        }
 
     }
 }

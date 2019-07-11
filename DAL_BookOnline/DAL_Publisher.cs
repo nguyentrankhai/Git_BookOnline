@@ -1,4 +1,4 @@
-﻿using DTO_Book;
+﻿using DTO_BookOnline;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +41,19 @@ namespace DAL_BookOnline
                 }
             }
             return lst;
+        }
+        public List<Publisher> getAllPublisher()
+        {
+            var pubs = db.tbl_Publishers.ToList();
+            if (pubs == null) return null;
+
+            List<Publisher> lstpub = new List<Publisher>();
+            foreach (tbl_Publisher pub in pubs)
+            {
+
+                lstpub.Add(parseSQLtoDTO(pub));
+            }
+            return lstpub;
         }
     }
 }

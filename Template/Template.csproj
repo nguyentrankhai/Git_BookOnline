@@ -101,8 +101,8 @@
     <Reference Include="DevExpress.XtraCharts.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGauges.v18.1.Core, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
@@ -170,6 +170,9 @@
     <Compile Include="DownloadMessageWindow.xaml.cs">
       <DependentUpon>DownloadMessageWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditProfile_UC.xaml.cs">
+      <DependentUpon>EditProfile_UC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ExpiryDate_UC.xaml.cs">
       <DependentUpon>ExpiryDate_UC.xaml</DependentUpon>
     </Compile>
@@ -189,6 +192,9 @@
       <DependentUpon>PDFWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Domain\Session.cs" />
+    <Compile Include="PDF_TrialWindow.xaml.cs">
+      <DependentUpon>PDF_TrialWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Preview_Report.xaml.cs">
       <DependentUpon>Preview_Report.xaml</DependentUpon>
     </Compile>
@@ -242,6 +248,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EditProfile_UC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ExpiryDate_UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -278,6 +288,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PDFWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PDF_TrialWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
