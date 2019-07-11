@@ -26,10 +26,7 @@
                     <ImageBrush ImageSource="{Binding Image1, TargetNullValue=/imgBanner/avatar.jpg}"  Stretch="UniformToFill" ></ImageBrush>
                 </Ellipse.Fill>
             </Ellipse>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Margin="5" FontSize="20" Text="@"  HorizontalAlignment="Center" Foreground="White"/>
-                <TextBlock Margin="5" FontSize="20" Text="ID" Name="txtID" HorizontalAlignment="Center" Foreground="White"/>
-            </StackPanel>
+            <TextBlock Margin="5" FontSize="20" Text="@ID" Name="txtID" HorizontalAlignment="Center" Foreground="White"/>
         </StackPanel>
         
         <TabControl Grid.Row="1" HorizontalAlignment="Center"  Margin="5" BorderBrush="#00000000">
@@ -51,7 +48,7 @@
                         <TextBlock Grid.Column="1" Grid.Row="0" Name="txtChinhSua" FontSize="10" 
                            Foreground="#157dd7" VerticalAlignment="Center" Margin="20 0 0 0" 
                            Cursor="Hand" ><!--MouseDown="txtChinhSua_MouseDown"-->
-	            <StackPanel Orientation="Horizontal" MouseLeftButtonUp="StackPanel_MouseLeftButtonUp">
+	            <StackPanel Orientation="Horizontal">
 		            <materialDesign:PackIcon Kind="Pencil" Height="12" Width="12"/>
 		            <TextBlock>Chỉnh sửa</TextBlock>
 	            </StackPanel>                

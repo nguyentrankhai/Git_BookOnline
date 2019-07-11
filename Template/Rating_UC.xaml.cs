@@ -112,10 +112,6 @@ namespace Template
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
             Ellipse ellipse = sender as Ellipse;
             User us = ellipse.DataContext as User;
-            if (us.ID1 == Session.User.ID1)
-            {
-                return;
-            }
             object uc = new OtherInfo_UC(us);
             mainWindow.MainContent.Content = uc;
             DialogHost.CloseDialogCommand.Execute(null, null);

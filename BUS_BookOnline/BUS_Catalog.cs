@@ -14,9 +14,5 @@ namespace BUS_BookOnline
         {
             return dal_cato.getAllCatalog();
         }
-        public bool insertCatalog(Catalog cata)
-        {
-            return dal_cato.insertCatalog(cata);
-        }
     }
 }

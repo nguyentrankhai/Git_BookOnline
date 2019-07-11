@@ -58,7 +58,7 @@ namespace Template
                 Remaining = DateTime.Compare(DateTime.Today, Session.User.Remaining) > 0 ? "Hết hạn đọc sách" : "Còn hạn đến hết ngày " + Session.User.Remaining.ToString("dd/MM/yyyy")
             };
             gridInfo.DataContext = info;
-            txtID.Text = Session.User.ID1;
+            txtID.Text = "@" + Session.User.ID1;
             //btnFollow.Visibility = Visibility.Hidden;
         }
         private Follow isFollow()
@@ -72,10 +72,6 @@ namespace Template
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
             Ellipse ellipse = sender as Ellipse;
             User us = ellipse.DataContext as User;
-            if(us.ID1== Session.User.ID1)
-            {
-                return;
-            }
             object uc = new OtherInfo_UC(us);
             mainWindow.MainContent.Content = uc;
             DialogHost.CloseDialogCommand.Execute(null, null);
@@ -89,7 +85,7 @@ namespace Template
 
         private async void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (followingID != "" && followingID!=Session.User.ID1)
+            if (followingID != "")
             {
                 var sampleMessageDialog = new unFollow_UC(followingID)
                 {
@@ -106,13 +102,6 @@ namespace Template
             var sampleMessageDialog = new Payment_UC();
 
             await DialogHost.Show(sampleMessageDialog, "RootDialog");
-        }
-
-        private void StackPanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
-            object uc = new EditProfile_UC();
-            mainWindow.MainContent.Content = uc;
         }
     }
     //, StringFormat='{}{0:dd/MM/yyyy}'

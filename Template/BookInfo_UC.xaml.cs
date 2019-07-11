@@ -114,42 +114,12 @@ namespace Template
         {
             if (Session.User != null)
             {
-                //var sampleMessageDialog = new SampleMessageDialog
-                //{
-                //    Message = { Text = "Chức năng này đang phát triển." }
-                //};
-
-                //await DialogHost.Show(sampleMessageDialog, "RootDialog");
-                string path = "trial\\" + book.Id + ".pdf";
-                if (CheckData.IsFileExists(path))
+                var sampleMessageDialog = new SampleMessageDialog
                 {
-                    MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
-                    mainWindow.WindowState = WindowState.Minimized;
-                    PDF_TrialWindow.BOOK = book;
-                    PDF_TrialWindow window = new PDF_TrialWindow();
-                    window.Show();
-                }
-                else
-                {
-                    if (CheckData.IsInternet("google.com"))
-                    {
-                        MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
-                        mainWindow.WindowState = WindowState.Minimized;
-                        DownloadMessageWindow w = new DownloadMessageWindow();
-                        w.book = book;
-                        w.path = path;
-                        w.Show();
-                    }
-                    else
-                    {
-                        var sampleMessageDialog = new SampleMessageDialog
-                        {
-                            Message = { Text = "Vui lòng kiểm tra lại kết nối internet." }
-                        };
+                    Message = { Text = "Chức năng này đang phát triển." }
+                };
 
-                        await DialogHost.Show(sampleMessageDialog, "RootDialog");
-                    }
-                }
+                await DialogHost.Show(sampleMessageDialog, "RootDialog");
             }
             else
             {

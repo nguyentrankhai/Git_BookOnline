@@ -156,11 +156,7 @@ namespace DAL_BookOnline
                 tbl_Account us = context.tbl_Accounts.Single(x => x.AccountID == user.ID1);
                 us.NAME = user.Username;
                 us.PWD = user.Password;
-                if (user.Gen == "Nữ")
-                {
-                    us.GEN = false;
-                }
-                else us.GEN = true;
+
                 if (path != "" && path != null)
                     us.IMG = ImageToBinary(path);
 

@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace DTO_BookOnline
 {
-    public class Author
+    class Author
     {
         #region properties
-        private string id;
         private string name;
         private string summary;//tóm tắt tiểu sử
         private DateTime date;
         private bool gen;
         private string img; //đường dẫn hình ảnh của tác giả
         private string note;
-        private string country;
+
         public string Name
         {
             get
@@ -92,32 +91,6 @@ namespace DTO_BookOnline
             set
             {
                 note = value;
-            }
-        }
-
-        public string Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-            }
-        }
-
-        public string Country
-        {
-            get
-            {
-                return country;
-            }
-
-            set
-            {
-                country = value;
             }
         }
         #endregion

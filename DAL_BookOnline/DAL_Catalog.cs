@@ -19,7 +19,10 @@ namespace DAL_BookOnline
                 {
                     foreach (var cat in lst)
                     {
-                        lstCatalog.Add(parseSQLtoDTO(cat));
+                        Catalog cata = new Catalog();
+                        cata.Id = cat.CatalogID;
+                        cata.Name = cat.CatalogNAME;
+                        lstCatalog.Add(cata);
                     }
                 }
             }
@@ -29,34 +32,5 @@ namespace DAL_BookOnline
             }
             return lstCatalog;
         }
-        private Catalog parseSQLtoDTO(tbl_Catalog cat)
-        {
-            Catalog cata = new Catalog();
-            cata.Id = cat.CatalogID;
-            cata.Name = cat.CatalogNAME;
-            return cata;
-        }
-
-        public bool insertCatalog(Catalog cata)
-        {
-            bool result = false;
-            try
-            {
-                DataClassesBookOnlineDataContext context = new DataClassesBookOnlineDataContext();
-                tbl_Catalog us = new tbl_Catalog();
-                us.CatalogID = cata.Id;
-                us.CatalogNAME = cata.Name;
-               
-                context.tbl_Catalogs.InsertOnSubmit(us);
-                context.SubmitChanges();
-                result = true;
-            }
-            catch (Exception ex)
-            {
-                System.Console.Write(ex.Message);
-            }
-            return result;
-        }
-
     }
 }
