@@ -43,11 +43,10 @@ namespace DAL_BookOnline
             u.ID1 = user.AccountID;
             u.Password = user.PWD;
             u.Username = user.NAME;
-            u.SigninDate = user.SignupDate.ToString("dd/MM/yyyy");
             u.Gen = user.GEN == true ? "Nam" : "Nữ";
             u.Status = user.Status == 1 ? 1 : 0;
             u.Wallet = (double)user.Wallet;
-            u.Remaining = user.RemainingTime.Value;
+            u.Remaining = user.RemainingTime;
             u.Note = user.NOTE;
             u.Image1 = (ImageSource)convertImage("imgBanner/avatar.jpg");
             if (user.IMG != null)
@@ -138,6 +137,10 @@ namespace DAL_BookOnline
                 tbl_Account us = new tbl_Account();
                 us.AccountID = user.ID1;
                 us.PWD = user.Password;
+                us.NAME = user.Username;
+                us.GEN = user.Gen == "1" ? true : false ;
+                us.Wallet = (decimal) user.Wallet;
+                us.RemainingTime = user.Remaining;
                 context.tbl_Accounts.InsertOnSubmit(us);
                 context.SubmitChanges();
                 result = true;
@@ -156,7 +159,11 @@ namespace DAL_BookOnline
                 tbl_Account us = context.tbl_Accounts.Single(x => x.AccountID == user.ID1);
                 us.NAME = user.Username;
                 us.PWD = user.Password;
-
+                if (user.Gen == "Nữ")
+                {
+                    us.GEN = false;
+                }
+                else us.GEN = true;
                 if (path != "" && path != null)
                     us.IMG = ImageToBinary(path);
 

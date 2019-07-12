@@ -5,13 +5,12 @@
       <Column Name="AccountID" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="NAME" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="PWD" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
-      <Column Name="GEN" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="GEN" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Wallet" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="IMG" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="NOTE" Type="System.String" DbType="Char(100)" CanBeNull="true" />
-      <Column Name="RemainingTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RemainingTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SignupDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_TransactionInfo" Member="tbl_TransactionInfos">
@@ -62,16 +61,47 @@
       <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_Book" Member="tbl_Books">
+    <Type Name="tbl_Book">
+      <Column Name="BookID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BookNAME" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="catalo" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="LangID" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="AUTHOR" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUMMARY" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="PRICE" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="Char(1000)" CanBeNull="true" />
+      <Column Name="TRIAL_URL" Type="System.String" DbType="Char(1000)" CanBeNull="true" />
+      <Column Name="IMG" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="NOTE" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DateUpdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_BookofUser" Member="tbl_BookofUsers">
     <Type Name="tbl_BookofUser">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="USERID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="BOOKID" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USERID" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BOOKID" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="PAGE" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="LastView" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Status" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="NOTE" Type="System.String" DbType="Char(100)" CanBeNull="true" />
       <Column Name="[_Date]" Member="_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_BookPublisher" Member="tbl_BookPublishers">
+    <Type Name="tbl_BookPublisher">
+      <Column Name="BookID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PublisherID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_BranchPayment" Member="tbl_BranchPayments">
+    <Type Name="tbl_BranchPayment">
+      <Column Name="BranchCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BranchName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Catalog" Member="tbl_Catalogs">
@@ -105,6 +135,22 @@
       <Column Name="[_Status]" Member="_Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_Language" Member="tbl_Languages">
+    <Type Name="tbl_Language">
+      <Column Name="LangID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LangName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Mapping" Member="tbl_Mappings">
+    <Type Name="tbl_Mapping">
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Tag" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_Package" Member="tbl_Packages">
     <Type Name="tbl_Package">
       <Column Name="PackageID" Type="System.String" DbType="Char(10)" CanBeNull="true" />
@@ -114,6 +160,16 @@
       <Column Name="PackagePrice" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Color" Type="System.String" DbType="Char(20)" CanBeNull="true" />
       <Column Name="PackageDay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Publisher" Member="tbl_Publishers">
+    <Type Name="tbl_Publisher">
+      <Column Name="PublisherID" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PublisherName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Tel" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="[E-mail]" Member="E_mail" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="Char(15)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Rating" Member="tbl_Ratings">
@@ -134,53 +190,6 @@
       <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="Discount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="DiscountName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_BookPublisher" Member="tbl_BookPublishers">
-    <Type Name="tbl_BookPublisher">
-      <Column Name="BookID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PublisherID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_Language" Member="tbl_Languages">
-    <Type Name="tbl_Language">
-      <Column Name="LangID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="LangName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_Publisher" Member="tbl_Publishers">
-    <Type Name="tbl_Publisher">
-      <Column Name="PublisherID" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PublisherName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Tel" Type="System.String" DbType="Char(15)" CanBeNull="true" />
-      <Column Name="[E-mail]" Member="E_mail" Type="System.String" DbType="Char(50)" CanBeNull="true" />
-      <Column Name="Fax" Type="System.String" DbType="Char(15)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_Book" Member="tbl_Books">
-    <Type Name="tbl_Book">
-      <Column Name="BookID" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="BookNAME" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="catalo" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="LangID" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
-      <Column Name="AUTHOR" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="YEAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SUMMARY" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
-      <Column Name="PRICE" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="URL" Type="System.String" DbType="Char(1000)" CanBeNull="true" />
-      <Column Name="TRIAL_URL" Type="System.String" DbType="Char(1000)" CanBeNull="true" />
-      <Column Name="IMG" Type="System.String" DbType="Char(100)" CanBeNull="true" />
-      <Column Name="NOTE" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="DateUpdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_BranchPayment" Member="tbl_BranchPayments">
-    <Type Name="tbl_BranchPayment">
-      <Column Name="BranchCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="BranchName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Status" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

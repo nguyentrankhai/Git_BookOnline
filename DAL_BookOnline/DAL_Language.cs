@@ -1,4 +1,4 @@
-﻿using DTO_Book;
+﻿using DTO_BookOnline;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +29,40 @@ namespace DAL_BookOnline
                 return parseSQLtoDTO(lang);
             }
             return null;
+        }
+        public List<Language> getAllLanguage()
+        {
+            var langs = db.tbl_Languages.ToList();
+            if (langs == null) return null;
+
+            List<Language> lstlang = new List<Language>();
+            foreach (tbl_Language lang in langs)
+            {
+
+                lstlang.Add(parseSQLtoDTO(lang));
+            }
+            return lstlang;
+        }
+
+        public bool insertLang(Language lang)
+        {
+            bool result = false;
+            try
+            {
+                DataClassesBookOnlineDataContext context = new DataClassesBookOnlineDataContext();
+                tbl_Language us = new tbl_Language();
+                us.LangID = lang.LangID;
+                us.LangName = lang.LangName;
+
+                context.tbl_Languages.InsertOnSubmit(us);
+                context.SubmitChanges();
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                System.Console.Write(ex.Message);
+            }
+            return result;
         }
 
     }

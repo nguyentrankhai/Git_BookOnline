@@ -7,14 +7,18 @@
     <framework targetVersion="4.6.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Template.exe.manifest" size="109755">
+    <dependentAssembly dependencyType="install" codebase="Template.exe.manifest" size="107408">
       <assemblyIdentity name="Template.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+<<<<<<< HEAD
         <dsig:DigestValue>xLs/rWo26glOtxtGGDKm11M7Z6DRWsq1EBEA8ni7LaA=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>3nZgadPhPBYDCcntI0PbPRDnCXDq3v8RE/qXYgSafK0=</dsig:DigestValue>
+>>>>>>> 8955a407f455d88ac3568469077755e719e65f35
       </hash>
     </dependentAssembly>
   </dependency>
