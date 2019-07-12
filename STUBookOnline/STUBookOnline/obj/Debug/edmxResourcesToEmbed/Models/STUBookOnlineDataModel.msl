@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookOnlineModelStoreContainer" CdmEntityContainer="BookOnlineEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BookOnlineModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Account">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_Account">
+        <MappingFragment StoreEntitySet="tbl_Account">
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PWD" ColumnName="PWD" />
+          <ScalarProperty Name="GEN" ColumnName="GEN" />
+          <ScalarProperty Name="Wallet" ColumnName="Wallet" />
+          <ScalarProperty Name="IMG" ColumnName="IMG" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="RemainingTime" ColumnName="RemainingTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SignupDate" ColumnName="SignupDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Annotation">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_Annotation">
+        <MappingFragment StoreEntitySet="tbl_Annotation">
+          <ScalarProperty Name="Annotation_id" ColumnName="Annotation_id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="book_name" ColumnName="book_name" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="Annotation_text" ColumnName="Annotation_text" />
+          <ScalarProperty Name="page_number" ColumnName="page_number" />
+          <ScalarProperty Name="Annotation_type" ColumnName="Annotation_type" />
+          <ScalarProperty Name="Annotation_color" ColumnName="Annotation_color" />
+          <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+          <ScalarProperty Name="modificationDate" ColumnName="modificationDate" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="QX1" ColumnName="QX1" />
+          <ScalarProperty Name="qy1" ColumnName="qy1" />
+          <ScalarProperty Name="qx2" ColumnName="qx2" />
+          <ScalarProperty Name="qy2" ColumnName="qy2" />
+          <ScalarProperty Name="qx3" ColumnName="qx3" />
+          <ScalarProperty Name="qy3" ColumnName="qy3" />
+          <ScalarProperty Name="qx4" ColumnName="qx4" />
+          <ScalarProperty Name="qy4" ColumnName="qy4" />
+          <ScalarProperty Name="Annotation_Comment" ColumnName="Annotation_Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Author">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_Author">
+        <MappingFragment StoreEntitySet="tbl_Author">
+          <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+          <ScalarProperty Name="AuthorNAME" ColumnName="AuthorNAME" />
+          <ScalarProperty Name="GEN" ColumnName="GEN" />
+          <ScalarProperty Name="BIRTHDAY" ColumnName="BIRTHDAY" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+          <ScalarProperty Name="SUMMARY" ColumnName="SUMMARY" />
+          <ScalarProperty Name="IMG" ColumnName="IMG" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Book">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_Book">
+        <MappingFragment StoreEntitySet="tbl_Book">
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="BookNAME" ColumnName="BookNAME" />
+          <ScalarProperty Name="catalo" ColumnName="catalo" />
+          <ScalarProperty Name="LangID" ColumnName="LangID" />
+          <ScalarProperty Name="AUTHOR" ColumnName="AUTHOR" />
+          <ScalarProperty Name="YEAR" ColumnName="YEAR" />
+          <ScalarProperty Name="SUMMARY" ColumnName="SUMMARY" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="TRIAL_URL" ColumnName="TRIAL_URL" />
+          <ScalarProperty Name="IMG" ColumnName="IMG" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BookofUser">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_BookofUser">
+        <MappingFragment StoreEntitySet="tbl_BookofUser">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="BOOKID" ColumnName="BOOKID" />
+          <ScalarProperty Name="PAGE" ColumnName="PAGE" />
+          <ScalarProperty Name="LastView" ColumnName="LastView" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="C_Date" ColumnName="_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BookPublisher">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_BookPublisher">
+        <MappingFragment StoreEntitySet="tbl_BookPublisher">
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Catalog">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_Catalog">
+        <MappingFragment StoreEntitySet="tbl_Catalog">
+          <ScalarProperty Name="CatalogID" ColumnName="CatalogID" />
+          <ScalarProperty Name="CatalogNAME" ColumnName="CatalogNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Comment">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_Comment">
+        <MappingFragment StoreEntitySet="tbl_Comment">
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="C_Status" ColumnName="_Status" />
+          <ScalarProperty Name="C_Date" ColumnName="_Date" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Follow">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_Follow">
+        <MappingFragment StoreEntitySet="tbl_Follow">
+          <ScalarProperty Name="AccountID1" ColumnName="AccountID1" />
+          <ScalarProperty Name="AccountID2" ColumnName="AccountID2" />
+          <ScalarProperty Name="C_Status" ColumnName="_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Language">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_Language">
+        <MappingFragment StoreEntitySet="tbl_Language">
+          <ScalarProperty Name="LangID" ColumnName="LangID" />
+          <ScalarProperty Name="LangName" ColumnName="LangName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Publisher">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_Publisher">
+        <MappingFragment StoreEntitySet="tbl_Publisher">
+          <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+          <ScalarProperty Name="PublisherName" ColumnName="PublisherName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Rating">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_Rating">
+        <MappingFragment StoreEntitySet="tbl_Rating">
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="C_Date" ColumnName="_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TransactionHistory">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_TransactionHistory">
+        <MappingFragment StoreEntitySet="tbl_TransactionHistory">
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="TransactionName" ColumnName="TransactionName" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="DiscountName" ColumnName="DiscountName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TransactionInfo">
+      <EntityTypeMapping TypeName="BookOnlineModel.tbl_TransactionInfo">
+        <MappingFragment StoreEntitySet="tbl_TransactionInfo">
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

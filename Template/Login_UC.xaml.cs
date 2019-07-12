@@ -54,6 +54,7 @@ namespace Template
                     if (check)
                     {
                         uc = new BookStore_UC();
+                        Session.User = user;
                         mainWindow.MainContent.Content = uc;
                     }
                     break;
@@ -106,11 +107,14 @@ namespace Template
             user.ID1 = txtUserName.Text;
             user.Password = txtPassword.Password.ToString();
             user.Username = txtFullName.Text;
+            user.Gen = rdbMen.IsChecked == true ? "1" : "0";
+            user.Remaining = DateTime.Now;
+            user.Wallet = 0;
             if (txtUserName.Text == "")
             {
                 MessageBox.Show("Tên đăng nhập không được để trống.");
             }
-            if (txtPassword.Password.ToString() != "")
+            if (txtPassword.Password.ToString() == "")
             {
                 MessageBox.Show("Mật khẩu không được để trống.");
             }
@@ -118,11 +122,12 @@ namespace Template
             {
                 MessageBox.Show("Mật khẩu không khớp.");
             }
-            if(txtUserName.Text != "" && txtPwd.Password.ToString()!="")
+            if(txtUserName.Text != "" && txtPassword.Password.ToString()!="")
             {
                 if (b_user.insertUser(user) != false)
-                {
+                {   
                     return true;
+                    
                 }
                 else
                 {

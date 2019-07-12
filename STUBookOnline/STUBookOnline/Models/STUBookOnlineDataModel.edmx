@@ -1,0 +1,672 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BookOnlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Account">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="20" />
+          <Property Name="PWD" Type="nvarchar" MaxLength="12" />
+          <Property Name="GEN" Type="bit" Nullable="false" />
+          <Property Name="Wallet" Type="money" />
+          <Property Name="IMG" Type="varbinary(max)" />
+          <Property Name="NOTE" Type="char" MaxLength="100" />
+          <Property Name="RemainingTime" Type="datetime" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="SignupDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Annotation">
+          <Key>
+            <PropertyRef Name="Annotation_id" />
+          </Key>
+          <Property Name="Annotation_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="book_id" Type="varchar" MaxLength="10" />
+          <Property Name="book_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="user_id" Type="varchar" MaxLength="15" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Annotation_text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="page_number" Type="int" />
+          <Property Name="Annotation_type" Type="varchar" MaxLength="50" />
+          <Property Name="Annotation_color" Type="varchar" MaxLength="50" />
+          <Property Name="creationDate" Type="datetime" />
+          <Property Name="modificationDate" Type="datetime" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="255" />
+          <Property Name="QX1" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="qy1" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="qx2" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="qy2" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="qx3" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="qy3" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="qx4" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="qy4" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Annotation_Comment" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Author">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AuthorNAME" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="GEN" Type="bit" />
+          <Property Name="BIRTHDAY" Type="date" />
+          <Property Name="COUNTRY" Type="nvarchar" MaxLength="100" />
+          <Property Name="SUMMARY" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IMG" Type="char" MaxLength="100" />
+          <Property Name="NOTE" Type="nvarchar" MaxLength="100" />
+          <Property Name="STATUS" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Book">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="BookNAME" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="catalo" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="LangID" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="AUTHOR" Type="nvarchar" MaxLength="200" />
+          <Property Name="YEAR" Type="int" />
+          <Property Name="SUMMARY" Type="nvarchar" MaxLength="2000" />
+          <Property Name="PRICE" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="URL" Type="char" MaxLength="1000" />
+          <Property Name="TRIAL_URL" Type="char" MaxLength="1000" />
+          <Property Name="IMG" Type="char" MaxLength="100" />
+          <Property Name="NOTE" Type="nvarchar" MaxLength="100" />
+          <Property Name="DateUpdate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_BookofUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="USERID" Type="varchar" MaxLength="15" />
+          <Property Name="BOOKID" Type="nvarchar" MaxLength="10" />
+          <Property Name="PAGE" Type="int" />
+          <Property Name="LastView" Type="datetime" />
+          <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="NOTE" Type="char" MaxLength="100" />
+          <Property Name="_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_BookPublisher">
+          <Key>
+            <PropertyRef Name="BookID" />
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="BookID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PublisherID" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'BookOnline.dbo.tbl_BranchPayment' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tbl_BranchPayment">
+          <Property Name="BranchCode" Type="varchar" MaxLength="50" />
+          <Property Name="BranchName" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+        </EntityType>-->
+        <EntityType Name="tbl_Catalog">
+          <Key>
+            <PropertyRef Name="CatalogID" />
+          </Key>
+          <Property Name="CatalogID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CatalogNAME" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Comment">
+          <Key>
+            <PropertyRef Name="BookID" />
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="_Date" />
+          </Key>
+          <Property Name="BookID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AccountID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="_Status" Type="int" Nullable="false" />
+          <Property Name="_Date" Type="datetime" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'BookOnline.dbo.tbl_DanhMuc' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tbl_DanhMuc">
+          <Property Name="ID" Type="varchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="SQL" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Note" Type="nvarchar" MaxLength="300" />
+        </EntityType>-->
+        <EntityType Name="tbl_Follow">
+          <Key>
+            <PropertyRef Name="AccountID1" />
+            <PropertyRef Name="AccountID2" />
+          </Key>
+          <Property Name="AccountID1" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="AccountID2" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="_Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Language">
+          <Key>
+            <PropertyRef Name="LangID" />
+          </Key>
+          <Property Name="LangID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LangName" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'BookOnline.dbo.tbl_Package' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tbl_Package">
+          <Property Name="PackageID" Type="char" MaxLength="10" />
+          <Property Name="PackageName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Note" Type="nvarchar" MaxLength="200" />
+          <Property Name="PackagePrice" Type="nvarchar" MaxLength="50" />
+          <Property Name="Color" Type="char" MaxLength="20" />
+          <Property Name="PackageDay" Type="int" />
+        </EntityType>-->
+        <EntityType Name="tbl_Publisher">
+          <Key>
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="PublisherID" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="PublisherName" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Tel" Type="char" MaxLength="15" />
+          <Property Name="E-mail" Type="char" MaxLength="50" />
+          <Property Name="Fax" Type="char" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="tbl_Rating">
+          <Key>
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="AccountID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="BookID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_TransactionHistory">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TransactionName" Type="nvarchar" MaxLength="250" />
+          <Property Name="AccountID" Type="varchar" MaxLength="15" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TransactionDate" Type="datetime" />
+          <Property Name="Note" Type="nvarchar" MaxLength="200" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DiscountName" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_TransactionInfo">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="TransactionDate" />
+          </Key>
+          <Property Name="TransactionID" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ProductID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="TransactionDate" Type="datetime" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="BookOnlineModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Account" EntityType="Self.tbl_Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Annotation" EntityType="Self.tbl_Annotation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Author" EntityType="Self.tbl_Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Book" EntityType="Self.tbl_Book" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_BookofUser" EntityType="Self.tbl_BookofUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_BookPublisher" EntityType="Self.tbl_BookPublisher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Catalog" EntityType="Self.tbl_Catalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Comment" EntityType="Self.tbl_Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Follow" EntityType="Self.tbl_Follow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Language" EntityType="Self.tbl_Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Publisher" EntityType="Self.tbl_Publisher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Rating" EntityType="Self.tbl_Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_TransactionHistory" EntityType="Self.tbl_TransactionHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_TransactionInfo" EntityType="Self.tbl_TransactionInfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BookOnlineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_Account">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PWD" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="GEN" Type="Boolean" Nullable="false" />
+          <Property Name="Wallet" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="RemainingTime" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="SignupDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_Annotation">
+          <Key>
+            <PropertyRef Name="Annotation_id" />
+          </Key>
+          <Property Name="Annotation_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="book_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="book_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="user_id" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="user_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Annotation_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="page_number" Type="Int32" />
+          <Property Name="Annotation_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Annotation_color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="creationDate" Type="DateTime" Precision="3" />
+          <Property Name="modificationDate" Type="DateTime" Precision="3" />
+          <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="QX1" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="qy1" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="qx2" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="qy2" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="qx3" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="qy3" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="qx4" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="qy4" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Annotation_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Author">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AuthorNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GEN" Type="Boolean" />
+          <Property Name="BIRTHDAY" Type="DateTime" Precision="0" />
+          <Property Name="COUNTRY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SUMMARY" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IMG" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Book">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BookNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="catalo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LangID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AUTHOR" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="YEAR" Type="Int32" />
+          <Property Name="SUMMARY" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="PRICE" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="URL" Type="String" MaxLength="1000" FixedLength="true" Unicode="false" />
+          <Property Name="TRIAL_URL" Type="String" MaxLength="1000" FixedLength="true" Unicode="false" />
+          <Property Name="IMG" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateUpdate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_BookofUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="USERID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="BOOKID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PAGE" Type="Int32" />
+          <Property Name="LastView" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="C_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_BookPublisher">
+          <Key>
+            <PropertyRef Name="BookID" />
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="BookID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PublisherID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Catalog">
+          <Key>
+            <PropertyRef Name="CatalogID" />
+          </Key>
+          <Property Name="CatalogID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CatalogNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Comment">
+          <Key>
+            <PropertyRef Name="BookID" />
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="C_Date" />
+          </Key>
+          <Property Name="BookID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccountID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="C_Status" Type="Int32" Nullable="false" />
+          <Property Name="C_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Follow">
+          <Key>
+            <PropertyRef Name="AccountID1" />
+            <PropertyRef Name="AccountID2" />
+          </Key>
+          <Property Name="AccountID1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccountID2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C_Status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Language">
+          <Key>
+            <PropertyRef Name="LangID" />
+          </Key>
+          <Property Name="LangID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LangName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Publisher">
+          <Key>
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="PublisherID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PublisherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_Rating">
+          <Key>
+            <PropertyRef Name="AccountID" />
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="AccountID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BookID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rating" Type="Int32" Nullable="false" />
+          <Property Name="C_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_TransactionHistory">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TransactionName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AccountID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+          <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DiscountName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_TransactionInfo">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="TransactionDate" />
+          </Key>
+          <Property Name="TransactionID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="BookOnlineEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tbl_Account" EntityType="Self.tbl_Account" />
+          <EntitySet Name="tbl_Annotation" EntityType="Self.tbl_Annotation" />
+          <EntitySet Name="tbl_Author" EntityType="Self.tbl_Author" />
+          <EntitySet Name="tbl_Book" EntityType="Self.tbl_Book" />
+          <EntitySet Name="tbl_BookofUser" EntityType="Self.tbl_BookofUser" />
+          <EntitySet Name="tbl_BookPublisher" EntityType="Self.tbl_BookPublisher" />
+          <EntitySet Name="tbl_Catalog" EntityType="Self.tbl_Catalog" />
+          <EntitySet Name="tbl_Comment" EntityType="Self.tbl_Comment" />
+          <EntitySet Name="tbl_Follow" EntityType="Self.tbl_Follow" />
+          <EntitySet Name="tbl_Language" EntityType="Self.tbl_Language" />
+          <EntitySet Name="tbl_Publisher" EntityType="Self.tbl_Publisher" />
+          <EntitySet Name="tbl_Rating" EntityType="Self.tbl_Rating" />
+          <EntitySet Name="tbl_TransactionHistory" EntityType="Self.tbl_TransactionHistory" />
+          <EntitySet Name="tbl_TransactionInfo" EntityType="Self.tbl_TransactionInfo" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BookOnlineModelStoreContainer" CdmEntityContainer="BookOnlineEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BookOnlineModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Account">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_Account">
+              <MappingFragment StoreEntitySet="tbl_Account">
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="GEN" ColumnName="GEN" />
+                <ScalarProperty Name="Wallet" ColumnName="Wallet" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="RemainingTime" ColumnName="RemainingTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SignupDate" ColumnName="SignupDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Annotation">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_Annotation">
+              <MappingFragment StoreEntitySet="tbl_Annotation">
+                <ScalarProperty Name="Annotation_id" ColumnName="Annotation_id" />
+                <ScalarProperty Name="book_id" ColumnName="book_id" />
+                <ScalarProperty Name="book_name" ColumnName="book_name" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="Annotation_text" ColumnName="Annotation_text" />
+                <ScalarProperty Name="page_number" ColumnName="page_number" />
+                <ScalarProperty Name="Annotation_type" ColumnName="Annotation_type" />
+                <ScalarProperty Name="Annotation_color" ColumnName="Annotation_color" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="modificationDate" ColumnName="modificationDate" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="QX1" ColumnName="QX1" />
+                <ScalarProperty Name="qy1" ColumnName="qy1" />
+                <ScalarProperty Name="qx2" ColumnName="qx2" />
+                <ScalarProperty Name="qy2" ColumnName="qy2" />
+                <ScalarProperty Name="qx3" ColumnName="qx3" />
+                <ScalarProperty Name="qy3" ColumnName="qy3" />
+                <ScalarProperty Name="qx4" ColumnName="qx4" />
+                <ScalarProperty Name="qy4" ColumnName="qy4" />
+                <ScalarProperty Name="Annotation_Comment" ColumnName="Annotation_Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Author">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_Author">
+              <MappingFragment StoreEntitySet="tbl_Author">
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="AuthorNAME" ColumnName="AuthorNAME" />
+                <ScalarProperty Name="GEN" ColumnName="GEN" />
+                <ScalarProperty Name="BIRTHDAY" ColumnName="BIRTHDAY" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="SUMMARY" ColumnName="SUMMARY" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Book">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_Book">
+              <MappingFragment StoreEntitySet="tbl_Book">
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="BookNAME" ColumnName="BookNAME" />
+                <ScalarProperty Name="catalo" ColumnName="catalo" />
+                <ScalarProperty Name="LangID" ColumnName="LangID" />
+                <ScalarProperty Name="AUTHOR" ColumnName="AUTHOR" />
+                <ScalarProperty Name="YEAR" ColumnName="YEAR" />
+                <ScalarProperty Name="SUMMARY" ColumnName="SUMMARY" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="TRIAL_URL" ColumnName="TRIAL_URL" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_BookofUser">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_BookofUser">
+              <MappingFragment StoreEntitySet="tbl_BookofUser">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="BOOKID" ColumnName="BOOKID" />
+                <ScalarProperty Name="PAGE" ColumnName="PAGE" />
+                <ScalarProperty Name="LastView" ColumnName="LastView" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="C_Date" ColumnName="_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_BookPublisher">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_BookPublisher">
+              <MappingFragment StoreEntitySet="tbl_BookPublisher">
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Catalog">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_Catalog">
+              <MappingFragment StoreEntitySet="tbl_Catalog">
+                <ScalarProperty Name="CatalogID" ColumnName="CatalogID" />
+                <ScalarProperty Name="CatalogNAME" ColumnName="CatalogNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Comment">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_Comment">
+              <MappingFragment StoreEntitySet="tbl_Comment">
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="C_Status" ColumnName="_Status" />
+                <ScalarProperty Name="C_Date" ColumnName="_Date" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Follow">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_Follow">
+              <MappingFragment StoreEntitySet="tbl_Follow">
+                <ScalarProperty Name="AccountID1" ColumnName="AccountID1" />
+                <ScalarProperty Name="AccountID2" ColumnName="AccountID2" />
+                <ScalarProperty Name="C_Status" ColumnName="_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Language">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_Language">
+              <MappingFragment StoreEntitySet="tbl_Language">
+                <ScalarProperty Name="LangID" ColumnName="LangID" />
+                <ScalarProperty Name="LangName" ColumnName="LangName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Publisher">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_Publisher">
+              <MappingFragment StoreEntitySet="tbl_Publisher">
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+                <ScalarProperty Name="PublisherName" ColumnName="PublisherName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Rating">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_Rating">
+              <MappingFragment StoreEntitySet="tbl_Rating">
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="C_Date" ColumnName="_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_TransactionHistory">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_TransactionHistory">
+              <MappingFragment StoreEntitySet="tbl_TransactionHistory">
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="TransactionName" ColumnName="TransactionName" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="DiscountName" ColumnName="DiscountName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_TransactionInfo">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_TransactionInfo">
+              <MappingFragment StoreEntitySet="tbl_TransactionInfo">
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

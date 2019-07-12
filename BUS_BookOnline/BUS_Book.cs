@@ -51,13 +51,12 @@ namespace BUS_BookOnline
         }
         public bool insertBookOfUser(User user, Book book)
         {
-            if (dalBook.findBook(user.ID1, book.Id,char.Parse( book.Status))!= false) { 
+            if (dalBook.findBook(user.ID1, book.Id,char.Parse( book.Status)) == false) { 
                 return dalBook.insertBookOfUser(user, book);
             }
             else { 
                 return dalBook.updateBookOfUser(user, book);
             }
-            return false;
         }
        
         #endregion
