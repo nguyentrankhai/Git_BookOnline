@@ -6,11 +6,10 @@
     <edmx:Diagrams>
       <Diagram DiagramId="d344f8697ccd4618a7abd9569aeeaf94" Name="Diagram1">
         <EntityTypeShape EntityType="BookOnlineModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookOnlineModel.tbl_Account" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookOnlineModel.tbl_Account" PointX="2.75" PointY="1.5" Width="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BookOnlineModel.tbl_Annotation" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BookOnlineModel.tbl_Author" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BookOnlineModel.tbl_Book" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookOnlineModel.tbl_BookofUser" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BookOnlineModel.tbl_BookPublisher" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BookOnlineModel.tbl_Catalog" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BookOnlineModel.tbl_Comment" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
@@ -20,6 +19,8 @@
         <EntityTypeShape EntityType="BookOnlineModel.tbl_Rating" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BookOnlineModel.tbl_TransactionHistory" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BookOnlineModel.tbl_TransactionInfo" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookOnlineModel.tbl_Mapping" Width="1.5" PointX="10.75" PointY="5" />
+        <EntityTypeShape EntityType="BookOnlineModel.tbl_BookofUser" Width="1.5" PointX="2.875" PointY="5.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

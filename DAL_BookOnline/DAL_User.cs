@@ -47,7 +47,9 @@ namespace DAL_BookOnline
             u.Status = user.Status == 1 ? 1 : 0;
             u.Wallet = (double)user.Wallet;
             u.Remaining = user.RemainingTime;
+            u.SigninDate = DateTime.Now.ToString();
             u.Note = user.NOTE;
+            u.Email = user.Email;
             u.Image1 = (ImageSource)convertImage("imgBanner/avatar.jpg");
             if (user.IMG != null)
             {
@@ -60,7 +62,7 @@ namespace DAL_BookOnline
             try
             {
                 DataClassesBookOnlineDataContext context = new DataClassesBookOnlineDataContext();
-                var user = context.tbl_Accounts.Where(n => n.AccountID == id && n.PWD == pass).SingleOrDefault();
+                var user = context.tbl_Accounts.Where(n => n.AccountID == id && n.PWD == pass && n.EmailConfirmed == true && n.Status == 1).SingleOrDefault();
                 if (user != null)
                 {
                     return parseSQLtoDTO(user);
@@ -77,7 +79,7 @@ namespace DAL_BookOnline
             try
             {
                 DataClassesBookOnlineDataContext context = new DataClassesBookOnlineDataContext();
-                var user = context.tbl_Accounts.Where(n => n.AccountID == id).SingleOrDefault();
+                var user = context.tbl_Accounts.Where(n => n.AccountID == id && n.EmailConfirmed==true && n.Status == 1).SingleOrDefault();
                 if (user != null)
                 {
 
@@ -141,6 +143,9 @@ namespace DAL_BookOnline
                 us.GEN = user.Gen == "1" ? true : false ;
                 us.Wallet = (decimal) user.Wallet;
                 us.RemainingTime = user.Remaining;
+                us.SignupDate = DateTime.Now;
+                us.Wallet = 0;
+                us.Status = 0;
                 context.tbl_Accounts.InsertOnSubmit(us);
                 context.SubmitChanges();
                 result = true;

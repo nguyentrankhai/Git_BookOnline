@@ -161,7 +161,7 @@ namespace DAL_BookOnline
                 cmt.AccountID = comment.UserID;
                 cmt.BookID = comment.BookID;
                 cmt._Date = DateTime.Now;
-                cmt._Status = 0;
+                cmt._Status = 1;
                 cmt.Comment = comment.Content;
                 context.tbl_Comments.InsertOnSubmit(cmt);
                 context.SubmitChanges();

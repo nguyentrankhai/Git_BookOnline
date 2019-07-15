@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BookOnlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BookOnlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -22,13 +22,15 @@
           <Property Name="AccountID" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="NAME" Type="nvarchar" MaxLength="20" />
           <Property Name="PWD" Type="nvarchar" MaxLength="12" />
-          <Property Name="GEN" Type="bit" Nullable="false" />
+          <Property Name="GEN" Type="bit" />
           <Property Name="Wallet" Type="money" />
           <Property Name="IMG" Type="varbinary(max)" />
           <Property Name="NOTE" Type="char" MaxLength="100" />
-          <Property Name="RemainingTime" Type="datetime" />
+          <Property Name="RemainingTime" Type="datetime" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="SignupDate" Type="datetime" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_Annotation">
           <Key>
@@ -80,7 +82,7 @@
           <Property Name="LangID" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="AUTHOR" Type="nvarchar" MaxLength="200" />
           <Property Name="YEAR" Type="int" />
-          <Property Name="SUMMARY" Type="nvarchar" MaxLength="2000" />
+          <Property Name="SUMMARY" Type="nvarchar(max)" />
           <Property Name="PRICE" Type="decimal" Precision="18" Scale="0" />
           <Property Name="URL" Type="char" MaxLength="1000" />
           <Property Name="TRIAL_URL" Type="char" MaxLength="1000" />
@@ -90,11 +92,13 @@
         </EntityType>
         <EntityType Name="tbl_BookofUser">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="USERID" />
+            <PropertyRef Name="BOOKID" />
+            <PropertyRef Name="Status" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="USERID" Type="varchar" MaxLength="15" />
-          <Property Name="BOOKID" Type="nvarchar" MaxLength="10" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USERID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="BOOKID" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="PAGE" Type="int" />
           <Property Name="LastView" Type="datetime" />
           <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
@@ -109,14 +113,6 @@
           <Property Name="BookID" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="PublisherID" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BookOnline.dbo.tbl_BranchPayment' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="tbl_BranchPayment">
-          <Property Name="BranchCode" Type="varchar" MaxLength="50" />
-          <Property Name="BranchName" Type="varchar" MaxLength="100" />
-          <Property Name="Description" Type="nvarchar" MaxLength="255" />
-          <Property Name="Status" Type="varchar" MaxLength="1" />
-        </EntityType>-->
         <EntityType Name="tbl_Catalog">
           <Key>
             <PropertyRef Name="CatalogID" />
@@ -137,14 +133,6 @@ warning 6013: The table/view 'BookOnline.dbo.tbl_BranchPayment' does not have a 
           <Property Name="_Date" Type="datetime" Nullable="false" />
           <Property Name="Note" Type="nvarchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BookOnline.dbo.tbl_DanhMuc' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="tbl_DanhMuc">
-          <Property Name="ID" Type="varchar" MaxLength="100" />
-          <Property Name="Name" Type="nvarchar" MaxLength="300" />
-          <Property Name="SQL" Type="nvarchar" MaxLength="2000" />
-          <Property Name="Note" Type="nvarchar" MaxLength="300" />
-        </EntityType>-->
         <EntityType Name="tbl_Follow">
           <Key>
             <PropertyRef Name="AccountID1" />
@@ -161,17 +149,17 @@ warning 6013: The table/view 'BookOnline.dbo.tbl_DanhMuc' does not have a primar
           <Property Name="LangID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LangName" Type="nvarchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BookOnline.dbo.tbl_Package' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="tbl_Package">
-          <Property Name="PackageID" Type="char" MaxLength="10" />
-          <Property Name="PackageName" Type="nvarchar" MaxLength="200" />
-          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="Note" Type="nvarchar" MaxLength="200" />
-          <Property Name="PackagePrice" Type="nvarchar" MaxLength="50" />
-          <Property Name="Color" Type="char" MaxLength="20" />
-          <Property Name="PackageDay" Type="int" />
-        </EntityType>-->
+        <EntityType Name="tbl_Mapping">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="varchar" MaxLength="50" />
+          <Property Name="Tag" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" />
+          <Property Name="Version" Type="nchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="tbl_Publisher">
           <Key>
             <PropertyRef Name="PublisherID" />
@@ -231,13 +219,13 @@ warning 6013: The table/view 'BookOnline.dbo.tbl_Package' does not have a primar
           <EntitySet Name="tbl_Comment" EntityType="Self.tbl_Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Follow" EntityType="Self.tbl_Follow" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Language" EntityType="Self.tbl_Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Mapping" EntityType="Self.tbl_Mapping" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Publisher" EntityType="Self.tbl_Publisher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Rating" EntityType="Self.tbl_Rating" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_TransactionHistory" EntityType="Self.tbl_TransactionHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_TransactionInfo" EntityType="Self.tbl_TransactionInfo" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BookOnlineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -255,16 +243,18 @@ warning 6013: The table/view 'BookOnline.dbo.tbl_Package' does not have a primar
           <Key>
             <PropertyRef Name="AccountID" />
           </Key>
-          <Property Name="AccountID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="PWD" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
-          <Property Name="GEN" Type="Boolean" Nullable="false" />
-          <Property Name="Wallet" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="RemainingTime" Type="DateTime" Precision="3" />
-          <Property Name="Status" Type="Int32" Nullable="false" />
-          <Property Name="SignupDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AccountID" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="NAME" MaxLength="20" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="PWD" MaxLength="12" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="GEN" Type="Boolean" />
+          <Property Name="Wallet" Precision="19" Scale="4" Type="Decimal" />
+          <Property Name="IMG" MaxLength="Max" FixedLength="false" Type="Binary" />
+          <Property Name="NOTE" MaxLength="100" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="RemainingTime" Precision="3" Type="DateTime" Nullable="false" />
+          <Property Name="Status" Nullable="false" Type="Int32" />
+          <Property Name="SignupDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_Annotation">
           <Key>
@@ -316,26 +306,13 @@ warning 6013: The table/view 'BookOnline.dbo.tbl_Package' does not have a primar
           <Property Name="LangID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="AUTHOR" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="YEAR" Type="Int32" />
-          <Property Name="SUMMARY" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="SUMMARY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PRICE" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="URL" Type="String" MaxLength="1000" FixedLength="true" Unicode="false" />
           <Property Name="TRIAL_URL" Type="String" MaxLength="1000" FixedLength="true" Unicode="false" />
           <Property Name="IMG" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
           <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DateUpdate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="tbl_BookofUser">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="USERID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="BOOKID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="PAGE" Type="Int32" />
-          <Property Name="LastView" Type="DateTime" Precision="3" />
-          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="C_Date" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="tbl_BookPublisher">
           <Key>
@@ -434,7 +411,6 @@ warning 6013: The table/view 'BookOnline.dbo.tbl_Package' does not have a primar
           <EntitySet Name="tbl_Annotation" EntityType="Self.tbl_Annotation" />
           <EntitySet Name="tbl_Author" EntityType="Self.tbl_Author" />
           <EntitySet Name="tbl_Book" EntityType="Self.tbl_Book" />
-          <EntitySet Name="tbl_BookofUser" EntityType="Self.tbl_BookofUser" />
           <EntitySet Name="tbl_BookPublisher" EntityType="Self.tbl_BookPublisher" />
           <EntitySet Name="tbl_Catalog" EntityType="Self.tbl_Catalog" />
           <EntitySet Name="tbl_Comment" EntityType="Self.tbl_Comment" />
@@ -444,7 +420,35 @@ warning 6013: The table/view 'BookOnline.dbo.tbl_Package' does not have a primar
           <EntitySet Name="tbl_Rating" EntityType="Self.tbl_Rating" />
           <EntitySet Name="tbl_TransactionHistory" EntityType="Self.tbl_TransactionHistory" />
           <EntitySet Name="tbl_TransactionInfo" EntityType="Self.tbl_TransactionInfo" />
+          <EntitySet Name="tbl_Mapping" EntityType="BookOnlineModel.tbl_Mapping" />
+          <EntitySet Name="tbl_BookofUser" EntityType="BookOnlineModel.tbl_BookofUser" />
         </EntityContainer>
+        <EntityType Name="tbl_Mapping">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_BookofUser">
+          <Key>
+            <PropertyRef Name="USERID" />
+            <PropertyRef Name="BOOKID" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="BOOKID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PAGE" Type="Int32" />
+          <Property Name="LastView" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="C_Date" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -459,22 +463,6 @@ warning 6013: The table/view 'BookOnline.dbo.tbl_Package' does not have a primar
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbl_Account">
-            <EntityTypeMapping TypeName="BookOnlineModel.tbl_Account">
-              <MappingFragment StoreEntitySet="tbl_Account">
-                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="PWD" ColumnName="PWD" />
-                <ScalarProperty Name="GEN" ColumnName="GEN" />
-                <ScalarProperty Name="Wallet" ColumnName="Wallet" />
-                <ScalarProperty Name="IMG" ColumnName="IMG" />
-                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
-                <ScalarProperty Name="RemainingTime" ColumnName="RemainingTime" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="SignupDate" ColumnName="SignupDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -536,20 +524,6 @@ warning 6013: The table/view 'BookOnline.dbo.tbl_Package' does not have a primar
                 <ScalarProperty Name="IMG" ColumnName="IMG" />
                 <ScalarProperty Name="NOTE" ColumnName="NOTE" />
                 <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbl_BookofUser">
-            <EntityTypeMapping TypeName="BookOnlineModel.tbl_BookofUser">
-              <MappingFragment StoreEntitySet="tbl_BookofUser">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="USERID" ColumnName="USERID" />
-                <ScalarProperty Name="BOOKID" ColumnName="BOOKID" />
-                <ScalarProperty Name="PAGE" ColumnName="PAGE" />
-                <ScalarProperty Name="LastView" ColumnName="LastView" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
-                <ScalarProperty Name="C_Date" ColumnName="_Date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -643,6 +617,50 @@ warning 6013: The table/view 'BookOnline.dbo.tbl_Package' does not have a primar
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Account">
+            <EntityTypeMapping TypeName="IsTypeOf(BookOnlineModel.tbl_Account)">
+              <MappingFragment StoreEntitySet="tbl_Account">
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SignupDate" ColumnName="SignupDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RemainingTime" ColumnName="RemainingTime" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="Wallet" ColumnName="Wallet" />
+                <ScalarProperty Name="GEN" ColumnName="GEN" />
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Mapping">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_Mapping">
+              <MappingFragment StoreEntitySet="tbl_Mapping">
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_BookofUser">
+            <EntityTypeMapping TypeName="BookOnlineModel.tbl_BookofUser">
+              <MappingFragment StoreEntitySet="tbl_BookofUser">
+                <ScalarProperty Name="C_Date" ColumnName="_Date" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LastView" ColumnName="LastView" />
+                <ScalarProperty Name="PAGE" ColumnName="PAGE" />
+                <ScalarProperty Name="BOOKID" ColumnName="BOOKID" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

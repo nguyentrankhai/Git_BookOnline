@@ -231,7 +231,7 @@ namespace DAL_BookOnline
             }
         }
 
-        public bool findBook(string usID, string bkID, char status)
+        public bool findBookofUser(string usID, string bkID, char status)
         {
             //var books = db.tbl_BookofUsers.Where(x => x.BOOKID == bkID && x.USERID == usID)//
             var books = (from x in db.tbl_BookofUsers where x.BOOKID == bkID && x.USERID == usID && x.Status == status  select x).FirstOrDefault();

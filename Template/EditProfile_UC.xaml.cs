@@ -1,4 +1,6 @@
 ﻿using DTO_BookOnline;
+using MaterialDesignColors.WpfExample.Domain;
+using MaterialDesignThemes.Wpf;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -68,11 +70,27 @@ namespace Template
             object uc = new UserInfor_UC();
             mainWindow.MainContent.Content = uc;
         }
-        private void saveThongTin()
+        private async void saveThongTin()
         {
+            if(String.IsNullOrEmpty(oldPassword.Password.ToString()))
+            {
+                var sampleMessageDialog = new SampleMessageDialog
+                {
+                    Message = { Text = "Hãy nhập mật khẩu hiện tại"}
+                };
+
+                await DialogHost.Show(sampleMessageDialog, "RootDialog");
+                oldPassword.Focus();
+                return;
+            }
             if (oldPassword.Password.ToString() != user.Password)
             {
-                MessageBox.Show("Mật khẩu cũ không chính xác", "Thông báo");
+                var sampleMessageDialog = new SampleMessageDialog
+                {
+                    Message = { Text = "Mật khẩu cũ không chính xác"}
+                };
+
+                await DialogHost.Show(sampleMessageDialog, "RootDialog");
                 oldPassword.Focus();
                 return;
             }
@@ -80,10 +98,17 @@ namespace Template
             {
                 if (newPwd.Password.ToString() != confirmnewPwd.Password.ToString())
                 {
-                    MessageBox.Show("Mật khẩu mới không chính xác", "Thông báo");
+                    var sampleMessageDialog = new SampleMessageDialog
+                    {
+                        Message = { Text = "Mật khẩu mới nhập lại không khớp"}
+                    };
+
+                    await DialogHost.Show(sampleMessageDialog, "RootDialog");
                     newPwd.Focus();
-                    newPwd.Clear();
-                    confirmnewPwd.Clear();
+
+                    //newPwd.Clear();
+                    //confirmnewPwd.Clear();
+
                     return;
                 }
                 else
@@ -100,13 +125,26 @@ namespace Template
                     BUS_BookOnline.BUS_User bus = new BUS_BookOnline.BUS_User();
                     if (bus.updateUser(us, filePath))
                     {
-                        MessageBox.Show("Thay đổi thông tin thành công", "Chúc mừng bạn");
+                        var sampleMessageDialog = new SampleMessageDialog
+                        {
+                            Message = { Text = "Chúc mừng bạn đã thay đổi thông tin thành công!" }
+                        };
+
+                        await DialogHost.Show(sampleMessageDialog, "RootDialog");
+                        
                         Session.User = bus.getUser(us.ID1);
                         object uc = new UserInfor_UC();
                         mainWindow.MainContent.Content = uc;
                     }
-                    else
-                        MessageBox.Show("Thay đổi thông tin không thành công", "Thông báo");
+                    else {
+                        var sampleMessageDialog = new SampleMessageDialog
+                        {
+                            Message = { Text = "Thay đổi thông tin không thành công" }
+                        };
+
+                        await DialogHost.Show(sampleMessageDialog, "RootDialog");
+                        
+                    }
                 }
             }
             else
