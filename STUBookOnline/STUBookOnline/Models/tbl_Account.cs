@@ -17,12 +17,14 @@ namespace STUBookOnline.Models
         public string AccountID { get; set; }
         public string NAME { get; set; }
         public string PWD { get; set; }
-        public bool GEN { get; set; }
+        public Nullable<bool> GEN { get; set; }
         public Nullable<decimal> Wallet { get; set; }
         public byte[] IMG { get; set; }
         public string NOTE { get; set; }
-        public Nullable<System.DateTime> RemainingTime { get; set; }
+        public System.DateTime RemainingTime { get; set; }
         public int Status { get; set; }
         public System.DateTime SignupDate { get; set; }
+        public string Email { get; set; }
+        public bool EmailConfirmed { get; set; }
     }
 }

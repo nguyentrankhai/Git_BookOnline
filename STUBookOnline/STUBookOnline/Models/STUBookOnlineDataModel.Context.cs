@@ -30,7 +30,6 @@ namespace STUBookOnline.Models
         public virtual DbSet<tbl_Annotation> tbl_Annotation { get; set; }
         public virtual DbSet<tbl_Author> tbl_Author { get; set; }
         public virtual DbSet<tbl_Book> tbl_Book { get; set; }
-        public virtual DbSet<tbl_BookofUser> tbl_BookofUser { get; set; }
         public virtual DbSet<tbl_BookPublisher> tbl_BookPublisher { get; set; }
         public virtual DbSet<tbl_Catalog> tbl_Catalog { get; set; }
         public virtual DbSet<tbl_Comment> tbl_Comment { get; set; }
@@ -40,5 +39,7 @@ namespace STUBookOnline.Models
         public virtual DbSet<tbl_Rating> tbl_Rating { get; set; }
         public virtual DbSet<tbl_TransactionHistory> tbl_TransactionHistory { get; set; }
         public virtual DbSet<tbl_TransactionInfo> tbl_TransactionInfo { get; set; }
+        public virtual DbSet<tbl_Mapping> tbl_Mapping { get; set; }
+        public virtual DbSet<tbl_BookofUser> tbl_BookofUser { get; set; }
     }
 }

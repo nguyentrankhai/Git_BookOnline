@@ -15,6 +15,7 @@ namespace DTO_BookOnline
         private string gen;
         private DateTime remaining;
         private string note;
+        private string email;
         public string Username
         {
             get
@@ -144,6 +145,19 @@ namespace DTO_BookOnline
             set
             {
                 signinDate = value;
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+
+            set
+            {
+                email = value;
             }
         }
 
