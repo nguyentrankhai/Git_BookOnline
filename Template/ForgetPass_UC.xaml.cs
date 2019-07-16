@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BUS_BookOnline;
+using System.Configuration;
 
 namespace Template
 {
@@ -62,7 +63,8 @@ namespace Template
 
 
             ApiHelper.InitializeClient();
-            string url = "http://localhost:49898/api/SendEmail/ResetPass?userid=" + user.ID1 + "&email=" + user.Email+ "&password="+txtPwd.Password.ToString();
+            string API = ConfigurationManager.AppSettings["API_RESETPWD"];
+            string url = API+ "userid=" + user.ID1 + "&email=" + user.Email+ "&password="+txtPwd.Password.ToString();
             using (HttpResponseMessage res = await ApiHelper.ApiClient.GetAsync(url))
             {
                 if (res.IsSuccessStatusCode)

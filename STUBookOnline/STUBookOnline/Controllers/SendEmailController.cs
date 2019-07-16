@@ -24,7 +24,7 @@ namespace STUBookOnline.Controllers
 
                     mail.Subject = "Xác nhận Email";
 
-                    mail.Body = "Chào mừng bạn đến với BookOnline! \nVui lòng truy cập vào link sau để hoàn tất việc đăng ký.\n" + "http://localhost:49898/api/ConfirmEmail?userid=" + userid + "&email=" + email;
+                    mail.Body = "Chào mừng bạn đến với BookOnline! \nVui lòng truy cập vào link sau để hoàn tất việc đăng ký.\n" + "http://localhost:49898/ActiveEmail.aspx?userid=" + userid + "&email=" + email;
 
                     mail.IsBodyHtml = true;
                     SmtpClient smtp = new SmtpClient();

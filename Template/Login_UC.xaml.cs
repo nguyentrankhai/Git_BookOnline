@@ -18,6 +18,7 @@ using DAL_BookOnline;
 using System.Net.Mail;
 using System.Net.Http;
 using MaterialDesignThemes.Wpf;
+using System.Configuration;
 
 namespace Template
 {
@@ -64,7 +65,8 @@ namespace Template
                         //mainWindow.MainContent.Content = uc;
 
                         ApiHelper.InitializeClient();
-                        string url = "http://localhost:49898/api/SendEmail/Register?userid=" + user.ID1 + "&email=" + user.Email + "&isConfirm=true";
+                        string API = ConfigurationManager.AppSettings["API_REGISTER"];
+                        string url = API+ "userid=" + user.ID1 + "&email=" + user.Email + "&isConfirm=true";
                         using (HttpResponseMessage res = await ApiHelper.ApiClient.GetAsync(url))
                         {
                             if (res.IsSuccessStatusCode)

@@ -276,6 +276,12 @@ namespace DAL_BookOnline
 		
 		private int _Status;
 		
+		private System.DateTime _SignupDate;
+		
+		private string _Email;
+		
+		private bool _EmailConfirmed;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -298,6 +304,12 @@ namespace DAL_BookOnline
     partial void OnRemainingTimeChanged();
     partial void OnStatusChanging(int value);
     partial void OnStatusChanged();
+    partial void OnSignupDateChanging(System.DateTime value);
+    partial void OnSignupDateChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnEmailConfirmedChanging(bool value);
+    partial void OnEmailConfirmedChanged();
     #endregion
 		
 		public tbl_Account()
@@ -481,6 +493,66 @@ namespace DAL_BookOnline
 					this._Status = value;
 					this.SendPropertyChanged("Status");
 					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SignupDate", DbType="DateTime NOT NULL")]
+		public System.DateTime SignupDate
+		{
+			get
+			{
+				return this._SignupDate;
+			}
+			set
+			{
+				if ((this._SignupDate != value))
+				{
+					this.OnSignupDateChanging(value);
+					this.SendPropertyChanging();
+					this._SignupDate = value;
+					this.SendPropertyChanged("SignupDate");
+					this.OnSignupDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailConfirmed", DbType="Bit NOT NULL")]
+		public bool EmailConfirmed
+		{
+			get
+			{
+				return this._EmailConfirmed;
+			}
+			set
+			{
+				if ((this._EmailConfirmed != value))
+				{
+					this.OnEmailConfirmedChanging(value);
+					this.SendPropertyChanging();
+					this._EmailConfirmed = value;
+					this.SendPropertyChanged("EmailConfirmed");
+					this.OnEmailConfirmedChanged();
 				}
 			}
 		}
@@ -1673,7 +1745,7 @@ namespace DAL_BookOnline
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUMMARY", DbType="NVarChar(2000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUMMARY", DbType="NVarChar(MAX)")]
 		public string SUMMARY
 		{
 			get
@@ -1840,7 +1912,7 @@ namespace DAL_BookOnline
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private System.Nullable<int> _ID;
+		private int _ID;
 		
 		private string _USERID;
 		
@@ -1860,7 +1932,7 @@ namespace DAL_BookOnline
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIDChanging(System.Nullable<int> value);
+    partial void OnIDChanging(int value);
     partial void OnIDChanged();
     partial void OnUSERIDChanging(string value);
     partial void OnUSERIDChanged();
@@ -1883,8 +1955,8 @@ namespace DAL_BookOnline
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int")]
-		public System.Nullable<int> ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int ID
 		{
 			get
 			{
@@ -2182,7 +2254,7 @@ namespace DAL_BookOnline
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchName", DbType="VarChar(100)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchName", DbType="NVarChar(100)")]
 		public string BranchName
 		{
 			get
