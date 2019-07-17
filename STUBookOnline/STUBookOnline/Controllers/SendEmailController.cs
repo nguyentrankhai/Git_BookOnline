@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Net.Mail;
 using System.Web.Http;
 
@@ -19,18 +20,20 @@ namespace STUBookOnline.Controllers
                     MailMessage mail = new MailMessage();
                     mail.To.Add(email);
                     //mail.To.Add("xxx@gmail.com");
-                    mail.From = new MailAddress("trinh.lam9727@gmail.com");
+                    string mailaddress = ConfigurationManager.AppSettings["EMAIL"];
+                    string mailpasss = ConfigurationManager.AppSettings["PWD"];
+                    mail.From = new MailAddress(mailaddress);
 
 
                     mail.Subject = "Xác nhận Email";
-
-                    mail.Body = "Chào mừng bạn đến với BookOnline! \nVui lòng truy cập vào link sau để hoàn tất việc đăng ký.\n" + "http://localhost:49898/ActiveEmail.aspx?userid=" + userid + "&email=" + email;
+                    string local = ConfigurationManager.AppSettings["LOCALHOST"];
+                    mail.Body = "Chào mừng bạn đến với BookOnline! \nVui lòng truy cập vào link sau để hoàn tất việc đăng ký.\n" + local +"ActiveEmail.aspx?userid=" + userid + "&email=" + email;
 
                     mail.IsBodyHtml = true;
                     SmtpClient smtp = new SmtpClient();
                     smtp.Host = "smtp.gmail.com"; //Or Your SMTP Server Address
                     smtp.Credentials = new System.Net.NetworkCredential
-                         ("trinh.lam9727@gmail.com", "78951456**"); // ***use valid credentials***
+                         (mailaddress, mailpasss); // ***use valid credentials***
                     smtp.Port = 587;
 
                     //Or your Smtp Email ID and Password
@@ -61,18 +64,20 @@ namespace STUBookOnline.Controllers
                     MailMessage mail = new MailMessage();
                     mail.To.Add(email);
                     //mail.To.Add("xxx@gmail.com");
-                    mail.From = new MailAddress("trinh.lam9727@gmail.com");
+                    string mailaddress = ConfigurationManager.AppSettings["EMAIL"];
+                    string mailpasss = ConfigurationManager.AppSettings["PWD"];
+                    mail.From = new MailAddress(mailaddress);
 
 
                     mail.Subject = "Khôi phục Mật Khẩu";
-
-                    mail.Body = "Vui lòng truy cập vào link sau để đặt lại mật khẩu của bạn." + "\n http://localhost:49898/api/ResetPassword?userid=" + userid + "&email=" + email+ "&password="+password ;
+                    string local = ConfigurationManager.AppSettings["LOCALHOST"];
+                    mail.Body = "Vui lòng truy cập vào link sau để đặt lại mật khẩu của bạn." + local +"ResetPassword.aspx?a=" + userid + "&b=" + email+ "&c="+password ;
 
                     mail.IsBodyHtml = true;
                     SmtpClient smtp = new SmtpClient();
                     smtp.Host = "smtp.gmail.com"; //Or Your SMTP Server Address
                     smtp.Credentials = new System.Net.NetworkCredential
-                         ("trinh.lam9727@gmail.com", "78951456**"); // ***use valid credentials***
+                         (mailaddress, mailpasss); // ***use valid credentials***
                     smtp.Port = 587;
 
                     //Or your Smtp Email ID and Password

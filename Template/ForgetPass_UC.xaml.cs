@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BUS_BookOnline;
 using System.Configuration;
+using DAL_BookOnline;
 
 namespace Template
 {
@@ -60,11 +61,17 @@ namespace Template
                 txtConfirmPwd.Focus();
                 return;
             }
-
+            if(txtEmail.Text != user.Email)
+            {
+                MessageBox.Show("Email bạn nhập không chính xác.");
+                txtEmail.Focus();
+                return;
+            }
 
             ApiHelper.InitializeClient();
             string API = ConfigurationManager.AppSettings["API_RESETPWD"];
-            string url = API+ "userid=" + user.ID1 + "&email=" + user.Email+ "&password="+txtPwd.Password.ToString();
+            string pwd = GhiNhoTaiKhoan.Base64Encode(txtPwd.Password.ToString());
+            string url = API+ "userid=" + user.ID1 + "&email=" + user.Email+ "&password="+ pwd;
             using (HttpResponseMessage res = await ApiHelper.ApiClient.GetAsync(url))
             {
                 if (res.IsSuccessStatusCode)
@@ -72,12 +79,33 @@ namespace Template
                     string us = await res.Content.ReadAsAsync<string>();
                     if (us == "Success")
                     {
+                        string email = hideEmail(user.Email);
+                        string noti = String.Format("Mật khẩu mới của bạn đã được gửi tới email: {0}\nVui lòng kiểm tra email để được cập nhật mật khẩu mới.", email);
                         MessageBox.Show("Vui lòng kiểm tra email để hoàn tất việc khôi phục mật khẩu!");
                         DialogHost.CloseDialogCommand.Execute(null, null);
                     }
 
                 }
             }
+        }
+        private string hideEmail(string email)
+        {
+            string result = "";
+            string[] temp = email.Split('@');
+            if (temp.Length > 0 && temp.Length <2)
+            {
+                string hide = temp[0];
+                string atTag = temp[1];
+                int countHide = hide.Length;
+                result = hide.Substring(0, 3);
+                string asterisk = "";
+                for (int i = 2; i< countHide; i++)
+                {
+                    asterisk += "*";
+                }
+                result = result + asterisk + atTag;
+            }
+            return result;
         }
     }
 }

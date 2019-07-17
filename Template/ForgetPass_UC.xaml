@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Template"
              mc:Ignorable="d" 
             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="370" d:DesignWidth="450">
+             d:DesignHeight="500" d:DesignWidth="450">
     <!--<UserControl.Background>
         <VisualBrush>
             <VisualBrush.Visual>
@@ -34,6 +34,7 @@
                 <RowDefinition Height="75"/>
                 <RowDefinition Height="75"/>
                 <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -41,12 +42,14 @@
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
             <Label Content="Tên đăng nhập:" Grid.Column="0" Grid.Row="0" Margin="0,0,15,0" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-            <Label Content="Mật khẩu mới:" Grid.Column="0" Grid.Row="1" Margin="0,0,15,0" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-            <Label Content="Nhập lại mật khẩu:" Grid.Column="0" Grid.Row="2" Margin="0,0,15,0" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <Label Content="Mật khẩu mới:" Grid.Column="0" Grid.Row="2" Margin="0,0,15,0" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <Label Content="Nhập lại mật khẩu:" Grid.Column="0" Grid.Row="3" Margin="0,0,15,0" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center"/>
             <TextBox Name="txtAccount" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" FontSize="15"/>
-            <PasswordBox Name="txtPwd" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontSize="15"/>
-            <PasswordBox Name="txtConfirmPwd" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontSize="15"/>
-            <StackPanel Grid.ColumnSpan="2" Grid.Row="3">
+            <PasswordBox Name="txtPwd" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontSize="15"/>
+            <PasswordBox Name="txtConfirmPwd" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" FontSize="15"/>
+            <Label Content="Email:" Grid.Column="0" Grid.Row="1" Margin="0,0,15,0" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox Name="txtEmail" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontSize="15"/>
+            <StackPanel Grid.ColumnSpan="2" Grid.Row="4">
                 <Button Content="Đặt lại mật khẩu" Click="Button_Click" Margin="0,5,0,10"/>
             </StackPanel>
         </Grid>
