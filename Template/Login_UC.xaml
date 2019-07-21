@@ -81,6 +81,7 @@
                             <TextBox Name="txtID" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,20,0" Height="30" VerticalContentAlignment="Center" Foreground="#1A237E"/>
                             <PasswordBox Name="txtPwd" Grid.Column="1"  Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,20,0" Height="30" VerticalContentAlignment="Center" Foreground="#1A237E"/>
                             <CheckBox Name="chkLuuTK" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" Foreground="Black">Lưu tài khoản</CheckBox>
+                            <TextBlock Name="btnQuenMK" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,30"  Text="Quên Mật khẩu?" Foreground="Red" FontStyle="Italic"  TextDecorations="Underline" MouseLeftButtonUp="btnQuenMK_MouseLeftButtonUp"/>
                         </Grid>
                         <Grid  Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2" Margin="0,0.4,0.2,0.4">
                             <Grid.RowDefinitions>
@@ -115,26 +116,24 @@
                             <!---->
                             <Label Grid.Column="0" Grid.Row="0" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" >Tên đăng nhập</Label>
                             <Label Grid.Column="0" Grid.Row="1" FontSize="18"  HorizontalAlignment="Right" VerticalAlignment="Center">Tên hiển thị</Label>
-                            <Label Grid.Column="0" Grid.Row="2" FontSize="18" HorizontalAlignment="Right"  VerticalAlignment="Center">SĐT</Label>
-                            <Label Grid.Column="0" Grid.Row="3" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center">Email</Label>
-                            <Label Grid.Column="0" Grid.Row="4" FontSize="18" HorizontalAlignment="Right"  VerticalAlignment="Center" >Mật khẩu</Label>
-                            <Label Grid.Column="0" Grid.Row="5" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center">Mật lại khẩu</Label>
-                            <Label Grid.Column="0" Grid.Row="6" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center">Giới tính</Label>
+                            <Label Grid.Column="0" Grid.Row="2" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center">Email</Label>
+                            <Label Grid.Column="0" Grid.Row="3" FontSize="18" HorizontalAlignment="Right"  VerticalAlignment="Center" >Mật khẩu</Label>
+                            <Label Grid.Column="0" Grid.Row="4" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center">Mật lại khẩu</Label>
+                            <Label Grid.Column="0" Grid.Row="5" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center">Giới tính</Label>
                         <!---->
                             <TextBox Name="txtUserName" Margin="20.4,0,20,9.6" Grid.Column="1" Grid.Row="0"   Height="30" VerticalContentAlignment="Center" Foreground="#1A237E"></TextBox>
                             <TextBox Name="txtFullName" Margin="20.4,0,20,9.6" Grid.Column="1" Grid.Row="1"   Height="30" VerticalContentAlignment="Center" Foreground="#1A237E"></TextBox>
-                            <TextBox Name="txtEmail"  Margin="20.4,0,20,9.6" Grid.Column="1" Grid.Row="2"  Height="30" VerticalContentAlignment="Center" Foreground="#1A237E"></TextBox>
-                            <TextBox Name="txtPhone" Margin="20.4,0,20,9.6" Grid.Column="1" Grid.Row="3"   Height="30" VerticalContentAlignment="Center" Foreground="#1A237E"></TextBox>
-                            <PasswordBox Name="txtPassword" Margin="20.4,0,20,9.6" Grid.Column="1" Grid.Row="4" Height="30" VerticalContentAlignment="Center" Foreground="#1A237E"/>
-                            <PasswordBox Name="txtRePassword" Margin="20.4,0,20,9.6" Grid.Column="1" Grid.Row="5" Height="30" VerticalContentAlignment="Center" Foreground="#1A237E"/>
-                            <StackPanel Grid.Column="1" Grid.Row="6" Height="50" Width="auto" Orientation="Horizontal" Margin="20.4,0,20,9.6" >
+                            <TextBox Name="txtEmail" Margin="20.4,0,20,9.6" Grid.Column="1" Grid.Row="2"   Height="30" VerticalContentAlignment="Center" Foreground="#1A237E" LostFocus="txtPhone_LostFocus"></TextBox>
+                            <PasswordBox Name="txtPassword" Margin="20.4,0,20,9.6" Grid.Column="1" Grid.Row="3" Height="30" VerticalContentAlignment="Center" Foreground="#1A237E"/>
+                            <PasswordBox Name="txtRePassword" Margin="20.4,0,20,9.6" Grid.Column="1" Grid.Row="4" Height="30" VerticalContentAlignment="Center" Foreground="#1A237E"/>
+                            <StackPanel Grid.Column="1" Grid.Row="5" Height="50" Width="auto" Orientation="Horizontal" Margin="20.4,0,20,9.6" >
                                 <RadioButton Name="rdbMen" IsChecked="True" GroupName="gnSex" Margin="10,5,0,0" VerticalContentAlignment="Center" Foreground="Black">Nam</RadioButton>
                                 <RadioButton Name="rdbWomen" GroupName="gnSex" Margin="10,5,0,0" VerticalContentAlignment="Center" Foreground="Black">Nữ</RadioButton>
                             </StackPanel>
-                            <CheckBox Background="#007FF0" Margin="10,0"  Grid.ColumnSpan="2" Grid.Row="7" Height="50" VerticalContentAlignment="Center">
+                            <CheckBox Background="#007FF0" Margin="10,0"  Grid.ColumnSpan="2" Grid.Row="6" Height="50" VerticalContentAlignment="Center">
                                 <Label Foreground="#007FF0" Content="Chọn để nhận thêm nhiều thông tin KM"/>
                             </CheckBox>
-                            <Button Name="btnSignUp" Tag="SIGNUP" Margin="20.4,0.2" Grid.Column="1" Grid.Row="8" FontSize="17" Content="Tạo tài khoản" Background="#FFFDD835" BorderBrush="#FFFFE263" Click="Button_Click"/>
+                            <Button Name="btnSignUp" Tag="SIGNUP" Margin="20.4,0.2" Grid.Column="1" Grid.Row="7" FontSize="17" Content="Tạo tài khoản" Background="#FFFDD835" BorderBrush="#FFFFE263" Click="Button_Click"/>
                         </Grid>
                     </Grid>
                 </TabItem>

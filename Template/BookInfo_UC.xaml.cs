@@ -20,13 +20,18 @@ namespace Template
         Book book = new Book();
         public BookInfo_UC(string idBook)
         {
+            book.Id = idBook;
             InitializeComponent();
-            BUS_Book b_book = new BUS_Book();
-            book = b_book.getBookWithID(idBook);
-            grid.DataContext = book;
-            loadComments(book.Id);
+            loadData();
             //AddHandler(FrameworkElement.MouseDownEvent, new MouseButtonEventHandler(Button_MouseDown), true);
 
+        }
+        private void loadData()
+        {
+            BUS_Book b_book = new BUS_Book();
+            book = b_book.getBookWithID(book.Id);
+            grid.DataContext = book;
+            loadComments(book.Id);
         }
         private void disable()
         {
@@ -60,27 +65,39 @@ namespace Template
 
                 BUS_User bus = new BUS_User();
                 BUS_Book bus_book = new BUS_Book();
-                if (Session.User.Wallet > book.Price)
+                if (Session.User.Wallet >= book.Price)
                 {
                     book.Status = "M";
-                    if (bus.buyBook(Session.User, book))
-                    {
-                        Session.User = bus.getUser(Session.User.ID1);
-                        //MessageBox.Show("Đã thêm sách vào kho. \nSố tiền còn lại trong tài khoản: " + Session.User.Wallet);
-
-                        var sampleMessageDialog = new SampleMessageDialog
+                    if (bus_book.findBookofUser(Session.User, book) == false)
+                    { 
+                        if (bus.buyBook(Session.User, book))
                         {
-                            Message = { Text = "Đã thêm sách vào kho. \nSố tiền còn lại trong tài khoản: " + Session.User.Wallet }
-                        };
+                            Session.User = bus.getUser(Session.User.ID1);
+                            //MessageBox.Show("Đã thêm sách vào kho. \nSố tiền còn lại trong tài khoản: " + Session.User.Wallet);
 
-                        await DialogHost.Show(sampleMessageDialog, "RootDialog");
+                            var sampleMessageDialog = new SampleMessageDialog
+                            {
+                                Message = { Text = "Đã thêm sách vào kho. \nSố tiền còn lại trong tài khoản: " + Session.User.Wallet }
+                            };
+
+                            await DialogHost.Show(sampleMessageDialog, "RootDialog");
+                        }
+                        else
+                        {
+                            //MessageBox.Show("Phiên giao dịch bị lỗi");
+                            var sampleMessageDialog = new SampleMessageDialog
+                            {
+                                Message = { Text = "Phiên giao dịch bị lỗi." }
+                            };
+
+                            await DialogHost.Show(sampleMessageDialog, "RootDialog");
+                        }
                     }
                     else
                     {
-                        //MessageBox.Show("Phiên giao dịch bị lỗi");
                         var sampleMessageDialog = new SampleMessageDialog
                         {
-                            Message = { Text = "Phiên giao dịch bị lỗi." }
+                            Message = { Text = "Sách này đã có trong kho của bạn" }
                         };
 
                         await DialogHost.Show(sampleMessageDialog, "RootDialog");
@@ -114,12 +131,42 @@ namespace Template
         {
             if (Session.User != null)
             {
-                var sampleMessageDialog = new SampleMessageDialog
-                {
-                    Message = { Text = "Chức năng này đang phát triển." }
-                };
+                //var sampleMessageDialog = new SampleMessageDialog
+                //{
+                //    Message = { Text = "Chức năng này đang phát triển." }
+                //};
 
-                await DialogHost.Show(sampleMessageDialog, "RootDialog");
+                //await DialogHost.Show(sampleMessageDialog, "RootDialog");
+                string path = "trial\\" + book.Id + ".pdf";
+                if (CheckData.IsFileExists(path))
+                {
+                    MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+                    mainWindow.WindowState = WindowState.Minimized;
+                    PDF_TrialWindow.BOOK = book;
+                    PDF_TrialWindow window = new PDF_TrialWindow();
+                    window.Show();
+                }
+                else
+                {
+                    if (CheckData.IsInternet("google.com"))
+                    {
+                        MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+                        mainWindow.WindowState = WindowState.Minimized;
+                        DownloadMessageWindow w = new DownloadMessageWindow();
+                        w.book = book;
+                        w.path = path;
+                        w.Show();
+                    }
+                    else
+                    {
+                        var sampleMessageDialog = new SampleMessageDialog
+                        {
+                            Message = { Text = "Vui lòng kiểm tra lại kết nối internet." }
+                        };
+
+                        await DialogHost.Show(sampleMessageDialog, "RootDialog");
+                    }
+                }
             }
             else
             {
@@ -176,73 +223,7 @@ namespace Template
             ThueSach();
 
         }
-
-        /// <summary>
-        /// if value_change = false  <=> Read data;
-        /// if value_change = true <=> Write data
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private async void BasicRatingBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<int> e)
-        {
-            //if (valuechange == true) //nếu Rating bar cho ghi dữ liệu
-            //{
-            //    string mess = "";
-            //    if (Session.User == null)
-            //    {
-            //        mess = "Chức năng này cần được đăng nhập mới có thể sử dụng.";
-            //    }
-
-            //    else
-            //    {
-            //        bool chk = false;
-            //        Rating rating = new Rating(Session.User.ID1, book.Id, BasicRatingBar.Value);
-            //        BUS_RatingBook bus_rating = new BUS_RatingBook();
-            //        Rating r = bus_rating.findRating(rating);
-            //        if (r != null)
-            //        {
-            //            chk = bus_rating.updateRating(rating);
-            //        }
-            //        else
-            //        {
-            //            chk = bus_rating.insertRating(rating);
-            //        }
-
-            //        if (chk == false) //nếu không thể update hoặc không thể insert
-            //        {
-            //            mess = "Đánh giá không thành công.";
-
-            //        }
-            //        else //nếu update hoặc insert thành công
-            //        {
-            //            mess = "Đánh giá thành công.";
-
-            //            Book bk = new Book();
-            //            BUS_Book bus_Book = new BUS_Book();
-            //            bk = bus_Book.getBookWithID(book.Id);
-            //            book.Rating = bk.Rating; //gán lại điểm rating mới
-            //            book.RatingCount = bk.RatingCount; //gán lại lượt đánh giá mới
-            //            valuechange = false; //lúc này chỉ cho đọc không cho ghi vì khi tránh gây nhầm lẫn giữa việc đọc và ghi khi giá trị của rating bar thay đổi
-            //            BasicRatingBar.Value = (int)book.Rating; //cập nhật dữ liệu lên rating bar
-            //            BasicRatingBar.ToolTip = book.Rating + "";
-
-            //        }
-            //        if (mess != "")
-            //        {
-            //            var sampleMessageDialog = new SampleMessageDialog
-            //            {
-            //                Message = { Text = mess }
-            //            };
-            //            await DialogHost.Show(sampleMessageDialog, "RootDialog");
-            //        }
-            //    }
-
-            //}
-            //else //khi rating bar đã đọc xong dữ liệu
-            //{
-            //    valuechange = true; //bật chế độ ghi
-            //}
-        }
+        
         private async void BasicRatingBar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             string mess = "";
@@ -276,6 +257,7 @@ namespace Template
                 valuechange = false; //lúc này chỉ cho đọc không cho ghi vì khi tránh gây nhầm lẫn giữa việc đọc và ghi khi giá trị của rating bar thay đổi
                 BasicRatingBar.Value = (int)book.Rating; //cập nhật dữ liệu lên rating bar
                 BasicRatingBar.ToolTip = book.Rating + "";
+                loadData();
 
             }
             if (mess != "")
@@ -358,6 +340,11 @@ namespace Template
         {
             var sampleMessageDialog = new Rating_UC(book.Id);
             await DialogHost.Show(sampleMessageDialog, "RootDialog");
+        }
+
+        private void BasicRatingBar_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("aaaaaaaaâ");
         }
     }
 }

@@ -35,6 +35,7 @@ namespace DAL_BookOnline
                 sach.Name = book.BookNAME;
                 sach.Year = book.YEAR.ToString();
                 sach.Url = book.URL;
+                sach.Trial_url = book.TRIAL_URL;
                 sach.Summary = book.SUMMARY;
                 sach.Img = book.IMG;
                 sach.ImageBook = (BitmapImage)ConverterImage.convertImage(book.IMG);
@@ -171,6 +172,33 @@ namespace DAL_BookOnline
             }
         }
 
+        public bool insertBook(Book book)
+        {
+            try
+            {
+                tbl_Book sach = new tbl_Book();
+                sach.BookID = book.Id;
+                sach.BookNAME = book.Name;
+                sach.AUTHOR = book.Author;
+                sach.catalo = book.Catalog;
+                sach.LangID = book.Language.LangID;
+                sach.YEAR = Int32.Parse(book.Year);
+                sach.SUMMARY = book.Summary;
+                sach.PRICE = decimal.Parse( book.Price +"");
+                sach.URL = book.Url;
+                sach.TRIAL_URL = book.Trial_url;
+                sach.NOTE = book.Note;
+                sach.DateUpdate = DateTime.Now;
+                db.tbl_Books.InsertOnSubmit(sach);
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         public bool updateBookOfUser(User user , Book book)
         {
             try
@@ -203,7 +231,7 @@ namespace DAL_BookOnline
             }
         }
 
-        public bool findBook(string usID, string bkID, char status)
+        public bool findBookofUser(string usID, string bkID, char status)
         {
             //var books = db.tbl_BookofUsers.Where(x => x.BOOKID == bkID && x.USERID == usID)//
             var books = (from x in db.tbl_BookofUsers where x.BOOKID == bkID && x.USERID == usID && x.Status == status  select x).FirstOrDefault();
