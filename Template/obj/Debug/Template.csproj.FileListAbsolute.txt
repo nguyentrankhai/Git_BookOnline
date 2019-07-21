@@ -720,3 +720,4 @@ G:\Source Book Online\Git Source Code\Template\obj\Debug\Template.exe.manifest
 G:\Source Book Online\Git Source Code\Template\obj\Debug\Template.application
 G:\Source Book Online\Git Source Code\Template\obj\Debug\Template.exe
 G:\Source Book Online\Git Source Code\Template\obj\Debug\Template.pdb
+G:\Source Book Online\GIT BOOKONLINE\Template\bin\Debug\Template.exe.config

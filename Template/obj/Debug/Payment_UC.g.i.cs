@@ -9,6 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using DTO_BookOnline;
 using DevExpress.Xpf.DXBinding;
 using MaterialDesignThemes.Wpf;
 using MaterialDesignThemes.Wpf.Converters;

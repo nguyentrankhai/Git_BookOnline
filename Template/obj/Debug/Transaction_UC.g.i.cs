@@ -9,6 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using DTO_Book;
 using DevExpress.Xpf.DXBinding;
 using System;
 using System.Diagnostics;
