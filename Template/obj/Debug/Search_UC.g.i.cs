@@ -9,7 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using DTO_Book;
 using DevExpress.Xpf.DXBinding;
 using MaterialDesignThemes.Wpf;
 using MaterialDesignThemes.Wpf.Converters;

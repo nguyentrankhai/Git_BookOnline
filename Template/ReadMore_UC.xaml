@@ -17,7 +17,7 @@
     </UserControl.Resources>
     <Grid HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition MinWidth="50" MaxWidth="300" ScrollViewer.IsDeferredScrollingEnabled="False"/>
+            <ColumnDefinition MinWidth="480" MaxWidth="1024" ScrollViewer.IsDeferredScrollingEnabled="False"/>
             
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -28,7 +28,7 @@
         <materialDesign:Card Grid.Column="0" Grid.Row="0" Margin="4 4 0 0" Background="BlueViolet"
                   Foreground="White"
                   Padding="8" UniformCornerRadius="6">
-            <TextBlock TextWrapping="Wrap" Text="Danh sách đánh dấu của bạn" HorizontalAlignment="Center"/>
+            <TextBlock Text="Danh sách đánh dấu của bạn" HorizontalAlignment="Center"/>
         </materialDesign:Card>
         <Button Grid.Column="0" Grid.Row="2" 
                 Width="150" Height="30" 
@@ -44,7 +44,7 @@
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>
-        <Grid Grid.Column="1" Grid.Row="1" DataContext="{Binding Details}" Margin="10 10 10 10">
+        <!--<Grid Grid.Column="1" Grid.Row="1" DataContext="{Binding Details}" Margin="10 10 10 10">
             <materialDesign:Card Margin="4 4 0 0" Background="{Binding Annotation_color}"
                   Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
                   Padding="8" UniformCornerRadius="6">
@@ -68,6 +68,6 @@
                     
                 </StackPanel>
             </materialDesign:Card>
-        </Grid>
+        </Grid>-->
     </Grid> 
 </UserControl>

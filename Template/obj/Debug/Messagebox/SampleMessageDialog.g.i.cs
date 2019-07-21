@@ -9,7 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using DTO_BookOnline;
 using DevExpress.Xpf.DXBinding;
 using MaterialDesignThemes.Wpf;
 using MaterialDesignThemes.Wpf.Converters;
@@ -34,7 +33,6 @@ using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Shell;
-using Template;
 
 
 namespace MaterialDesignColors.WpfExample.Domain {

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL_BookOnline;
 using DTO_BookOnline;
+using API_BookOnline;
+
 namespace BUS_BookOnline
 {
     public class BUS_Book
@@ -14,6 +16,8 @@ namespace BUS_BookOnline
 
         public List<Book> getAllBook()
         {
+            API_BookStore api = new API_BookStore();
+            api.GetBookStore();
             return dalBook.getAllBook();
         }
         //lấy sách theo chuỗi s
@@ -31,6 +35,8 @@ namespace BUS_BookOnline
 
         public List<Book> getBookOfUser(User user)
         {
+            API_BookOfUser api = new API_BookOfUser();
+            api.GetBookOfUser(user);
             return dalBook.getBooksOfUser(user);
         }
         public bool updatePage(User user, Book book, int page)

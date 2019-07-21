@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO_BookOnline", "DTO_Book\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template", "Template\Template.csproj", "{973D0C90-8A95-4C09-AED7-6716B839A2C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_BookOnline", "API_BookOnline\API_BookOnline.csproj", "{326F6EBC-3F86-4DC8-A541-9F0316094665}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{973D0C90-8A95-4C09-AED7-6716B839A2C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{973D0C90-8A95-4C09-AED7-6716B839A2C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{973D0C90-8A95-4C09-AED7-6716B839A2C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{326F6EBC-3F86-4DC8-A541-9F0316094665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{326F6EBC-3F86-4DC8-A541-9F0316094665}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{326F6EBC-3F86-4DC8-A541-9F0316094665}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{326F6EBC-3F86-4DC8-A541-9F0316094665}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="Default Web Site/STUBookOnlineService" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^G:\\Service\\STUBookOnline\\STUBookOnline\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^G:\\Service\\STUBookOnline\\STUBookOnline\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^G:\\Source\ Book\ Online\\GIT\ BOOKONLINE\\STUBookOnline\\STUBookOnline\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^G:\\Source\ Book\ Online\\GIT\ BOOKONLINE\\STUBookOnline\\STUBookOnline\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
   <parameter name="BookOnlineEntities-Web.config Connection String" description="" value="metadata=res://*/Models.STUBookOnlineDataModel.csdl|res://*/Models.STUBookOnlineDataModel.ssdl|res://*/Models.STUBookOnlineDataModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP-R673IG9\SQLEXPRESS;initial catalog=BookOnline;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
-    <parameterEntry kind="XmlFile" scope="G:\\Service\\STUBookOnline\\STUBookOnline\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BookOnlineEntities']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="G:\\Source\ Book\ Online\\GIT\ BOOKONLINE\\STUBookOnline\\STUBookOnline\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BookOnlineEntities']/@connectionString" />
   </parameter>
   <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=DESKTOP-R673IG9\SQLEXPRESS;Initial Catalog=BookOnline;Integrated Security=True" tags="">
-    <parameterEntry kind="XmlFile" scope="G:\\Service\\STUBookOnline\\STUBookOnline\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="G:\\Source\ Book\ Online\\GIT\ BOOKONLINE\\STUBookOnline\\STUBookOnline\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
 </parameters>
