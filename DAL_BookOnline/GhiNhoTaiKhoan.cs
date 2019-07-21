@@ -83,7 +83,7 @@ namespace DAL_BookOnline
         {
             try
             {
-                File.Delete(@".\User\abcde.txt");
+                File.Delete(@".\User\account.txt");
             }
             catch { }
         }

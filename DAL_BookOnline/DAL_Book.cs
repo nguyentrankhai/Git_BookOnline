@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO_BookOnline;
 using System.Windows.Media.Imaging;
+using System.Collections;
 
 namespace DAL_BookOnline
 {
@@ -248,6 +249,21 @@ namespace DAL_BookOnline
             if (books == null)
                 return false;
             else return true;
+        }
+        public void insertBookOfUserFromAPI(List<tbl_BookofUser> lst, string userID)
+        {
+            IEnumerable<tbl_BookofUser> lstBookOfUserDel = (from x in db.tbl_BookofUsers where x.USERID == userID select x).ToList();
+            db.tbl_BookofUsers.DeleteAllOnSubmit(lstBookOfUserDel);
+            db.tbl_BookofUsers.InsertAllOnSubmit(lst);
+            db.SubmitChanges();
+        }
+
+        public void insertBookStoreFromAPI(List<tbl_Book> lstInsert)
+        {
+            IEnumerable<tbl_Book> lstDel = db.tbl_Books.Select(x => x);
+            db.tbl_Books.DeleteAllOnSubmit(lstDel);
+            db.tbl_Books.InsertAllOnSubmit(lstInsert);
+            db.SubmitChanges();
         }
     }
 }

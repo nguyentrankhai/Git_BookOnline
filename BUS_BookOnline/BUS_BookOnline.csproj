@@ -52,6 +52,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\API_BookOnline\API_BookOnline.csproj">
+      <Project>{326f6ebc-3f86-4dc8-a541-9f0316094665}</Project>
+      <Name>API_BookOnline</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL_BookOnline\DAL_BookOnline.csproj">
       <Project>{35a6a1a7-984a-4dca-99ee-551f3d820f33}</Project>
       <Name>DAL_BookOnline</Name>
@@ -60,6 +64,9 @@
       <Project>{e87e383a-d413-4ba0-a1e6-5adb1e7fd6b1}</Project>
       <Name>DTO_BookOnline</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

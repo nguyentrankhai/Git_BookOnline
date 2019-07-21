@@ -55,8 +55,8 @@ namespace Template
                     }                    
                     break;
                 case "SIGNUP":
-                    Boolean check = SignUp(b_user, user);
-                    if (check)
+                    Boolean isSighUp = await SignUp(b_user, user);
+                    if (isSighUp)
                     {
                         //uc = new BookStore_UC();
 
@@ -64,22 +64,25 @@ namespace Template
 
                         //mainWindow.MainContent.Content = uc;
 
-                        ApiHelper.InitializeClient();
-                        string API = ConfigurationManager.AppSettings["API_REGISTER"];
-                        string url = API+ "userid=" + user.ID1 + "&email=" + user.Email + "&isConfirm=true";
-                        using (HttpResponseMessage res = await ApiHelper.ApiClient.GetAsync(url))
-                        {
-                            if (res.IsSuccessStatusCode)
-                            {
-                                string us = await res.Content.ReadAsAsync<string>();
-                                if(us == "Success")
-                                {
-                                    MessageBox.Show("Vui lòng kiểm tra email để hoàn tất việc đăng ký!");
-                                }
-                                clearSignup();
-                                tabLogin.Focus();
-                            }
-                        }
+                        //ApiHelper.InitializeClient();
+                        //string API = ConfigurationManager.AppSettings["API_REGISTER"];
+                        //string url = API+ "userid=" + user.ID1 + "&email=" + user.Email + "&isConfirm=true";
+                        //using (HttpResponseMessage res = await ApiHelper.ApiClient.GetAsync(url))
+                        //{
+                        //    if (res.IsSuccessStatusCode)
+                        //    {
+                        //        string us = await res.Content.ReadAsAsync<string>();
+                        //        if(us == "Success")
+                        //        {
+                        //            MessageBox.Show("Vui lòng kiểm tra email để hoàn tất việc đăng ký!");
+                        //        }
+                        //        clearSignup();
+                        //        tabLogin.Focus();
+                        //    }
+                        //}
+                        MessageBox.Show("Vui lòng kiểm tra email để hoàn tất việc đăng ký!");
+                        clearSignup();
+                        tabLogin.Focus();
                     }
                     break;
             }
@@ -135,22 +138,22 @@ namespace Template
             }
             return b;
         }
-        private Boolean SignUp(BUS_User b_user, User user)
+        private async Task<bool> SignUp(BUS_User b_user, User user)
         {
-            Boolean b = false;
+            Boolean isSignUp = false;
             user.ID1 = txtUserName.Text;
             user.Password = txtPassword.Password.ToString();
             user.Username = txtFullName.Text;
             user.Gen = rdbMen.IsChecked == true ? "1" : "0";
             user.Remaining = DateTime.Now;
             user.Wallet = 0;
-            if(checkValidEmail() == true)
+            if (checkValidEmail() == true)
             {
                 user.Email = txtEmail.Text;
             }
-            b = checkInfoSignUp(b_user, user);
+            isSignUp = await checkInfoSignUp(b_user, user);
 
-            return b;
+            return isSignUp;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -172,7 +175,7 @@ namespace Template
             }
         }
 
-        private bool checkInfoSignUp(BUS_User b_user, User user)
+        private async Task<bool> checkInfoSignUp(BUS_User b_user, User user)
         {
             if (txtUserName.Text == "")
             {
@@ -187,7 +190,7 @@ namespace Template
                     return false;
                 }
             }
-            if(String.IsNullOrEmpty(txtEmail.Text))
+            if (String.IsNullOrEmpty(txtEmail.Text))
             {
                 MessageBox.Show("Email không được để trống");
                 return false;
@@ -209,10 +212,10 @@ namespace Template
             }
             if (txtUserName.Text != "" && txtPassword.Password.ToString() != "" && txtEmail.Text != "")
             {
-                if (b_user.insertUser(user) != false)
+                bool isInsert = await b_user.insertUser(user);
+                if (isInsert)
                 {
                     return true;
-
                 }
                 else
                 {

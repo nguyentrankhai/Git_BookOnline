@@ -68,24 +68,31 @@ namespace Template
                 return;
             }
 
-            ApiHelper.InitializeClient();
-            string API = ConfigurationManager.AppSettings["API_RESETPWD"];
-            string pwd = GhiNhoTaiKhoan.Base64Encode(txtPwd.Password.ToString());
-            string url = API+ "userid=" + user.ID1 + "&email=" + user.Email+ "&password="+ pwd;
-            using (HttpResponseMessage res = await ApiHelper.ApiClient.GetAsync(url))
-            {
-                if (res.IsSuccessStatusCode)
-                {
-                    string us = await res.Content.ReadAsAsync<string>();
-                    if (us == "Success")
-                    {
-                        string email = hideEmail(user.Email);
-                        string noti = String.Format("Mật khẩu mới của bạn đã được gửi tới email: {0}\nVui lòng kiểm tra email để được cập nhật mật khẩu mới.", email);
-                        MessageBox.Show("Vui lòng kiểm tra email để hoàn tất việc khôi phục mật khẩu!");
-                        DialogHost.CloseDialogCommand.Execute(null, null);
-                    }
+            //ApiHelper.InitializeClient();
+            //string API = ConfigurationManager.AppSettings["API_RESETPWD"];
+            //string pwd = GhiNhoTaiKhoan.Base64Encode(txtPwd.Password.ToString());
+            //string url = API+ "userid=" + user.ID1 + "&email=" + user.Email+ "&password="+ pwd;
+            //using (HttpResponseMessage res = await ApiHelper.ApiClient.GetAsync(url))
+            //{
+            //    if (res.IsSuccessStatusCode)
+            //    {
+            //        string us = await res.Content.ReadAsAsync<string>();
+            //        if (us == "Success")
+            //        {
+            //            string email = hideEmail(user.Email);
+            //            string noti = String.Format("Mật khẩu mới của bạn đã được gửi tới email: {0}\nVui lòng kiểm tra email để được cập nhật mật khẩu mới.", email);
+            //            MessageBox.Show("Vui lòng kiểm tra email để hoàn tất việc khôi phục mật khẩu!");
+            //            DialogHost.CloseDialogCommand.Execute(null, null);
+            //        }
 
-                }
+            //    }
+            //}
+            string newPassword = GhiNhoTaiKhoan.Base64Encode(txtPwd.Password.ToString());
+            bool isResetPwd = await bus.forgotPassword(user, newPassword);
+            if (isResetPwd)
+            {
+                MessageBox.Show("Vui lòng kiểm tra email để hoàn tất việc khôi phục mật khẩu!");
+                DialogHost.CloseDialogCommand.Execute(null, null);
             }
         }
         private string hideEmail(string email)
