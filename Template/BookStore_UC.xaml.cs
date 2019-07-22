@@ -45,6 +45,10 @@ namespace Template
             object uc = new BookInfo_UC(idBook);
             mainWindow.MainContent.Content = uc;
         }
-        
+
+        private void ItemData_ScrollChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
