@@ -1,6 +1,7 @@
 ﻿using DAL_BookOnline;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -12,10 +13,14 @@ namespace API_BookOnline
 {
     public class API_BookStore
     {
+        private static int i = 0;
         public void GetBookStore()
         {
+            string host = ConfigurationManager.AppSettings["API_HOST"];
+            int portNumb = int.Parse(ConfigurationManager.AppSettings["API_PORT"]);
+            bool isInternet = Common.IsInternet(host, portNumb);
+
             string isService = ConfigurationManager.AppSettings["IS_WEBSERVICE"];
-            bool isInternet = Common.IsInternet();
             if (!isInternet) return;
             if (isService == "1")
             {
@@ -66,13 +71,23 @@ namespace API_BookOnline
 
         private async void callWebservice()
         {
-          ApiHelper.InitializeClient();
+            ApiHelper.InitializeClient();
             string API = ConfigurationManager.AppSettings["APIWS_ROOT"] + ConfigurationManager.AppSettings["APIWS_BOOKSTORE"];
-            string url = API;
+            string url = String.Format(API,2.ToString());
             using (HttpResponseMessage res = await ApiHelper.ApiClient.GetAsync(url))
             {
-                if (res.IsSuccessStatusCode)
+                var totalItem = res.Headers.GetValues("STUBO-TotalItems");
+                var totalPage = res.Headers.GetValues("STUBO-TotalPages");
+                int page = Int32.Parse(totalPage.First());
+
+                if (i == page || res.RequestMessage.Content == null)
                 {
+                    i = 0;
+                    return;
+                }
+
+                if (res.IsSuccessStatusCode)
+                {   
                     string result = res.Content.ReadAsStringAsync().Result;
                     dynamic tbl = JsonConvert.DeserializeObject(result);
                     List<tbl_Book> lst = new List<tbl_Book>();
@@ -81,6 +96,7 @@ namespace API_BookOnline
                     tbl_Book book = new tbl_Book();
 
                     var api_books = tbl["Book"];
+                   
                     foreach(dynamic o in api_books)
                     {
                         try
@@ -110,6 +126,7 @@ namespace API_BookOnline
                     dal.insertBookStoreFromAPI(lst);
                 }
             }
+            i++;
         }
     }
 }

@@ -5,6 +5,9 @@ using System.Windows.Media.Imaging;
 using BUS_BookOnline;
 using DTO_BookOnline;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 
 namespace Template
 {
@@ -46,9 +49,31 @@ namespace Template
             mainWindow.MainContent.Content = uc;
         }
 
-        private void ItemData_ScrollChanged(object sender, RoutedEventArgs e)
+      
+        private void ItemData_Scroll(object sender, ScrollEventArgs e)
         {
+            ScrollBar sb = e.OriginalSource as ScrollBar;
 
+            if (sb.Orientation == Orientation.Horizontal)
+                return;
+
+            if (sb.Value == sb.Maximum)
+            {
+                MessageBox.Show("Bottom rồi nè");
+            }
+        }
+
+        private void ItemData_MouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
+        {
+            if (!e.Handled)
+            {
+                e.Handled = true;
+                var eventArg = new MouseWheelEventArgs(e.MouseDevice, e.Timestamp, e.Delta);
+                eventArg.RoutedEvent = UIElement.MouseWheelEvent;
+                eventArg.Source = sender;
+                var parent = ((Control)sender).Parent as UIElement;
+                parent.RaiseEvent(eventArg);
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,7 @@ namespace API_BookOnline
         {
             return str.Split('#');
         }
-        public static bool IsInternet()
+        public static bool IsInternet(string hostService, int portNumber)
         {
             string host = ConfigurationManager.AppSettings["PING"];
             Ping p = new Ping();
@@ -24,15 +25,28 @@ namespace API_BookOnline
                 PingReply pr = p.Send(host, 3000);
                 if (pr.Status == IPStatus.Success)
                 {
-                    return true;
+                    return PingHost(hostService, portNumber);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                string e = ex.Message;
 
             }
             return false;
+        }
+
+        public static bool PingHost(string hostUri, int portNumber)
+        {
+            try
+            {
+                using (var client = new TcpClient(hostUri, portNumber))
+                    return true;
+            }
+            catch (SocketException ex)
+            {
+                return false;
+            }
         }
 
         public static string DownloadImage(string url)
