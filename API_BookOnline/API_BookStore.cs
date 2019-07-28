@@ -18,15 +18,21 @@ namespace API_BookOnline
         {
             string host = ConfigurationManager.AppSettings["API_HOST"];
             int portNumb = int.Parse(ConfigurationManager.AppSettings["API_PORT"]);
-            bool isInternet = Common.IsInternet(host, portNumb);
+            string hostWs = ConfigurationManager.AppSettings["APIWS_HOST"];
+            int portNumbWs = int.Parse(ConfigurationManager.AppSettings["APIWS_PORT"]);
+            bool isInternet = false;
 
             string isService = ConfigurationManager.AppSettings["IS_WEBSERVICE"];
-            if (!isInternet) return;
+            
             if (isService == "1")
             {
+                isInternet = Common.IsInternet(host, portNumb);
+                if (!isInternet) return;
                 callWebservice();
             }else if (isService == "0")
             {
+                isInternet = Common.IsInternet(host, portNumb);
+                if (!isInternet) return;
                 callWebIIS();
             }
         }
