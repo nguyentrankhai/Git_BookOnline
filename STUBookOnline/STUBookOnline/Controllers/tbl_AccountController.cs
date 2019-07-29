@@ -35,6 +35,18 @@ namespace STUBookOnline.Controllers
             return Ok(tbl_Account);
         }
 
+        public IHttpActionResult Gettbl_Account(string id, string pwd)
+        {
+            pwd = EncodingText.Base64Decode(pwd);
+            tbl_Account tbl_Account = db.tbl_Account.Find(id);
+            if (tbl_Account == null || tbl_Account.PWD != pwd)
+            {
+                return NotFound();
+            }
+
+            return Ok(tbl_Account);
+        }
+
         // PUT: api/tbl_Account/5
         [ResponseType(typeof(void))]
         public IHttpActionResult Puttbl_Account(string id, tbl_Account tbl_Account)

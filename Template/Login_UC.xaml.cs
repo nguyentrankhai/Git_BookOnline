@@ -116,7 +116,7 @@ namespace Template
             {
                 user.ID1 = txtID.Text;
                 user.Password = txtPwd.Password.ToString();
-                User us = b_user.getUser(txtID.Text);
+                User us = b_user.getUser(txtID.Text, txtPwd.Password.ToString());
                 if (us != null)
                 {
                     if (user.Password == us.Password)
