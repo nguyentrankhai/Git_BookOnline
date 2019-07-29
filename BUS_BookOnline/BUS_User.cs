@@ -46,5 +46,29 @@ namespace BUS_BookOnline
             }
             return null;
         }
+        public User getUser(string ID, string pwd)
+        {
+            //  return dalUser.getUser(user);
+            API_User apiUser = new API_User();
+            apiUser.Login(ID, pwd);
+            User user = dalUser.getUser(ID);            
+            if (user != null)
+            {
+                API_BookOfUser api = new API_BookOfUser();
+                api.GetBookOfUser(user);
+                return user;
+            }
+            return null;
+        }
+        public bool insertUser(tbl_Account acc)
+        {
+            DAL_User dal = new DAL_User();
+            return dal.insertUser(acc);
+        }
+        public bool updateUser(tbl_Account acc)
+        {
+            DAL_User dal = new DAL_User();
+            return dal.updateUser(acc);
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace DAL_BookOnline
             {
                 tbl_Account us = context.tbl_Accounts.Where(x => x.AccountID == user.ID1).SingleOrDefault();
                 tbl_Book bk = context.tbl_Books.Where(x => x.BookID == book.Id).SingleOrDefault();
-                us.Wallet = us.Wallet - bk.PRICE;                
+                us.Wallet = us.Wallet - bk.PRICE;
                 DAL_Book dal = new DAL_Book();
                 book.Status = "M";
                 dal.insertBookOfUser(user, book);
@@ -79,7 +79,7 @@ namespace DAL_BookOnline
             try
             {
                 DataClassesBookOnlineDataContext context = new DataClassesBookOnlineDataContext();
-                var user = context.tbl_Accounts.Where(n => n.AccountID == id && n.EmailConfirmed==true && n.Status == 1).SingleOrDefault();
+                var user = context.tbl_Accounts.Where(n => n.AccountID == id && n.EmailConfirmed == true && n.Status == 1).SingleOrDefault();
                 if (user != null)
                 {
 
@@ -140,8 +140,8 @@ namespace DAL_BookOnline
                 us.AccountID = user.ID1;
                 us.PWD = user.Password;
                 us.NAME = user.Username;
-                us.GEN = user.Gen == "1" ? true : false ;
-                us.Wallet = (decimal) user.Wallet;
+                us.GEN = user.Gen == "1" ? true : false;
+                us.Wallet = (decimal)user.Wallet;
                 us.RemainingTime = user.Remaining;
                 us.SignupDate = DateTime.Now;
                 us.Wallet = 0;
@@ -153,6 +153,24 @@ namespace DAL_BookOnline
             catch (Exception ex)
             {
                 System.Console.Write(ex.Message);
+                result = false;
+            }
+            return result;
+        }
+        public bool insertUser(tbl_Account acc)
+        {
+            bool result = false;
+            try
+            {
+                DataClassesBookOnlineDataContext context = new DataClassesBookOnlineDataContext();
+                context.tbl_Accounts.InsertOnSubmit(acc);
+                context.SubmitChanges();
+                result = true;
+
+            }
+            catch (Exception e)
+            {
+                result = false;
             }
             return result;
         }
@@ -172,6 +190,30 @@ namespace DAL_BookOnline
                 if (path != "" && path != null)
                     us.IMG = ImageToBinary(path);
 
+                context.SubmitChanges();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        } 
+
+
+
+        public bool updateUser(tbl_Account user)
+        {
+            try
+            {
+                DataClassesBookOnlineDataContext context = new DataClassesBookOnlineDataContext();
+                tbl_Account acc = context.tbl_Accounts.Single(u => u.AccountID == user.AccountID);
+                acc.Email = user.Email;
+                acc.NAME = user.NAME;
+                acc.Wallet = user.Wallet;
+                acc.RemainingTime = user.RemainingTime;
+                acc.PWD = user.PWD;
+                acc.Status = user.Status;
                 context.SubmitChanges();
                 return true;
 
