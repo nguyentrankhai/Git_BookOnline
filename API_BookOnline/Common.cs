@@ -36,7 +36,7 @@ namespace API_BookOnline
             return false;
         }
 
-        public static bool PingHost(string hostUri, int portNumber)
+        private static bool PingHost(string hostUri, int portNumber)
         {
             try
             {
