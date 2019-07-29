@@ -96,10 +96,7 @@ namespace Template
             if (bookid != "")
             {
                 Book book = lst.Where(x => x.Id == bookid).SingleOrDefault();
-                var sampleMessageDialog = new delBookofUser_UC(book)
-                {
-                    //Message = { Text = "Tài khoản của bạn đã hết hạn đọc sách, vui lòng gia hạn để đọc tiếp." }
-                };
+                var sampleMessageDialog = new delBookofUser_UC(book);
 
                 await DialogHost.Show(sampleMessageDialog, "RootDialog");
             }

@@ -20,8 +20,7 @@ namespace DAL_BookOnline
             {
                 tbl_Account us = context.tbl_Accounts.Where(x => x.AccountID == user.ID1).SingleOrDefault();
                 tbl_Book bk = context.tbl_Books.Where(x => x.BookID == book.Id).SingleOrDefault();
-                us.Wallet = us.Wallet - bk.PRICE;
-                context.SubmitChanges();
+                us.Wallet = us.Wallet - bk.PRICE;                
                 DAL_Book dal = new DAL_Book();
                 book.Status = "M";
                 dal.insertBookOfUser(user, book);
@@ -29,6 +28,7 @@ namespace DAL_BookOnline
                 List<tbl_Book> lstBook = new List<tbl_Book>();
                 lstBook.Add(bk);
                 bool b = dalTrans.buyBooks(user.ID1, 0, "", "", lstBook);
+                context.SubmitChanges();
                 return b;
             }
             return false;

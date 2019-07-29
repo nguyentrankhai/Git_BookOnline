@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Style="{StaticResource MaterialDesignHeadlineTextBlock}" Name="txbNameCollect"/>
 
-        <ListView Name="ItemData" ItemsSource="{Binding}" Margin="-10,30,10.6,-0.4" Grid.RowSpan="2" >
+        <ListView Name="ItemData" ItemsSource="{Binding}" Margin="-10,30,10.6,-0.4" Grid.RowSpan="2" ScrollBar.Scroll="ItemData_Scroll" Mouse.MouseWheel="ItemData_MouseWheel" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <virtualCollection:VirtualizingWrapPanel ItemWidth="226" ItemHeight="350" />
@@ -38,7 +38,7 @@
                                      Foreground="#ffffff"
                                      BorderBrush="#FF666666"
                                      FontFamily="Ebrima"
-                                     BorderThickness="1"
+                                     BorderThickness="1" ScrollViewer.CanContentScroll="False"
                                      >
                                 <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Summary}" TextTrimming="CharacterEllipsis"  Width="190" MaxHeight="300"/>
                             </ToolTip>

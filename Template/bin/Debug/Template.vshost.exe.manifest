@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="API_BookOnline.dll" size="18432">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="API_BookOnline.dll" size="24064">
       <assemblyIdentity name="API_BookOnline" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9fazvrJXnkIOSZMKMGKaAkQQOHE+GA9jzzGoIVzPiew=</dsig:DigestValue>
+        <dsig:DigestValue>YfLo+rJtOyrR8kGfVQVY0ZILuk0gA8lzCbGIkqwXq3E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,19 +61,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VVQcJmyp+LvVT3T1Wg/JuwDsXSHAeXygcDgc4Lh8GMU=</dsig:DigestValue>
+        <dsig:DigestValue>UaR5StEp/57lr8Y0yE93+KxjmLCV/wY6qmT1s1emLWA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL_BookOnline.dll" size="85504">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL_BookOnline.dll" size="86016">
       <assemblyIdentity name="DAL_BookOnline" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Da+6P1DsRHlhk/BXBdcQ0ix3hfIfx7ELI5vqjR7kiVk=</dsig:DigestValue>
+        <dsig:DigestValue>jThPX9GeCMrsZbxbGzoXMN4GF/0twCzpY5EJvSz9GJE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1741,7 +1741,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>36TbQu9+t//iB2yuiFzLhXZtB1LH0yTGtVFjUHgNNoU=</dsig:DigestValue>
+        <dsig:DigestValue>ioKk8hmbTbcT1+e4DfiW3a6RXZdZZAt9mzazwitCCcc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1854,24 +1854,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Template.exe" size="2685408">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Template.exe" size="2686432">
       <assemblyIdentity name="Template" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DSiDyMaj/qFxAQl+w0pmcC5aNhzXH0mVNj67xOolbfI=</dsig:DigestValue>
+        <dsig:DigestValue>+pyIaXtlkLhFCtM73rvkCNcFK/3FtsuwWqY11JUTbao=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Template.exe.config" size="2632">
+  <file name="Template.exe.config" size="3061">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>+6Ku6nECpdVYNSMuV83l1xiYIK5PSccno0g7dXw0a84=</dsig:DigestValue>
+      <dsig:DigestValue>LGsCMWfHe2Y6LK7FNo3frpwm+hseUsluH4m6LMygBB4=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

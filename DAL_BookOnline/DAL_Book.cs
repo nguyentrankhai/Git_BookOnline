@@ -260,7 +260,9 @@ namespace DAL_BookOnline
 
         public void insertBookStoreFromAPI(List<tbl_Book> lstInsert)
         {
-            IEnumerable<tbl_Book> lstDel = db.tbl_Books.Select(x => x);
+            var arr = lstInsert.Select(x => x.BookID);
+            
+            IEnumerable<tbl_Book> lstDel = db.tbl_Books.Where(x => arr.ToArray().Contains(x.BookID));
             db.tbl_Books.DeleteAllOnSubmit(lstDel);
             db.tbl_Books.InsertAllOnSubmit(lstInsert);
             db.SubmitChanges();

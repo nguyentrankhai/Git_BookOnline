@@ -75,7 +75,7 @@
                             </Grid.ColumnDefinitions>
 
 
-                            <TextBlock Name="lbName" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Name}" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" />
+                            <TextBlock Name="lbName" TextTrimming="CharacterEllipsis" ToolTip="{Binding Name}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Name}" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" />
 
                             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Name="spRating">
                                 <materialDesign:RatingBar Value="{Binding Rating}" x:Name="BasicRatingBar"  MouseDoubleClick="BasicRatingBar_MouseDoubleClick"

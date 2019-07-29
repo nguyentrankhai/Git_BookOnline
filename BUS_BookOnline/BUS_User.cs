@@ -37,9 +37,12 @@ namespace BUS_BookOnline
         public User getUser(String ID)
         {
             //  return dalUser.getUser(user);
-            if (dalUser.getUser(ID) != null)
+            User user = dalUser.getUser(ID);
+            if (user != null)
             {
-                return dalUser.getUser(ID);
+                API_BookOfUser api = new API_BookOfUser();
+                api.GetBookOfUser(user);
+                return user;
             }
             return null;
         }
