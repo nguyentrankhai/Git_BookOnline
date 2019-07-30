@@ -35,8 +35,12 @@ namespace BUS_BookOnline
 
         public List<Book> getBookOfUser(User user)
         {
-            API_BookOfUser api = new API_BookOfUser();
-            api.GetBookOfUser(user);
+            try
+            {
+                API_BookOfUser api = new API_BookOfUser();
+                api.GetBookOfUser(user);
+            }
+            catch(Exception ex) { }
             return dalBook.getBooksOfUser(user);
         }
         public bool updatePage(User user, Book book, int page)

@@ -33,7 +33,13 @@ namespace API_BookOnline
             {
                 isInternet = Common.IsInternet(host, portNumb);
                 if (!isInternet) return;
-                callWebIIS();
+                try
+                {
+                    callWebIIS();
+                }
+                catch(Exception ex)
+                {
+                }
             }
         }
 

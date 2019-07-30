@@ -40,8 +40,15 @@ namespace BUS_BookOnline
             User user = dalUser.getUser(ID);
             if (user != null)
             {
-                API_BookOfUser api = new API_BookOfUser();
-                api.GetBookOfUser(user);
+                try
+                {
+                    API_BookOfUser api = new API_BookOfUser();
+                    api.GetBookOfUser(user);
+                }
+                catch (Exception e)
+                {
+
+                }
                 return user;
             }
             return null;
@@ -49,13 +56,18 @@ namespace BUS_BookOnline
         public User getUser(string ID, string pwd)
         {
             //  return dalUser.getUser(user);
-            API_User apiUser = new API_User();
-            apiUser.Login(ID, pwd);
+            //API_User apiUser = new API_User();
+            //apiUser.Login(ID, pwd);
             User user = dalUser.getUser(ID);            
             if (user != null)
             {
-                API_BookOfUser api = new API_BookOfUser();
-                api.GetBookOfUser(user);
+                try
+                {
+                    API_BookOfUser api = new API_BookOfUser();
+                    api.GetBookOfUser(user);
+                }
+                catch(Exception ex)
+                { }
                 return user;
             }
             return null;

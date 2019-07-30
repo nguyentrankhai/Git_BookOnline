@@ -92,7 +92,12 @@ namespace DAL_BookOnline
             foreach(tbl_Follow f in flws )
             {
                 DAL_User dal_user = new DAL_User();
-                lst.Add(dal_user.getUser(f.AccountID2));
+                User us = new User();
+                us = dal_user.getUser(f.AccountID2);
+                if(us!=null)
+                {
+                    lst.Add(us);
+                }
             }
             return lst;
         }
@@ -104,7 +109,12 @@ namespace DAL_BookOnline
             foreach (tbl_Follow f in flws)
             {
                 DAL_User dal_user = new DAL_User();
-                lst.Add(dal_user.getUser(f.AccountID1));
+                User us = new User();
+                us = dal_user.getUser(f.AccountID1);
+                if (us != null)
+                {
+                    lst.Add(us);
+                }
             }
             return lst;
         }

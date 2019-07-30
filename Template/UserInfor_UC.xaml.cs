@@ -39,7 +39,7 @@ namespace Template
             lstFollowing.ItemsSource = bus.getListFollowing(user);
         }
         private void getLstFollower()
-        {
+         {
             BUS_BookOnline.BUS_Follow bus = new BUS_BookOnline.BUS_Follow();
             lstFollower.ItemsSource = bus.getListFollower(user);
         }
