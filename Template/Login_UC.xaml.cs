@@ -55,34 +55,42 @@ namespace Template
                     }                    
                     break;
                 case "SIGNUP":
-                    Boolean isSighUp = await SignUp(b_user, user);
-                    if (isSighUp)
+                    try
                     {
-                        //uc = new BookStore_UC();
+                        Boolean isSighUp = await SignUp(b_user, user);
 
-                        //Session.User = user;
+                        if (isSighUp)
+                        {
+                            //uc = new BookStore_UC();
 
-                        //mainWindow.MainContent.Content = uc;
+                            //Session.User = user;
 
-                        //ApiHelper.InitializeClient();
-                        //string API = ConfigurationManager.AppSettings["API_REGISTER"];
-                        //string url = API+ "userid=" + user.ID1 + "&email=" + user.Email + "&isConfirm=true";
-                        //using (HttpResponseMessage res = await ApiHelper.ApiClient.GetAsync(url))
-                        //{
-                        //    if (res.IsSuccessStatusCode)
-                        //    {
-                        //        string us = await res.Content.ReadAsAsync<string>();
-                        //        if(us == "Success")
-                        //        {
-                        //            MessageBox.Show("Vui lòng kiểm tra email để hoàn tất việc đăng ký!");
-                        //        }
-                        //        clearSignup();
-                        //        tabLogin.Focus();
-                        //    }
-                        //}
-                        MessageBox.Show("Vui lòng kiểm tra email để hoàn tất việc đăng ký!");
-                        clearSignup();
-                        tabLogin.Focus();
+                            //mainWindow.MainContent.Content = uc;
+
+                            //ApiHelper.InitializeClient();
+                            //string API = ConfigurationManager.AppSettings["API_REGISTER"];
+                            //string url = API+ "userid=" + user.ID1 + "&email=" + user.Email + "&isConfirm=true";
+                            //using (HttpResponseMessage res = await ApiHelper.ApiClient.GetAsync(url))
+                            //{
+                            //    if (res.IsSuccessStatusCode)
+                            //    {
+                            //        string us = await res.Content.ReadAsAsync<string>();
+                            //        if(us == "Success")
+                            //        {
+                            //            MessageBox.Show("Vui lòng kiểm tra email để hoàn tất việc đăng ký!");
+                            //        }
+                            //        clearSignup();
+                            //        tabLogin.Focus();
+                            //    }
+                            //}
+                            MessageBox.Show("Vui lòng kiểm tra email để hoàn tất việc đăng ký!");
+                            clearSignup();
+                            tabLogin.Focus();
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("Vui lòng kiểm tra kết nối mạng");
                     }
                     break;
             }
