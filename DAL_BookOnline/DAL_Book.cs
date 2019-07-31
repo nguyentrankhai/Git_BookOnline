@@ -160,9 +160,8 @@ namespace DAL_BookOnline
                 sach.BOOKID = book.Id;
                 sach.USERID = user.ID1;
                 sach.PAGE = book.Page;
-                sach.NOTE = book.Note;
                 sach.LastView = DateTime.Today;
-                sach.Status = Char.Parse( book.Status);
+                sach.Status = book.Status[0];
                 db.tbl_BookofUsers.InsertOnSubmit(sach);
                 db.SubmitChanges();
                 return true;

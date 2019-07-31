@@ -25,6 +25,23 @@ namespace Template
         {
             InitializeComponent();
             this.Focus();
+            checkExistFolder();
+        }
+
+        private void checkExistFolder()
+        {
+            string folderPath = @".\trial\";
+            string folderPath2 = @".\Warehouse\";
+            createFolder(folderPath);
+            createFolder(folderPath2);
+        }
+
+        private void createFolder(string folderPath)
+        {
+            if (!File.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
         }
 
         private void downloadFile(Book book)

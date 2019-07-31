@@ -184,7 +184,6 @@
     <Compile Include="delBookofUser_UC.xaml.cs">
       <DependentUpon>delBookofUser_UC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Domain\ApiHelper.cs" />
     <Compile Include="Domain\CheckData.cs" />
     <Compile Include="Domain\Highlight\Highlight.cs" />
     <Compile Include="Domain\Highlight\HighlightCollection.cs" />
