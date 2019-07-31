@@ -68,6 +68,7 @@
     <Compile Include="API_BookStore.cs" />
     <Compile Include="API_ResetPassword.cs" />
     <Compile Include="API_ResgisterAccount.cs" />
+    <Compile Include="API_User.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

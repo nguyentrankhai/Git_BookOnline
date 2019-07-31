@@ -16,6 +16,7 @@ namespace API_BookOnline
             int portNumb = int.Parse(ConfigurationManager.AppSettings["API_PORT"]);
             bool isInternet = Common.IsInternet(host, portNumb);
             if (!isInternet) return;
+
             ApiHelper.InitializeClient();
             string API = ConfigurationManager.AppSettings["API_ROOT"] + ConfigurationManager.AppSettings["API_BOOKOFUSER"];
             string url = API + "userid=" + user.ID1;

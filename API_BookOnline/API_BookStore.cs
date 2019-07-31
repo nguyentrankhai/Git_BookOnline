@@ -26,7 +26,7 @@ namespace API_BookOnline
             
             if (isService == "1")
             {
-                isInternet = Common.IsInternet(host, portNumb);
+                isInternet = Common.IsInternet(hostWs, portNumbWs);
                 if (!isInternet) return;
                 callWebservice();
             }else if (isService == "0")
@@ -39,6 +39,7 @@ namespace API_BookOnline
                 }
                 catch(Exception ex)
                 {
+
                 }
             }
         }
