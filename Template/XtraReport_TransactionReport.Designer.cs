@@ -208,7 +208,7 @@
             // 
             // sqlDataSource1
             // 
-            this.sqlDataSource1.ConnectionName = "desktop-r673ig9\\sqlexpress.BookOnline.dbo";
+            this.sqlDataSource1.ConnectionName = "localhost_BookOnline_Connection";
             this.sqlDataSource1.Name = "sqlDataSource1";
             columnExpression1.ColumnName = "TransactionID";
             table1.MetaSerializable = "<Meta X=\"30\" Y=\"30\" Width=\"125\" Height=\"236\" />";
